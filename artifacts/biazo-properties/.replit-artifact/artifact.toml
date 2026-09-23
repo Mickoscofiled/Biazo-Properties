@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Biazo Properties"
+description = "A premium property discovery and serviced residence website for Biazo Properties, showcasing curated Dubai homes, neighborhood collections, guest benefits, and owner partnerships."
+version = "1.0.0"
+id = "artifacts/biazo-properties"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 26024
+
+[services.development]
+run = "pnpm --filter @workspace/biazo-properties run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/biazo-properties", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/biazo-properties/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "26024"
+BASE_PATH = "/"
