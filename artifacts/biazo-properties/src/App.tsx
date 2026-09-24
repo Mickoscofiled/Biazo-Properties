@@ -50,7 +50,7 @@ const navItems = [
   { label: 'Residences', href: '#all-residences' },
   { label: 'The Biazo way', href: '#biazo-way' },
   { label: 'Dubai, considered', href: '#neighborhoods' },
-  { label: 'For owners', href: '#owners' },
+  { label: 'Why Biazo', href: '#why-biazo' },
 ];
 
 const neighborhoodItems = [
@@ -147,12 +147,40 @@ function Benefits() {
   return <section id="biazo-way" className="bg-[#263442] py-24 text-[#fbf8f2] md:py-28" data-testid="section-biazo-way"><div className="container-wide"><div className="grid gap-10 md:grid-cols-[.7fr_1.3fr]"><div><p className="eyebrow text-[#dbcdbb]">The Biazo way</p><h2 className="mt-4 max-w-sm font-serif text-4xl leading-[.98] md:text-6xl">The comfort<br />of <i>knowing.</i></h2></div><div><p className="max-w-lg text-base leading-7 text-[#fbf8f2]/68">A residence should give you more than space. It should give you a sense of place, and the confidence that every detail has been quietly considered.</p><div className="mt-12 grid gap-9 border-t border-[#fbf8f2]/20 pt-8 md:grid-cols-3">{benefits.map(({ icon: Icon, title, copy }, index) => <div key={title} data-testid={`card-benefit-${index}`}><Icon size={23} strokeWidth={1.2} className="text-[#d88562]" /><h3 className="mt-5 font-serif text-2xl">{title}</h3><p className="mt-3 text-sm leading-6 text-[#fbf8f2]/58">{copy}</p></div>)}</div></div></div></div></section>;
 }
 
-function Owners({ onPartnerSubmit }: { onPartnerSubmit: (name: string) => void }) {
-  const [name, setName] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-  const submit = (e: FormEvent) => { e.preventDefault(); setSubmitted(true); onPartnerSubmit(name); };
-  return <section id="owners" className="container-wide py-24 md:py-36" data-testid="section-owners"><div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center"><div className="image-wrap aspect-[1.08]"><img src={partnersImage} alt="Biazo Vacation Homes welcoming a property partner" className="h-full w-full object-cover" data-testid="img-partners" /></div><div className="lg:pl-14"><p className="eyebrow text-[#c56749]">For owners & partners</p><h2 className="mt-4 max-w-lg font-serif text-4xl leading-[.98] text-[#263442] md:text-6xl">Your property,<br /><i>in careful hands.</i></h2><p className="mt-6 max-w-md text-[15px] leading-7 text-[#263442]/68">Biazo Vacation Homes manages a select portfolio of Dubai homes with the attention they deserve. We protect your asset, your standards and the experience of every guest.</p><div className="mt-8 flex flex-wrap gap-3">{['Local expertise', 'Thoughtful stewardship', 'Clear reporting'].map((item) => <span key={item} className="border border-[#263442]/20 px-3 py-2 text-[10px] tracking-[.08em] text-[#263442]/75">{item}</span>)}</div><form onSubmit={submit} className="mt-10 flex max-w-md gap-3 border-b border-[#263442]/25 pb-2"><input required value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-[#263442]/45" data-testid="input-partner-name" /><button className="flex shrink-0 items-center gap-2 text-[11px] font-semibold tracking-[.1em] text-[#c56749]" type="submit" data-testid="button-partner-submit">{submitted ? 'RECEIVED' : 'START A CONVERSATION'} <ArrowRight size={15} /></button></form>{submitted && <p className="mt-3 text-sm text-[#c56749]" role="status" data-testid="status-partner-submission">Thank you, {name}. A Biazo Vacation Homes partner specialist will be in touch.</p>}</div></div></section>;
+function WhyBiazo() {
+  const perks = [
+    { icon: BedDouble, title: 'Handpicked homes', desc: 'Every residence is personally inspected and styled for comfort, space and natural light.' },
+    { icon: KeyRound, title: 'Keyless check-in', desc: 'Arrive on your schedule with a private smart-lock PIN — no waiting, no lobby, no hassle.' },
+    { icon: Heart, title: 'Concierge on call', desc: 'Restaurant bookings, airport transfers, grocery delivery — our local team handles the details so you don\'t have to.' },
+    { icon: ShieldCheck, title: 'Transparent pricing', desc: 'The price you see is the price you pay. No hidden fees, no surprises at checkout.' },
+  ];
+  return (
+    <section id="why-biazo" className="container-wide py-24 md:py-36" data-testid="section-why-biazo">
+      <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
+        <div className="image-wrap aspect-[1.08]">
+          <img src={partnersImage} alt="Guest arriving at a Biazo Vacation Homes residence in Dubai" className="h-full w-full object-cover" data-testid="img-why-biazo" />
+        </div>
+        <div className="lg:pl-14">
+          <p className="eyebrow text-[#c56749]">Why stay with us</p>
+          <h2 className="mt-4 max-w-lg font-serif text-4xl leading-[.98] text-[#263442] md:text-6xl">Your vacation,<br /><i>in careful hands.</i></h2>
+          <p className="mt-6 max-w-md text-[15px] leading-7 text-[#263442]/68">Biazo Vacation Homes offers a curated collection of Dubai residences with the privacy of home and the service of a five-star hotel — so every stay feels effortless.</p>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            {perks.map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="flex gap-4">
+                <Icon size={22} strokeWidth={1.3} className="mt-1 shrink-0 text-[#c56749]" />
+                <div>
+                  <h3 className="text-sm font-semibold text-[#263442]">{title}</h3>
+                  <p className="mt-1 text-sm leading-6 text-[#263442]/60">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
+
 
 function MemberModal({ onClose }: { onClose: () => void }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -172,7 +200,6 @@ function Home() {
   const [currency, setCurrency] = useState<'AED' | 'USD'>('AED');
   const [toast, setToast] = useState('');
 
-  const partnerSubmitted = (name: string) => { setToast(`Thank you, ${name}.`); window.setTimeout(() => setToast(''), 4000); };
 
   const handleSearch = (params: { neighborhood: string; checkIn: string; checkOut: string; guests: number; currency: 'AED' | 'USD' }) => {
     setSearchDates({ checkIn: params.checkIn, checkOut: params.checkOut });
@@ -225,7 +252,7 @@ function Home() {
 
         <Neighborhoods />
         <Benefits />
-        <Owners onPartnerSubmit={partnerSubmitted} />
+        <WhyBiazo />
 
         {/* JOIN MEMBERS CTA */}
         <section className="bg-[#c56749] py-20 text-[#fbf8f2] md:py-28" data-testid="section-member-cta"><div className="container-wide flex flex-col justify-between gap-10 md:flex-row md:items-end"><div><p className="eyebrow text-[#fbf8f2]/70">A little closer</p><h2 className="mt-4 max-w-2xl font-serif text-4xl leading-none md:text-6xl">The best of Dubai,<br /><i>kept in your pocket.</i></h2></div><button onClick={() => setMemberOpen(true)} className="flex w-fit items-center gap-3 border-b border-[#fbf8f2]/65 pb-3 text-[11px] font-semibold tracking-[.12em]" data-testid="button-join-members">JOIN BIAZO MEMBERS <ArrowRight size={16} /></button></div></section>
@@ -263,7 +290,7 @@ function Home() {
 
 function Footer({ onJoin }: { onJoin: () => void }) {
   const go = (href: string) => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-  return <footer className="bg-[#202d3b] py-14 text-[#fbf8f2]" data-testid="footer-main"><div className="container-wide"><div className="grid gap-12 border-b border-[#fbf8f2]/15 pb-12 md:grid-cols-[1.2fr_.8fr_.8fr]"><div><div className="flex items-center gap-3"><span className="flex h-9 w-9 items-center justify-center border border-[#fbf8f2] font-serif text-xl italic">B</span><span className="text-[13px] font-semibold tracking-[.18em]">Biazo <span className="font-normal opacity-65">Vacation Homes</span></span></div><p className="mt-7 max-w-xs text-sm leading-6 text-[#fbf8f2]/55">Private residences and local perspective, for the way you want to experience Dubai.</p></div><div><p className="eyebrow text-[#dbcdbb]">Explore</p><div className="mt-5 flex flex-col items-start gap-3 text-sm text-[#fbf8f2]/68"><button onClick={() => go('#all-residences')} data-testid="link-footer-residences">Residences</button><button onClick={() => go('#biazo-way')} data-testid="link-footer-biazo-way">The Biazo way</button></div></div><div><p className="eyebrow text-[#dbcdbb]">Stay close</p><div className="mt-5 flex flex-col items-start gap-3 text-sm text-[#fbf8f2]/68"><button onClick={() => go('#owners')} data-testid="link-footer-partners">Partner with us</button><Link href="/contact" className="text-left" data-testid="link-footer-contact">Contact us</Link></div></div></div><div className="flex flex-col justify-between gap-5 pt-7 text-[10px] tracking-[.08em] text-[#fbf8f2]/42 md:flex-row"><span>© 2025 Biazo Vacation Homes. Dubai, UAE.</span><span>Privacy · Terms · Carefully considered, locally managed.</span></div></div></footer>;
+  return <footer className="bg-[#202d3b] py-14 text-[#fbf8f2]" data-testid="footer-main"><div className="container-wide"><div className="grid gap-12 border-b border-[#fbf8f2]/15 pb-12 md:grid-cols-[1.2fr_.8fr_.8fr]"><div><div className="flex items-center gap-3"><span className="flex h-9 w-9 items-center justify-center border border-[#fbf8f2] font-serif text-xl italic">B</span><span className="text-[13px] font-semibold tracking-[.18em]">Biazo <span className="font-normal opacity-65">Vacation Homes</span></span></div><p className="mt-7 max-w-xs text-sm leading-6 text-[#fbf8f2]/55">Private residences and local perspective, for the way you want to experience Dubai.</p></div><div><p className="eyebrow text-[#dbcdbb]">Explore</p><div className="mt-5 flex flex-col items-start gap-3 text-sm text-[#fbf8f2]/68"><button onClick={() => go('#all-residences')} data-testid="link-footer-residences">Residences</button><button onClick={() => go('#biazo-way')} data-testid="link-footer-biazo-way">The Biazo way</button></div></div><div><p className="eyebrow text-[#dbcdbb]">Stay close</p><div className="mt-5 flex flex-col items-start gap-3 text-sm text-[#fbf8f2]/68"><button onClick={() => go('#why-biazo')} data-testid="link-footer-why-biazo">Why stay with us</button><Link href="/contact" className="text-left" data-testid="link-footer-contact">Contact us</Link></div></div></div><div className="flex flex-col justify-between gap-5 pt-7 text-[10px] tracking-[.08em] text-[#fbf8f2]/42 md:flex-row"><span>© 2025 Biazo Vacation Homes. Dubai, UAE.</span><span>Privacy · Terms · Carefully considered, locally managed.</span></div></div></footer>;
 }
 
 function Router() {
