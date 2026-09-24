@@ -4,7 +4,8 @@ import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
-import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
+import Contact from '@/pages/contact';
+import { Link, Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 import {
   ArrowDownRight,
   ArrowRight,
@@ -98,6 +99,7 @@ function Header({ onJoin }: { onJoin: () => void }) {
         </button>
         <nav className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => <button key={item.href} onClick={() => go(item.href)} className="nav-link" data-testid={`link-nav-${item.label.toLowerCase().replaceAll(' ', '-')}`}>{item.label}</button>)}
+           <Link href="/contact" className="nav-link" data-testid="link-nav-contact">Contact</Link>
         </nav>
         <div className="hidden items-center gap-5 lg:flex">
           <button onClick={onJoin} className="flex items-center gap-2 text-[12px]" data-testid="button-member-access"><CircleUserRound size={16} strokeWidth={1.5} /> Member access</button>
@@ -110,6 +112,7 @@ function Header({ onJoin }: { onJoin: () => void }) {
       {open && <div className="mobile-panel border-t border-[#263442]/10 px-4 pb-6 pt-5 lg:hidden">
         <div className="flex flex-col gap-5">
           {navItems.map((item) => <button key={item.href} onClick={() => go(item.href)} className="border-b border-[#263442]/10 pb-3 text-left text-sm" data-testid={`link-mobile-${item.label.toLowerCase().replaceAll(' ', '-')}`}>{item.label}</button>)}
+           <Link href="/contact" onClick={() => setOpen(false)} className="border-b border-[#263442]/10 pb-3 text-left text-sm" data-testid="link-mobile-contact">Contact</Link>
           <button onClick={() => { setOpen(false); onJoin(); }} className="btn-fill px-4 py-3 text-left text-[11px] font-semibold tracking-[.1em]" data-testid="button-mobile-member">MEMBER ACCESS</button>
         </div>
       </div>}
@@ -212,11 +215,11 @@ function Home() {
 
 function Footer({ onJoin }: { onJoin: () => void }) {
   const go = (href: string) => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-  return <footer className="bg-[#202d3b] py-14 text-[#fbf8f2]" data-testid="footer-main"><div className="container-wide"><div className="grid gap-12 border-b border-[#fbf8f2]/15 pb-12 md:grid-cols-[1.2fr_.8fr_.8fr]"><div><div className="flex items-center gap-3"><span className="flex h-9 w-9 items-center justify-center border border-[#fbf8f2] font-serif text-xl italic">B</span><span className="text-[13px] font-semibold tracking-[.18em]">Biazo <span className="font-normal opacity-65">Properties</span></span></div><p className="mt-7 max-w-xs text-sm leading-6 text-[#fbf8f2]/55">Private residences and local perspective, for the way you want to experience Dubai.</p></div><div><p className="eyebrow text-[#dbcdbb]">Explore</p><div className="mt-5 flex flex-col items-start gap-3 text-sm text-[#fbf8f2]/68"><button onClick={() => go('#residences')} data-testid="link-footer-residences">Residences</button><button onClick={() => go('#neighborhoods')} data-testid="link-footer-neighborhoods">Neighborhoods</button><button onClick={() => go('#biazo-way')} data-testid="link-footer-biazo-way">The Biazo way</button></div></div><div><p className="eyebrow text-[#dbcdbb]">Stay close</p><div className="mt-5 flex flex-col items-start gap-3 text-sm text-[#fbf8f2]/68"><button onClick={onJoin} data-testid="link-footer-members">Member access</button><button onClick={() => go('#owners')} data-testid="link-footer-partners">Partner with us</button><button onClick={() => go('#owners')} data-testid="link-footer-contact">Concierge desk</button></div></div></div><div className="flex flex-col justify-between gap-5 pt-7 text-[10px] tracking-[.08em] text-[#fbf8f2]/42 md:flex-row"><span>© 2025 Biazo Properties. Dubai, UAE.</span><span>Privacy · Terms · Carefully considered, locally managed.</span></div></div></footer>;
+  return <footer className="bg-[#202d3b] py-14 text-[#fbf8f2]" data-testid="footer-main"><div className="container-wide"><div className="grid gap-12 border-b border-[#fbf8f2]/15 pb-12 md:grid-cols-[1.2fr_.8fr_.8fr]"><div><div className="flex items-center gap-3"><span className="flex h-9 w-9 items-center justify-center border border-[#fbf8f2] font-serif text-xl italic">B</span><span className="text-[13px] font-semibold tracking-[.18em]">Biazo <span className="font-normal opacity-65">Properties</span></span></div><p className="mt-7 max-w-xs text-sm leading-6 text-[#fbf8f2]/55">Private residences and local perspective, for the way you want to experience Dubai.</p></div><div><p className="eyebrow text-[#dbcdbb]">Explore</p><div className="mt-5 flex flex-col items-start gap-3 text-sm text-[#fbf8f2]/68"><button onClick={() => go('#residences')} data-testid="link-footer-residences">Residences</button><button onClick={() => go('#neighborhoods')} data-testid="link-footer-neighborhoods">Neighborhoods</button><button onClick={() => go('#biazo-way')} data-testid="link-footer-biazo-way">The Biazo way</button></div></div><div><p className="eyebrow text-[#dbcdbb]">Stay close</p><div className="mt-5 flex flex-col items-start gap-3 text-sm text-[#fbf8f2]/68"><button onClick={onJoin} data-testid="link-footer-members">Member access</button><button onClick={() => go('#owners')} data-testid="link-footer-partners">Partner with us</button><Link href="/contact" className="text-left" data-testid="link-footer-contact">Contact us</Link></div></div></div><div className="flex flex-col justify-between gap-5 pt-7 text-[10px] tracking-[.08em] text-[#fbf8f2]/42 md:flex-row"><span>© 2025 Biazo Properties. Dubai, UAE.</span><span>Privacy · Terms · Carefully considered, locally managed.</span></div></div></footer>;
 }
 
 function Router() {
-  return <RoutedErrorBoundary><Switch><Route path="/" component={Home} /><Route component={NotFound} /></Switch></RoutedErrorBoundary>;
+  return <RoutedErrorBoundary><Switch><Route path="/" component={Home} /><Route path="/contact" component={Contact} /><Route component={NotFound} /></Switch></RoutedErrorBoundary>;
 }
 
 function RoutedErrorBoundary({ children }: { children: ReactNode }) {
