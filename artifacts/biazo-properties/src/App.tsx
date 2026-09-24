@@ -20,7 +20,6 @@ import {
   Search,
   ShieldCheck,
   Sparkles,
-  Star,
   UsersRound,
   X,
   Eye,
@@ -57,12 +56,6 @@ const benefits = [
   { icon: KeyRound, title: 'Arrive as you are', copy: 'Private access, considered details and a welcome that feels like it was made for you.' },
   { icon: ShieldCheck, title: 'A steady hand', copy: 'One local team, available around the clock, from the first recommendation to the last key.' },
   { icon: Sparkles, title: 'The finer things', copy: 'Thoughtful extras that make a stay memorable: a table booked, a fridge prepared, a city decoded.' },
-];
-
-const reviews = [
-  { quote: 'Biazo gave us the rare feeling of being entirely looked after, without ever being watched over.', name: 'Amelia R.', detail: 'London · stayed in Downtown Dubai' },
-  { quote: 'The apartment was beautiful, but it was the small things that stayed with us. The team understood our pace.', name: 'Karim & Noor', detail: 'Riyadh · stayed in Jumeirah Beach' },
-  { quote: 'It felt like our own home in Dubai, only with someone quietly making every day easier.', name: 'David T.', detail: 'Singapore · stayed in Emirates Hills' },
 ];
 
 function useMeta() {
@@ -218,12 +211,6 @@ function Owners({ onPartnerSubmit }: { onPartnerSubmit: (name: string) => void }
   return <section id="owners" className="container-wide py-24 md:py-36" data-testid="section-owners"><div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center"><div className="image-wrap aspect-[1.08]"><img src={partnersImage} alt="Biazo Properties welcoming a property partner" className="h-full w-full object-cover" data-testid="img-partners" /></div><div className="lg:pl-14"><p className="eyebrow text-[#c56749]">For owners & partners</p><h2 className="mt-4 max-w-lg font-serif text-4xl leading-[.98] text-[#263442] md:text-6xl">Your property,<br /><i>in careful hands.</i></h2><p className="mt-6 max-w-md text-[15px] leading-7 text-[#263442]/68">Biazo Properties manages a select portfolio of Dubai homes with the attention they deserve. We protect your asset, your standards and the experience of every guest.</p><div className="mt-8 flex flex-wrap gap-3">{['Local expertise', 'Thoughtful stewardship', 'Clear reporting'].map((item) => <span key={item} className="border border-[#263442]/20 px-3 py-2 text-[10px] tracking-[.08em] text-[#263442]/75">{item}</span>)}</div><form onSubmit={submit} className="mt-10 flex max-w-md gap-3 border-b border-[#263442]/25 pb-2"><input required value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-[#263442]/45" data-testid="input-partner-name" /><button className="flex shrink-0 items-center gap-2 text-[11px] font-semibold tracking-[.1em] text-[#c56749]" type="submit" data-testid="button-partner-submit">{submitted ? 'RECEIVED' : 'START A CONVERSATION'} <ArrowRight size={15} /></button></form>{submitted && <p className="mt-3 text-sm text-[#c56749]" role="status" data-testid="status-partner-submission">Thank you, {name}. A Biazo Properties partner specialist will be in touch.</p>}</div></div></section>;
 }
 
-function Reviews() {
-  const [index, setIndex] = useState(0);
-  const current = reviews[index];
-  return <section className="bg-[#d9e0da] py-24 md:py-32" data-testid="section-reviews"><div className="container-wide"><div className="flex items-start justify-between"><div><p className="eyebrow text-[#c56749]">Guest notes</p><h2 className="mt-3 font-serif text-4xl text-[#263442] md:text-6xl">Words from<br /><i>the inside.</i></h2></div><div className="flex gap-2"><button onClick={() => setIndex((index - 1 + reviews.length) % reviews.length)} className="flex h-10 w-10 items-center justify-center border border-[#263442]/25" data-testid="button-review-previous"><ChevronLeft size={17} /></button><button onClick={() => setIndex((index + 1) % reviews.length)} className="flex h-10 w-10 items-center justify-center border border-[#263442]/25" data-testid="button-review-next"><ChevronRight size={17} /></button></div></div><div className="mt-14 grid gap-8 md:grid-cols-[.4fr_1.6fr] md:items-end"><div className="quote-mark">“</div><div><blockquote className="max-w-4xl font-serif text-3xl leading-[1.14] text-[#263442] md:text-5xl" data-testid="text-review-quote">{current.quote}</blockquote><div className="mt-8 flex items-center justify-between border-t border-[#263442]/20 pt-5"><div><p className="text-sm font-semibold" data-testid="text-review-name">{current.name}</p><p className="mt-1 text-xs text-[#263442]/60">{current.detail}</p></div><div className="flex gap-1 text-[#c56749]">{[1, 2, 3, 4, 5].map((star) => <Star key={star} size={14} fill="currentColor" />)}</div></div></div></div></div></section>;
-}
-
 function MemberModal({ onClose }: { onClose: () => void }) {
   const [showPassword, setShowPassword] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -250,7 +237,6 @@ function Home() {
     <Neighborhoods />
     <Benefits />
     <Owners onPartnerSubmit={partnerSubmitted} />
-    <Reviews />
     <section className="bg-[#c56749] py-20 text-[#fbf8f2] md:py-28" data-testid="section-member-cta"><div className="container-wide flex flex-col justify-between gap-10 md:flex-row md:items-end"><div><p className="eyebrow text-[#fbf8f2]/70">A little closer</p><h2 className="mt-4 max-w-2xl font-serif text-4xl leading-none md:text-6xl">The best of Dubai,<br /><i>kept in your pocket.</i></h2></div><button onClick={() => setMemberOpen(true)} className="flex w-fit items-center gap-3 border-b border-[#fbf8f2]/65 pb-3 text-[11px] font-semibold tracking-[.12em]" data-testid="button-join-members">JOIN BIAZO MEMBERS <ArrowRight size={16} /></button></div></section>
   </main><Footer onJoin={() => setMemberOpen(true)} />{memberOpen && <MemberModal onClose={() => setMemberOpen(false)} />}{toast && <div className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2 bg-[#263442] px-5 py-3 text-sm text-[#fbf8f2]" role="status" data-testid="status-toast">{toast}</div>}</div>;
 }
