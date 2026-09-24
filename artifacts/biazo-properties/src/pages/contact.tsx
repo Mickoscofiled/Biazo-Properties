@@ -11,7 +11,7 @@ function ContactHeader() {
       <div className="container-wide flex h-[82px] items-center justify-between">
         <Link href="/" className="flex items-center gap-3" data-testid="link-contact-brand">
           <span className="flex h-9 w-9 items-center justify-center border border-[#1d3340] font-serif text-xl italic">B</span>
-          <span className="text-[13px] font-semibold tracking-[.18em]">Biazo <span className="font-normal opacity-60">Properties</span></span>
+          <span className="text-[13px] font-semibold tracking-[.18em]">Biazo <span className="font-normal opacity-60">Vacation Homes</span></span>
         </Link>
         <nav className="hidden items-center gap-8 md:flex" aria-label="Contact page navigation">
           <Link href="/" className="nav-link" data-testid="link-contact-home">Home</Link>
@@ -91,7 +91,7 @@ export default function Contact() {
                 <div className="flex min-h-[320px] flex-col items-center justify-center text-center" data-testid="status-contact-sent">
                   <Check size={27} className="text-[#174f5a]" />
                   <h3 className="mt-5 font-serif text-4xl">We have your note.</h3>
-                  <p className="mt-3 max-w-sm text-sm leading-6 text-[#1d3340]/62">Thank you. A Biazo Properties specialist will be in touch shortly.</p>
+                  <p className="mt-3 max-w-sm text-sm leading-6 text-[#1d3340]/62">Thank you. A Biazo Vacation Homes specialist will be in touch shortly.</p>
                   <button onClick={() => setSent(false)} className="mt-7 border-b border-[#174f5a] pb-2 text-[11px] font-semibold tracking-[.1em] text-[#174f5a]" data-testid="button-contact-send-another">SEND ANOTHER NOTE</button>
                 </div>
               ) : (
@@ -108,10 +108,10 @@ export default function Contact() {
       </main>
       <footer className="bg-[#142633] py-12 text-[#fbfaf4]" data-testid="footer-contact">
         <div className="container-wide flex flex-col justify-between gap-8 md:flex-row md:items-end">
-          <div><Link href="/" className="flex items-center gap-3" data-testid="link-contact-footer-brand"><span className="flex h-9 w-9 items-center justify-center border border-[#fbfaf4] font-serif text-xl italic">B</span><span className="text-[13px] font-semibold tracking-[.18em]">Biazo <span className="font-normal opacity-60">Properties</span></span></Link><p className="mt-5 max-w-xs text-sm leading-6 text-[#fbfaf4]/52">Private residences and local perspective, for the way you want to experience Dubai.</p></div>
+          <div><Link href="/" className="flex items-center gap-3" data-testid="link-contact-footer-brand"><span className="flex h-9 w-9 items-center justify-center border border-[#fbfaf4] font-serif text-xl italic">B</span><span className="text-[13px] font-semibold tracking-[.18em]">Biazo <span className="font-normal opacity-60">Vacation Homes</span></span></Link><p className="mt-5 max-w-xs text-sm leading-6 text-[#fbfaf4]/52">Private residences and local perspective, for the way you want to experience Dubai.</p></div>
           <div className="flex flex-col items-start gap-3 text-sm text-[#fbfaf4]/65 md:items-end"><a href={whatsappUrl} target="_blank" rel="noreferrer" data-testid="link-contact-footer-whatsapp">WhatsApp +971 54 4937128</a><a href={`mailto:${emailAddress}`} data-testid="link-contact-footer-email">{emailAddress}</a><span data-testid="text-contact-footer-address">Dubai, UAE · P.O. Box 118-885</span></div>
         </div>
-        <div className="container-wide mt-10 border-t border-[#fbfaf4]/15 pt-6 text-[10px] tracking-[.08em] text-[#fbfaf4]/38">© 2025 Biazo Properties. Dubai, UAE.</div>
+        <div className="container-wide mt-10 border-t border-[#fbfaf4]/15 pt-6 text-[10px] tracking-[.08em] text-[#fbfaf4]/38">© 2025 Biazo Vacation Homes. Dubai, UAE.</div>
       </footer>
     </div>
   );
