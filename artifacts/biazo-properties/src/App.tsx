@@ -17,7 +17,6 @@ import {
   Heart,
   KeyRound,
   Menu,
-  Search,
   ShieldCheck,
   Sparkles,
   UsersRound,
@@ -102,7 +101,7 @@ function Header({ onJoin }: { onJoin: () => void }) {
         </nav>
         <div className="hidden items-center gap-5 lg:flex">
           <button onClick={onJoin} className="flex items-center gap-2 text-[12px]" data-testid="button-member-access"><CircleUserRound size={16} strokeWidth={1.5} /> Member access</button>
-          <button onClick={() => go('#search')} className="btn-fill px-5 py-3 text-[11px] font-semibold tracking-[.1em]" data-testid="button-find-residence">FIND A RESIDENCE</button>
+          <button onClick={() => go('#residences')} className="btn-fill px-5 py-3 text-[11px] font-semibold tracking-[.1em]" data-testid="button-find-residence">FIND A RESIDENCE</button>
         </div>
         <button className="lg:hidden" onClick={() => setOpen(!open)} aria-label="Toggle navigation" data-testid="button-mobile-menu">
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -115,35 +114,6 @@ function Header({ onJoin }: { onJoin: () => void }) {
         </div>
       </div>}
     </header>
-  );
-}
-
-function SearchPanel() {
-  const [location, setLocation] = useState('Any location');
-  const [guests, setGuests] = useState('2 guests');
-  const [dates, setDates] = useState('Choose dates');
-  const [feedback, setFeedback] = useState('');
-  const onSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    setFeedback(`Looking for ${guests.toLowerCase()} in ${location === 'Any location' ? 'Dubai' : location}${dates !== 'Choose dates' ? ` for ${dates.toLowerCase()}` : ''}. Our residence team will curate your shortlist.`);
-  };
-  return (
-    <div id="search" className="search-panel relative z-10 mx-auto -mt-12 w-[calc(100%-32px)] max-w-[1110px] bg-[#fbf8f2] p-5 md:-mt-16 md:p-7" data-testid="search-panel">
-      <div className="mb-5 flex items-center justify-between">
-        <div>
-          <p className="eyebrow text-[#c56749]">Your Dubai, your way</p>
-          <h2 className="mt-2 font-serif text-2xl text-[#263442] md:text-3xl">Find a residence that fits.</h2>
-        </div>
-        <span className="hidden text-[#263442]/45 md:block"><Search size={22} strokeWidth={1.5} /></span>
-      </div>
-      <form onSubmit={onSubmit} className="grid gap-5 md:grid-cols-[1.1fr_1fr_1fr_auto] md:items-end">
-        <label><span className="field-label">Where</span><select value={location} onChange={(e) => setLocation(e.target.value)} className="field-select" data-testid="select-search-location"><option>Any location</option><option>Downtown Dubai</option><option>Jumeirah Beach</option><option>Emirates Hills</option><option>The Future District</option></select></label>
-        <label><span className="field-label">Stay dates</span><select value={dates} onChange={(e) => setDates(e.target.value)} className="field-select" data-testid="select-search-dates"><option>Choose dates</option><option>Next weekend</option><option>Next month</option><option>Long stay · 30+ nights</option></select></label>
-        <label><span className="field-label">Guests</span><select value={guests} onChange={(e) => setGuests(e.target.value)} className="field-select" data-testid="select-search-guests"><option>2 guests</option><option>1 guest</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select></label>
-        <button className="btn-fill flex h-[43px] items-center justify-center gap-3 px-6 text-[11px] font-semibold tracking-[.1em]" type="submit" data-testid="button-search-submit">SEARCH <ArrowRight size={15} /></button>
-      </form>
-      {feedback && <p className="mt-5 flex items-start gap-2 border-t border-[#263442]/10 pt-4 text-sm text-[#263442]/75" role="status" data-testid="status-search-feedback"><Check size={16} className="mt-0.5 text-[#c56749]" /> {feedback}</p>}
-    </div>
   );
 }
 
@@ -229,10 +199,9 @@ function Home() {
       <img src={heroImage} alt="Warm Dubai penthouse overlooking the skyline" className="hero-image absolute inset-0 h-full w-full object-cover opacity-80" data-testid="img-hero" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#202d3b]/75 via-[#202d3b]/20 to-[#202d3b]/15" />
       <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#202d3b]/65 to-transparent" />
-      <div className="container-wide relative z-10 pb-28 pt-40 md:pb-32"><div className="max-w-3xl"><p className="eyebrow rise text-[#dbcdbb]">Dubai, thoughtfully lived</p><h1 className="display rise rise-delay-1 mt-6 text-[clamp(4.1rem,10vw,9.4rem)]">Stay somewhere<br /><i>with a point of view.</i></h1><p className="rise rise-delay-2 mt-7 max-w-md text-base leading-7 text-[#fbf8f2]/78 md:text-lg">The privacy of a beautiful residence, the ease of exceptional service, and a city that is yours to discover.</p><button onClick={() => document.querySelector('#search')?.scrollIntoView({ behavior: 'smooth' })} className="rise rise-delay-3 mt-8 flex items-center gap-3 border-b border-[#fbf8f2]/70 pb-3 text-[11px] font-semibold tracking-[.12em]" data-testid="button-hero-explore">EXPLORE RESIDENCES <ArrowDownRight size={16} /></button></div></div>
+       <div className="container-wide relative z-10 pb-28 pt-40 md:pb-32"><div className="max-w-3xl"><p className="eyebrow rise text-[#dbcdbb]">Dubai, thoughtfully lived</p><h1 className="display rise rise-delay-1 mt-6 text-[clamp(4.1rem,10vw,9.4rem)]">Stay somewhere<br /><i>with a point of view.</i></h1><p className="rise rise-delay-2 mt-7 max-w-md text-base leading-7 text-[#fbf8f2]/78 md:text-lg">The privacy of a beautiful residence, the ease of exceptional service, and a city that is yours to discover.</p><button onClick={() => document.querySelector('#residences')?.scrollIntoView({ behavior: 'smooth' })} className="rise rise-delay-3 mt-8 flex items-center gap-3 border-b border-[#fbf8f2]/70 pb-3 text-[11px] font-semibold tracking-[.12em]" data-testid="button-hero-explore">EXPLORE RESIDENCES <ArrowDownRight size={16} /></button></div></div>
       <div className="absolute bottom-8 right-8 z-10 hidden items-center gap-3 text-[#fbf8f2]/65 md:flex"><span className="h-px w-16 bg-[#fbf8f2]/50" /><span className="font-mono text-[10px] tracking-[.12em]">25° 11′ N / 55° 16′ E</span></div>
     </section>
-    <SearchPanel />
     <FeaturedResidence />
     <Neighborhoods />
     <Benefits />
