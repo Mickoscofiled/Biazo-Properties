@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
 import Contact from '@/pages/contact';
+import Admin from '@/pages/admin';
 import { Link, Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 import {
   ArrowDownRight,
@@ -38,7 +39,7 @@ import futureCityImage from '@assets/generated_images/biazo-future-city.jpg';
 import golfImage from '@assets/generated_images/biazo-golf.jpg';
 import partnersImage from '@assets/generated_images/biazo-partners.jpg';
 
-import { residences, type Residence, type BookingRecord } from '@/data/residences';
+import { residences as hardcodedResidences, type Residence, type BookingRecord } from '@/data/residences';
 import { SearchAvailabilityBar } from '@/components/SearchAvailabilityBar';
 import { ResidenceListings } from '@/components/ResidenceListings';
 import { BookingModal } from '@/components/BookingModal';
@@ -199,6 +200,14 @@ function Home() {
   const [searchGuests, setSearchGuests] = useState(2);
   const [currency, setCurrency] = useState<'AED' | 'USD'>('AED');
   const [toast, setToast] = useState('');
+  // Load residences from Cloudflare KV (live data), fall back to hardcoded
+  const [liveResidences, setLiveResidences] = useState<Residence[]>(hardcodedResidences);
+  useEffect(() => {
+    fetch('/api/residences')
+      .then(r => r.json())
+      .then(data => { if (Array.isArray(data) && data.length > 0) setLiveResidences(data); })
+      .catch(() => { /* silently use hardcoded fallback */ });
+  }, []);
 
 
   const handleSearch = (params: { neighborhood: string; checkIn: string; checkOut: string; guests: number; currency: 'AED' | 'USD' }) => {
@@ -242,9 +251,9 @@ function Home() {
           setCurrency={setCurrency}
         />
 
-        {/* FULL RESIDENCE LISTINGS */}
+        {/* FULL RESIDENCE LISTINGS — fetched live from Cloudflare KV */}
         <ResidenceListings
-          residences={residences}
+          residences={liveResidences}
           selectedDates={searchDates}
           currency={currency}
           onSelectResidence={(r) => setBookingResidence(r)}
@@ -294,7 +303,7 @@ function Footer({ onJoin }: { onJoin: () => void }) {
 }
 
 function Router() {
-  return <RoutedErrorBoundary><Switch><Route path="/" component={Home} /><Route path="/contact" component={Contact} /><Route component={NotFound} /></Switch></RoutedErrorBoundary>;
+  return <RoutedErrorBoundary><Switch><Route path="/" component={Home} /><Route path="/contact" component={Contact} /><Route path="/admin" component={Admin} /><Route component={NotFound} /></Switch></RoutedErrorBoundary>;
 }
 
 function RoutedErrorBoundary({ children }: { children: ReactNode }) {
