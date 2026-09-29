@@ -51,6 +51,8 @@ export function SearchAvailabilityBar({ onSearch, currency, setCurrency }: Searc
               data-testid="select-destination"
             >
               <option value="All">All Dubai</option>
+              <option value="Bluewaters Island">Bluewaters Island</option>
+              <option value="Business Bay">Business Bay</option>
               <option value="Downtown Dubai">Downtown Dubai</option>
               <option value="Palm Jumeirah">Palm Jumeirah</option>
               <option value="Dubai Marina">Dubai Marina</option>

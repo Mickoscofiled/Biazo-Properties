@@ -28,7 +28,7 @@ export function ResidenceListings({
   currency,
   onSelectResidence
 }: ListingsProps) {
-  const [selectedFilter, setSelectedFilter] = useState<'All' | 'Downtown Dubai' | 'Palm Jumeirah' | 'Dubai Marina' | 'Emirates Hills'>('All');
+  const [selectedFilter, setSelectedFilter] = useState<'All' | 'Bluewaters Island' | 'Business Bay' | 'Downtown Dubai' | 'Palm Jumeirah' | 'Dubai Marina' | 'Emirates Hills'>('All');
   const [savedIds, setSavedIds] = useState<string[]>([]);
 
   const toggleSave = (id: string, e: React.MouseEvent) => {
@@ -73,7 +73,7 @@ export function ResidenceListings({
 
         {/* Filter buttons */}
         <div className="flex flex-wrap gap-2">
-          {(['All', 'Downtown Dubai', 'Palm Jumeirah', 'Dubai Marina', 'Emirates Hills'] as const).map((loc) => (
+          {(['All', 'Bluewaters Island', 'Business Bay', 'Downtown Dubai', 'Palm Jumeirah', 'Dubai Marina', 'Emirates Hills'] as const).map((loc) => (
             <button
               key={loc}
               onClick={() => setSelectedFilter(loc)}
