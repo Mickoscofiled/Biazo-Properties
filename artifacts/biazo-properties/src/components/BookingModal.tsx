@@ -63,6 +63,7 @@ export function BookingModal({
   const [step, setStep] = useState<'details' | 'payment' | 'confirmed'>('details');
   const [confirmedBooking, setConfirmedBooking] = useState<BookingRecord | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [apiError, setApiError] = useState<string | null>(null);
 
   // Calculate nights
   const checkInDate = new Date(checkIn);
@@ -105,13 +106,13 @@ export function BookingModal({
     }
   };
 
-  const handleConfirmReservation = (e: React.FormEvent) => {
+  const handleConfirmReservation = async (e: React.FormEvent) => {
     e.preventDefault();
     if (hasConflict) return;
-
     setIsProcessing(true);
+    setApiError(null);
 
-    setTimeout(() => {
+    try {
       const bookingId = `BVH-${Math.floor(10000 + Math.random() * 90000)}`;
       const randomPin = `${Math.floor(1000 + Math.random() * 9000)}#`;
 
@@ -134,16 +135,53 @@ export function BookingModal({
         smartLockPin: randomPin
       };
 
-      // Save to localStorage so guest can view reservations
+      // Save booking to backend API (blocks dates + emails owners)
+      const resp = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          residenceId: residence.id,
+          residenceName: residence.name,
+          guestName,
+          guestEmail,
+          guestPhone,
+          checkIn,
+          checkOut,
+          nights: calculatedNights,
+          guests,
+          totalAed,
+          currency,
+          specialRequests,
+          paymentMethod,
+        }),
+      });
+
+      const data = await resp.json() as any;
+
+      if (!resp.ok) {
+        // If dates conflict on server side, show error
+        setApiError(data.error ?? 'Failed to submit booking. Please try again.');
+        setIsProcessing(false);
+        return;
+      }
+
+      // Use server-assigned ID if available
+      const finalId = data.bookingId ?? bookingId;
+      const finalBooking: BookingRecord = { ...newBooking, id: finalId };
+
+      // Also save to localStorage so guest can view reservations
       const existing = JSON.parse(localStorage.getItem('bvh_bookings') || '[]');
-      existing.unshift(newBooking);
+      existing.unshift(finalBooking);
       localStorage.setItem('bvh_bookings', JSON.stringify(existing));
 
-      setConfirmedBooking(newBooking);
+      setConfirmedBooking(finalBooking);
       setIsProcessing(false);
       setStep('confirmed');
-      if (onBookingSuccess) onBookingSuccess(newBooking);
-    }, 1200);
+      if (onBookingSuccess) onBookingSuccess(finalBooking);
+    } catch {
+      setApiError('Network error. Please check your connection and try again.');
+      setIsProcessing(false);
+    }
   };
 
   const handleWhatsAppBooking = () => {
@@ -555,18 +593,24 @@ export function BookingModal({
 
                   {paymentMethod !== 'whatsapp' && (
                     <div className="mt-6">
+                      {apiError && (
+                        <div className="mb-3 flex items-start gap-2 rounded-lg bg-red-50 border border-red-200 p-3 text-xs text-red-700">
+                          <AlertTriangle size={15} className="shrink-0 mt-0.5" />
+                          {apiError}
+                        </div>
+                      )}
                       <button
                         type="submit"
                         disabled={isProcessing}
                         className="btn-fill flex w-full items-center justify-center gap-2 py-4 text-xs font-semibold tracking-wider disabled:opacity-50"
                       >
                         {isProcessing ? (
-                          <span>PROCESSING SECURE PAYMENT...</span>
+                          <span>SUBMITTING YOUR BOOKING...</span>
                         ) : (
                           <>
                             <Lock size={14} />
                             {paymentMethod === 'card'
-                              ? `PAY ${formatPrice(totalAed)} & CONFIRM`
+                              ? `REQUEST BOOKING — ${formatPrice(totalAed)}`
                               : `GUARANTEE & CONFIRM RESERVATION`}
                           </>
                         )}
