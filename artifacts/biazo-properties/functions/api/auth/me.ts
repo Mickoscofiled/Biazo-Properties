@@ -8,6 +8,9 @@ const CORS = {
 
 // ── GET /api/auth/me ── checks if session token is still valid
 export const onRequestGet: PagesFunction<Env> = async ({ env, request }) => {
+  if (!env || !env.BVHDATA) {
+    return Response.json({ authenticated: false, error: 'KV binding missing' }, { status: 503, headers: CORS });
+  }
   const token = request.headers.get('Authorization')?.replace('Bearer ', '');
   if (!token) return Response.json({ authenticated: false }, { headers: CORS });
   const ownerName = await env.BVHDATA.get(`session:${token}`);
