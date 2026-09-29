@@ -130,7 +130,7 @@ function LoginScreen({ onLogin }: { onLogin: (token: string, name: string) => vo
           </button>
           <div className="mt-5 flex items-center gap-2 rounded-lg bg-[#f0ece5] px-4 py-3">
             <Shield size={14} className="text-[#c56749]" />
-            <p className="text-[11px] text-[#263442]/60">Secure admin access. Sessions expire after 7 days.</p>
+            <p className="text-[11px] text-[#263442]/60">Secure admin access. You will remain signed in until you log out.</p>
           </div>
         </form>
         <Link href="/" className="mt-5 flex items-center justify-center gap-2 text-sm text-[#263442]/50 hover:text-[#263442]">

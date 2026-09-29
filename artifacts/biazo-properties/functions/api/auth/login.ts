@@ -45,7 +45,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ env, request }) => {
     // Create session token — expires in 7 days
     const token = generateToken();
     const displayName = await env.BVHDATA.get(`name:${username.toLowerCase().trim()}`) ?? username;
-    await env.BVHDATA.put(`session:${token}`, displayName, { expirationTtl: 60 * 60 * 24 * 7 });
+    await env.BVHDATA.put(`session:${token}`, displayName);
 
     return Response.json({ ok: true, token, ownerName: displayName }, { headers: CORS });
   } catch (e) {
