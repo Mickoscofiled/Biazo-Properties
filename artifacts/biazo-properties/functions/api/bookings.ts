@@ -95,7 +95,7 @@ async function sendEmail(env: Env, to: string, subject: string, html: string) {
       method: 'POST',
       headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        from: 'Biazo Vacation Homes <noreply@biazo-properties.pages.dev>',
+        from: 'Biazo Vacation Homes <onboarding@resend.dev>',
         to: [to],
         subject,
         html,

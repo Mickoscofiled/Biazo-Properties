@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   BedDouble,
   Building2,
@@ -14,11 +15,12 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { Residence, AED_TO_USD_RATE } from '@/data/residences';
+import { formatPrice } from '@/lib/utils';
 
 interface ListingsProps {
   residences: Residence[];
   selectedDates?: { checkIn: string; checkOut: string };
-  currency: 'AED' | 'USD';
+  currency: string;
   onSelectResidence: (residence: Residence) => void;
 }
 
@@ -28,6 +30,7 @@ export function ResidenceListings({
   currency,
   onSelectResidence
 }: ListingsProps) {
+  const { t } = useTranslation();
   const [selectedFilter, setSelectedFilter] = useState<'All' | 'Bluewaters Island' | 'Business Bay' | 'Downtown Dubai' | 'Palm Jumeirah' | 'Dubai Marina' | 'Emirates Hills'>('All');
   const [savedIds, setSavedIds] = useState<string[]>([]);
 
@@ -43,13 +46,7 @@ export function ResidenceListings({
     return r.neighborhood === selectedFilter;
   });
 
-  const formatPrice = (aed: number) => {
-    if (currency === 'USD') {
-      const usd = Math.round(aed / AED_TO_USD_RATE);
-      return `$${usd.toLocaleString()}`;
-    }
-    return `AED ${aed.toLocaleString()}`;
-  };
+  const displayPrice = (aed: number) => formatPrice(aed, currency);
 
   const checkIsAvailable = (r: Residence) => {
     if (!selectedDates || !selectedDates.checkIn || !selectedDates.checkOut) return true;
@@ -62,12 +59,12 @@ export function ResidenceListings({
     <section id="all-residences" className="container-wide py-20 md:py-28" data-testid="section-all-residences">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#263442]/15 pb-8">
         <div>
-          <p className="eyebrow text-[#c56749]">The Portfolio</p>
+          <p className="eyebrow text-[#c56749]">{t('listings_eyebrow')}</p>
           <h2 className="mt-2 font-serif text-3xl md:text-5xl text-[#263442]">
-            Curated Vacation Homes & Residences
+            {t('listings_title')}
           </h2>
           <p className="mt-2 text-sm text-[#263442]/65 max-w-xl">
-            Each home in our collection is handpicked for its architectural beauty, prime Dubai positioning, and thoughtful private luxury.
+            {t('listings_sub')}
           </p>
         </div>
 
@@ -83,7 +80,7 @@ export function ResidenceListings({
                   : 'border border-[#263442]/20 text-[#263442] hover:bg-[#263442]/10'
               }`}
             >
-              {loc === 'All' ? 'All Locations' : loc}
+              {loc === 'All' ? t('listings_all') : loc}
             </button>
           ))}
         </div>
@@ -107,6 +104,8 @@ export function ResidenceListings({
                   <img
                     src={residence.images[0].url}
                     alt={residence.name}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
@@ -124,7 +123,7 @@ export function ResidenceListings({
                         : 'bg-amber-600/90 text-white'
                     }`}
                   >
-                    {isAvail ? 'AVAILABLE' : 'RESERVED ON SELECTED DATES'}
+                    {isAvail ? t('listings_available') : t('listings_reserved')}
                   </span>
 
                   {/* Save button */}
@@ -153,10 +152,10 @@ export function ResidenceListings({
                   {/* Specs */}
                   <div className="mt-5 grid grid-cols-3 gap-2 border-y border-[#263442]/10 py-3 text-xs text-[#263442]/75">
                     <span className="flex items-center gap-1.5">
-                      <BedDouble size={14} className="text-[#c56749]" /> {residence.bedrooms} Beds
+                      <BedDouble size={14} className="text-[#c56749]" /> {residence.bedrooms} {t('listings_beds')}
                     </span>
                     <span className="flex items-center gap-1.5">
-                      <UsersRound size={14} className="text-[#c56749]" /> Sleeps {residence.sleeps}
+                      <UsersRound size={14} className="text-[#c56749]" /> {t('listings_sleeps')} {residence.sleeps}
                     </span>
                     <span className="flex items-center gap-1.5">
                       <Sparkles size={14} className="text-[#c56749]" /> {residence.sqft.toLocaleString()} sq ft
@@ -180,10 +179,10 @@ export function ResidenceListings({
               {/* Card Footer: Price & CTA */}
               <div className="flex items-center justify-between border-t border-[#263442]/10 bg-[#fbf8f2] p-5">
                 <div>
-                  <span className="text-[10px] uppercase tracking-wider text-[#263442]/55">From</span>
+                  <span className="text-[10px] uppercase tracking-wider text-[#263442]/55">{t('listings_from')}</span>
                   <p className="font-serif text-xl font-bold text-[#263442]">
-                    {formatPrice(residence.pricePerNightAed)}{' '}
-                    <span className="font-sans text-xs font-normal text-[#263442]/60">/ night</span>
+                    {displayPrice(residence.pricePerNightAed)}{' '}
+                    <span className="font-sans text-xs font-normal text-[#263442]/60">{t('listings_per_night')}</span>
                   </p>
                 </div>
 
@@ -192,7 +191,7 @@ export function ResidenceListings({
                   className="btn-fill flex items-center gap-2 px-5 py-2.5 text-xs font-semibold tracking-wider"
                   data-testid={`button-book-${residence.id}`}
                 >
-                  RESERVE <ArrowRight size={14} />
+                  {t('listings_reserve', 'RESERVE')} <ArrowRight size={14} />
                 </button>
               </div>
             </article>

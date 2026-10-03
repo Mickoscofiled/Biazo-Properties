@@ -30,6 +30,7 @@ export interface Residence {
   images: { url: string; caption: string }[];
   amenities: string[];
   bookedRanges: { start: string; end: string }[];
+  externalIcalUrls?: string[];
 }
 
 export const residences: Residence[] = [

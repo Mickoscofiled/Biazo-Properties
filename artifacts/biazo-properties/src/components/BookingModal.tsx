@@ -18,13 +18,15 @@ import {
   AlertTriangle
 } from 'lucide-react';
 import { Residence, AED_TO_USD_RATE, BookingRecord } from '@/data/residences';
+import { formatPrice as formatPriceGlobal } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
 
 interface BookingModalProps {
   residence: Residence;
   initialCheckIn?: string;
   initialCheckOut?: string;
   initialGuests?: number;
-  currency: 'AED' | 'USD';
+  currency: string;
   onClose: () => void;
   onBookingSuccess?: (booking: BookingRecord) => void;
 }
@@ -38,6 +40,7 @@ export function BookingModal({
   onClose,
   onBookingSuccess
 }: BookingModalProps) {
+  const { t } = useTranslation();
   const today = new Date().toISOString().split('T')[0];
   const [checkIn, setCheckIn] = useState(
     initialCheckIn || new Date(Date.now() + 86400000 * 2).toISOString().split('T')[0]
@@ -83,13 +86,7 @@ export function BookingModal({
   const vatAed = Math.round(subtotalAed * 0.05); // 5% UAE VAT
   const totalAed = subtotalAed + vatAed;
 
-  const formatPrice = (aedAmount: number) => {
-    if (currency === 'USD') {
-      const usd = Math.round(aedAmount / AED_TO_USD_RATE);
-      return `$${usd.toLocaleString()} USD`;
-    }
-    return `AED ${aedAmount.toLocaleString()}`;
-  };
+  const formatPrice = (aedAmount: number) => formatPriceGlobal(aedAmount, currency);
 
   const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value.replace(/\D/g, '').slice(0, 16);
@@ -201,9 +198,7 @@ export function BookingModal({
         {/* Modal Top Bar */}
         <div className="flex items-center justify-between border-b border-[#263442]/15 bg-[#263442] px-6 py-4 text-[#fbf8f2]">
           <div className="flex items-center gap-3">
-            <span className="flex h-7 w-7 items-center justify-center border border-[#fbf8f2]/40 font-serif text-sm italic">
-              B
-            </span>
+            <img src="/biazo-logo-new.jpg" alt="Biazo Logo" className="h-12 w-12 rounded-md object-contain bg-black/40 p-0.5 border border-[#dbcdbb]/30 shadow-sm" />
             <div>
               <p className="text-xs font-semibold tracking-widest text-[#dbcdbb]">BIAZO VACATION HOMES</p>
               <h3 className="font-serif text-lg leading-tight text-[#fbf8f2]">{residence.name}</h3>
@@ -226,44 +221,44 @@ export function BookingModal({
               <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
                 <CheckCircle2 size={36} />
               </div>
-              <p className="eyebrow mt-4 text-[#c56749]">Reservation Confirmed</p>
-              <h2 className="mt-2 font-serif text-3xl md:text-4xl">We look forward to welcoming you.</h2>
+              <p className="eyebrow mt-4 text-[#c56749]">{t('booking_confirmed', 'Reservation Confirmed')}</p>
+              <h2 className="mt-2 font-serif text-3xl md:text-4xl">{t('booking_welcoming', 'We look forward to welcoming you.')}</h2>
               <p className="mt-3 text-sm text-[#263442]/70">
-                A confirmation voucher and receipt have been issued for <strong>{confirmedBooking.guestName}</strong>.
+                {t('booking_voucher', 'A confirmation voucher and receipt have been issued for')} <strong>{confirmedBooking.guestName}</strong>.
               </p>
 
               {/* Voucher Card */}
               <div className="mt-8 rounded-xl border border-[#263442]/20 bg-white p-6 text-left shadow-sm">
                 <div className="flex items-center justify-between border-b border-[#263442]/15 pb-4">
                   <div>
-                    <span className="text-[10px] uppercase tracking-wider text-[#263442]/50">Booking Reference</span>
+                    <span className="text-[10px] uppercase tracking-wider text-[#263442]/50">{t('booking_ref', 'Booking Reference')}</span>
                     <p className="font-mono text-xl font-bold tracking-widest text-[#c56749]">{confirmedBooking.id}</p>
                   </div>
                   <div className="text-right">
-                    <span className="text-[10px] uppercase tracking-wider text-[#263442]/50">Payment Status</span>
+                    <span className="text-[10px] uppercase tracking-wider text-[#263442]/50">{t('booking_status', 'Payment Status')}</span>
                     <p className="inline-block rounded-full bg-emerald-100 px-3 py-0.5 text-xs font-semibold text-emerald-800 uppercase">
-                      {confirmedBooking.paymentStatus === 'paid' ? 'PAID IN FULL' : 'CARD GUARANTEED'}
+                      {confirmedBooking.paymentStatus === 'paid' ? t('booking_paid', 'PAID IN FULL') : t('booking_guaranteed', 'CARD GUARANTEED')}
                     </p>
                   </div>
                 </div>
 
                 <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
                   <div>
-                    <span className="text-xs text-[#263442]/60">Check-In</span>
-                    <p className="font-semibold">{confirmedBooking.checkIn} (from 3:00 PM)</p>
+                    <span className="text-xs text-[#263442]/60">{t('booking_checkin', 'Check-In')}</span>
+                    <p className="font-semibold">{confirmedBooking.checkIn} {t('booking_checkin_time', '(from 3:00 PM)')}</p>
                   </div>
                   <div>
-                    <span className="text-xs text-[#263442]/60">Check-Out</span>
-                    <p className="font-semibold">{confirmedBooking.checkOut} (by 11:00 AM)</p>
+                    <span className="text-xs text-[#263442]/60">{t('booking_checkout', 'Check-Out')}</span>
+                    <p className="font-semibold">{confirmedBooking.checkOut} {t('booking_checkout_time', '(by 11:00 AM)')}</p>
                   </div>
                   <div>
-                    <span className="text-xs text-[#263442]/60">Duration & Guests</span>
+                    <span className="text-xs text-[#263442]/60">{t('booking_duration', 'Duration & Guests')}</span>
                     <p className="font-semibold">
-                      {confirmedBooking.nights} Nights · {confirmedBooking.guests} Guests
+                      {confirmedBooking.nights} {t('booking_Nights', 'Nights')} · {confirmedBooking.guests} {t('booking_guests', 'Guests')}
                     </p>
                   </div>
                   <div>
-                    <span className="text-xs text-[#263442]/60">Total Amount</span>
+                    <span className="text-xs text-[#263442]/60">{t('booking_total_amt', 'Total Amount')}</span>
                     <p className="font-semibold text-emerald-800">{formatPrice(confirmedBooking.totalAed)}</p>
                   </div>
                 </div>
@@ -272,9 +267,9 @@ export function BookingModal({
                   <div className="flex items-center gap-3">
                     <KeyRound size={20} className="text-[#c56749]" />
                     <div>
-                      <p className="text-xs font-bold uppercase tracking-wider text-[#263442]">Keyless Smart Lock Access</p>
-                      <p className="font-mono text-lg font-bold text-[#c56749]">PIN: {confirmedBooking.smartLockPin}</p>
-                      <p className="text-[11px] text-[#263442]/60">Activates on {confirmedBooking.checkIn} at 3:00 PM</p>
+                      <p className="text-xs font-bold uppercase tracking-wider text-[#263442]">{t('booking_smart_lock', 'Keyless Smart Lock Access')}</p>
+                      <p className="font-mono text-lg font-bold text-[#c56749]">{t('booking_pin', 'PIN:')} {confirmedBooking.smartLockPin}</p>
+                      <p className="text-[11px] text-[#263442]/60">{t('booking_activates', 'Activates on')} {confirmedBooking.checkIn} {t('booking_at', 'at 3:00 PM')}</p>
                     </div>
                   </div>
                 </div>
@@ -286,13 +281,13 @@ export function BookingModal({
                   onClick={() => window.print()}
                   className="flex items-center gap-2 rounded-lg border border-[#263442]/30 px-5 py-3 text-xs font-semibold text-[#263442] hover:bg-[#263442]/5"
                 >
-                  <Download size={15} /> PRINT / SAVE VOUCHER
+                  <Download size={15} /> {t('booking_print', 'PRINT / SAVE VOUCHER')}
                 </button>
                 <button
                   onClick={onClose}
                   className="btn-fill px-8 py-3 text-xs font-semibold tracking-wider"
                 >
-                  BACK TO RESIDENCES
+                  {t('booking_back', 'BACK TO RESIDENCES')}
                 </button>
               </div>
             </div>
@@ -304,13 +299,13 @@ export function BookingModal({
             <div className="border-b border-[#263442]/15 p-6 md:border-b-0 md:border-r md:p-8">
               {step === 'details' ? (
                 <div>
-                  <h4 className="font-serif text-2xl text-[#263442]">Select Dates & Guests</h4>
-                  <p className="mt-1 text-xs text-[#263442]/65">Check live availability and calculate your stay.</p>
+                  <h4 className="font-serif text-2xl text-[#263442]">{t('booking_select_dates', 'Select Dates & Guests')}</h4>
+                  <p className="mt-1 text-xs text-[#263442]/65">{t('booking_live_avail', 'Check live availability and calculate your stay.')}</p>
 
                   {/* Date Pickers */}
                   <div className="mt-6 grid grid-cols-2 gap-4">
                     <div>
-                      <label className="field-label">Check-In Date</label>
+                      <label className="field-label">{t('booking_checkin', 'Check-In Date')}</label>
                       <input
                         type="date"
                         min={today}
@@ -327,7 +322,7 @@ export function BookingModal({
                       />
                     </div>
                     <div>
-                      <label className="field-label">Check-Out Date</label>
+                      <label className="field-label">{t('booking_checkout', 'Check-Out Date')}</label>
                       <input
                         type="date"
                         min={checkIn}
@@ -343,19 +338,19 @@ export function BookingModal({
                     <div className="mt-4 flex items-start gap-3 rounded-lg border border-red-300 bg-red-50 p-3 text-xs text-red-700">
                       <AlertTriangle size={18} className="shrink-0 text-red-500" />
                       <div>
-                        <p className="font-semibold">Selected dates are unavailable</p>
-                        <p className="mt-0.5">This residence has a confirmed reservation on overlapping dates. Please pick alternative dates.</p>
+                        <p className="font-semibold">{t('booking_conflict', 'Selected dates are unavailable')}</p>
+                        <p className="mt-0.5">{t('booking_conflict_desc', 'This residence has a confirmed reservation on overlapping dates. Please pick alternative dates.')}</p>
                       </div>
                     </div>
                   ) : (
                     <div className="mt-4 flex items-center gap-2 text-xs font-medium text-emerald-700">
-                      <CheckCircle2 size={15} /> Residence is available for these dates!
+                      <CheckCircle2 size={15} /> {t('booking_available', 'Residence is available for these dates!')}
                     </div>
                   )}
 
                   {/* Guests */}
                   <div className="mt-5">
-                    <label className="field-label">Number of Guests</label>
+                    <label className="field-label">{t('booking_num_guests', 'Number of Guests')}</label>
                     <select
                       value={guests}
                       onChange={(e) => setGuests(Number(e.target.value))}
@@ -363,7 +358,7 @@ export function BookingModal({
                     >
                       {Array.from({ length: residence.sleeps }, (_, i) => i + 1).map((n) => (
                         <option key={n} value={n}>
-                          {n} {n === 1 ? 'Guest' : 'Guests'} (Max {residence.sleeps})
+                          {n} {n === 1 ? t('booking_guest', 'Guest') : t('booking_guests', 'Guests')} ({t('booking_max', 'Max')} {residence.sleeps})
                         </option>
                       ))}
                     </select>
@@ -371,13 +366,13 @@ export function BookingModal({
 
                   {/* Guest Contact Details */}
                   <div className="mt-6 space-y-4 border-t border-[#263442]/15 pt-5">
-                    <h5 className="font-serif text-lg text-[#263442]">Primary Guest Details</h5>
+                    <h5 className="font-serif text-lg text-[#263442]">{t('booking_primary', 'Primary Guest Details')}</h5>
                     <div>
-                      <label className="field-label">Full Name *</label>
+                      <label className="field-label">{t('booking_name', 'Full Name *')}</label>
                       <input
                         type="text"
                         required
-                        placeholder="e.g. Alexander Wright"
+                        placeholder={t('booking_name_ph', 'e.g. Alexander Wright')}
                         value={guestName}
                         onChange={(e) => setGuestName(e.target.value)}
                         className="field-input mt-1"
@@ -385,22 +380,22 @@ export function BookingModal({
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="field-label">Email Address *</label>
+                        <label className="field-label">{t('booking_email', 'Email Address *')}</label>
                         <input
                           type="email"
                           required
-                          placeholder="name@company.com"
+                          placeholder={t('booking_email_ph', 'name@company.com')}
                           value={guestEmail}
                           onChange={(e) => setGuestEmail(e.target.value)}
                           className="field-input mt-1"
                         />
                       </div>
                       <div>
-                        <label className="field-label">Phone / WhatsApp *</label>
+                        <label className="field-label">{t('booking_phone', 'Phone / WhatsApp *')}</label>
                         <input
                           type="tel"
                           required
-                          placeholder="+971 50 123 4567"
+                          placeholder={t('booking_phone_ph', '+971 50 123 4567')}
                           value={guestPhone}
                           onChange={(e) => setGuestPhone(e.target.value)}
                           className="field-input mt-1"
@@ -408,10 +403,10 @@ export function BookingModal({
                       </div>
                     </div>
                     <div>
-                      <label className="field-label">Special Requests (Optional)</label>
+                      <label className="field-label">{t('booking_special', 'Special Requests (Optional)')}</label>
                       <input
                         type="text"
-                        placeholder="Airport transfer, baby cot, early arrival, etc."
+                        placeholder={t('booking_special_ph', 'Airport transfer, baby cot, early arrival, etc.')}
                         value={specialRequests}
                         onChange={(e) => setSpecialRequests(e.target.value)}
                         className="field-input mt-1"
@@ -426,7 +421,7 @@ export function BookingModal({
                       onClick={() => setStep('payment')}
                       className="btn-fill flex w-full items-center justify-center gap-2 py-4 text-xs font-semibold tracking-wider disabled:opacity-50"
                     >
-                      PROCEED TO PAYMENT & CONFIRMATION <ChevronRight size={16} />
+                      {t('booking_proceed', 'PROCEED TO PAYMENT & CONFIRMATION')} <ChevronRight size={16} />
                     </button>
                     {(!guestName || !guestEmail || !guestPhone) && (
                       <p className="mt-2 text-center text-[11px] text-[#263442]/50">
@@ -439,7 +434,7 @@ export function BookingModal({
                 /* STEP 2: PAYMENT METHOD */
                 <form onSubmit={handleConfirmReservation}>
                   <div className="flex items-center justify-between">
-                    <h4 className="font-serif text-2xl text-[#263442]">Payment Options</h4>
+                    <h4 className="font-serif text-2xl text-[#263442]">{t('booking_pay_options', 'Payment Options')}</h4>
                     <button
                       type="button"
                       onClick={() => setStep('details')}
@@ -461,7 +456,7 @@ export function BookingModal({
                       }`}
                     >
                       <CreditCard size={20} className="mb-1.5" />
-                      <span className="text-[11px]">Pay Online</span>
+                      <span className="text-[11px]">{t('booking_pay_online', 'Pay Online')}</span>
                     </button>
 
                     <button
@@ -474,7 +469,7 @@ export function BookingModal({
                       }`}
                     >
                       <ShieldCheck size={20} className="mb-1.5" />
-                      <span className="text-[11px]">Hold & Pay Later</span>
+                      <span className="text-[11px]">{t('booking_pay_later', 'Hold & Pay Later')}</span>
                     </button>
 
                     <button
@@ -487,7 +482,7 @@ export function BookingModal({
                       }`}
                     >
                       <MessageCircle size={20} className="mb-1.5 text-emerald-600" />
-                      <span className="text-[11px]">WhatsApp Desk</span>
+                      <span className="text-[11px]">{t('booking_whatsapp', 'WhatsApp Desk')}</span>
                     </button>
                   </div>
 
@@ -496,25 +491,25 @@ export function BookingModal({
                     <div className="mt-6 space-y-4 rounded-xl border border-[#263442]/15 bg-white p-5">
                       <div className="flex items-center justify-between text-xs text-[#263442]/60">
                         <span className="flex items-center gap-1 font-medium text-emerald-700">
-                          <Lock size={12} /> 256-Bit SSL Encrypted
+                          <Lock size={12} /> {t('booking_encrypted', '256-Bit SSL Encrypted')}
                         </span>
                         <span className="font-semibold">Visa · Mastercard · Amex</span>
                       </div>
 
                       <div>
-                        <label className="field-label">Name on Card *</label>
+                        <label className="field-label">{t('booking_name_card', 'Name on Card *')}</label>
                         <input
                           type="text"
                           required
                           value={cardName}
                           onChange={(e) => setCardName(e.target.value)}
-                          placeholder="Name as it appears on card"
+                          placeholder={t('booking_name_card_ph', 'Name as it appears on card')}
                           className="field-input mt-1"
                         />
                       </div>
 
                       <div>
-                        <label className="field-label">Card Number *</label>
+                        <label className="field-label">{t('booking_card_num', 'Card Number *')}</label>
                         <input
                           type="text"
                           required
@@ -528,7 +523,7 @@ export function BookingModal({
 
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="field-label">Expires *</label>
+                          <label className="field-label">{t('booking_expires', 'Expires *')}</label>
                           <input
                             type="text"
                             required
@@ -540,7 +535,7 @@ export function BookingModal({
                           />
                         </div>
                         <div>
-                          <label className="field-label">CVC / CVV *</label>
+                          <label className="field-label">{t('booking_cvc', 'CVC / CVV *')}</label>
                           <input
                             type="password"
                             required
@@ -557,12 +552,12 @@ export function BookingModal({
 
                   {paymentMethod === 'arrival' && (
                     <div className="mt-6 rounded-xl border border-[#263442]/15 bg-white p-5 text-sm text-[#263442]/80">
-                      <p className="font-semibold text-[#263442]">Pay Upon Check-in</p>
+                      <p className="font-semibold text-[#263442]">{t('booking_pay_upon', 'Pay Upon Check-in')}</p>
                       <p className="mt-2 text-xs leading-relaxed text-[#263442]/65">
                         Your reservation is instantly confirmed and held under your name. You can pay with Card, Cash, or Bank Wire when you arrive in Dubai. Free cancellation up to 48 hours before check-in.
                       </p>
                       <div className="mt-4">
-                        <label className="field-label">Credit Card Number for Guarantee *</label>
+                        <label className="field-label">{t('booking_guarantee', 'Credit Card Number for Guarantee *')}</label>
                         <input
                           type="text"
                           required
@@ -577,7 +572,7 @@ export function BookingModal({
 
                   {paymentMethod === 'whatsapp' && (
                     <div className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50/70 p-5 text-sm text-emerald-900">
-                      <p className="font-semibold">Direct Concierge Assistance</p>
+                      <p className="font-semibold">{t('booking_concierge', 'Direct Concierge Assistance')}</p>
                       <p className="mt-2 text-xs leading-relaxed text-emerald-800/80">
                         Prefer to speak with our reservations desk directly? Click below to send your reservation details to our WhatsApp team for bespoke invoicing or corporate wire transfers.
                       </p>
@@ -586,7 +581,7 @@ export function BookingModal({
                         onClick={handleWhatsAppBooking}
                         className="mt-4 flex w-full items-center justify-center gap-2 rounded-lg bg-emerald-600 py-3 text-xs font-semibold text-white hover:bg-emerald-700"
                       >
-                        <MessageCircle size={16} /> OPEN CONCIERGE WHATSAPP (+971 54 4937128)
+                        <MessageCircle size={16} /> {t('booking_open_wa', 'OPEN CONCIERGE WHATSAPP (+971 54 4937128)')}
                       </button>
                     </div>
                   )}
@@ -605,13 +600,13 @@ export function BookingModal({
                         className="btn-fill flex w-full items-center justify-center gap-2 py-4 text-xs font-semibold tracking-wider disabled:opacity-50"
                       >
                         {isProcessing ? (
-                          <span>SUBMITTING YOUR BOOKING...</span>
+                          <span>{t('booking_submitting', 'SUBMITTING YOUR BOOKING...')}</span>
                         ) : (
                           <>
                             <Lock size={14} />
                             {paymentMethod === 'card'
-                              ? `REQUEST BOOKING — ${formatPrice(totalAed)}`
-                              : `GUARANTEE & CONFIRM RESERVATION`}
+                              ? `${t('booking_request', 'REQUEST BOOKING — ')}${formatPrice(totalAed)}`
+                              : t('booking_confirm', 'GUARANTEE & CONFIRM RESERVATION')}
                           </>
                         )}
                       </button>
@@ -633,36 +628,36 @@ export function BookingModal({
                   <span className="eyebrow text-[#c56749]">{residence.neighborhood}</span>
                   <h4 className="mt-1 font-serif text-lg font-bold text-[#263442]">{residence.name}</h4>
                   <p className="mt-1 text-xs text-[#263442]/65">
-                    {residence.bedrooms} Bedrooms · {residence.bathrooms} Bathrooms · Sleeps {residence.sleeps}
+                    {residence.bedrooms} {t('listings_beds', 'Beds')} · {residence.bathrooms} {t('listing_baths', 'Baths')} · {t('listings_sleeps', 'Sleeps')} {residence.sleeps}
                   </p>
                 </div>
               </div>
 
               {/* Price Calculation Box */}
               <div className="mt-6">
-                <h5 className="font-serif text-base text-[#263442]">Price Summary</h5>
+                <h5 className="font-serif text-base text-[#263442]">{t('booking_summary', 'Price Summary')}</h5>
                 <div className="mt-4 space-y-2.5 text-xs text-[#263442]/80">
                   <div className="flex justify-between">
                     <span>
-                      {formatPrice(residence.pricePerNightAed)} × {calculatedNights} nights
+                      {formatPrice(residence.pricePerNightAed)} × {calculatedNights} {t('booking_nights', 'nights')}
                     </span>
                     <span className="font-medium">{formatPrice(basePriceAed)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Departure Housekeeping & Linen Fee</span>
+                    <span>{t('booking_cleaning', 'Departure Housekeeping & Linen Fee')}</span>
                     <span className="font-medium">{formatPrice(residence.cleaningFeeAed)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Dubai Tourism Dirham Fee</span>
+                    <span>{t('booking_tourism', 'Dubai Tourism Dirham Fee')}</span>
                     <span className="font-medium">{formatPrice(tourismFeeAed)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>UAE Value Added Tax (5% VAT)</span>
+                    <span>{t('booking_vat', 'UAE Value Added Tax (5% VAT)')}</span>
                     <span className="font-medium">{formatPrice(vatAed)}</span>
                   </div>
 
                   <div className="mt-4 border-t border-[#263442]/20 pt-4 flex items-baseline justify-between text-base font-bold text-[#263442]">
-                    <span>Total Due</span>
+                    <span>{t('booking_total', 'Total Due')}</span>
                     <span className="font-serif text-xl text-[#c56749]">{formatPrice(totalAed)}</span>
                   </div>
                 </div>
@@ -671,13 +666,13 @@ export function BookingModal({
               {/* Inclusion highlights */}
               <div className="mt-6 border-t border-[#263442]/15 pt-5 text-xs text-[#263442]/70 space-y-2">
                 <p className="flex items-center gap-2">
-                  <Sparkles size={14} className="text-[#c56749]" /> Included: High-speed Wi-Fi & Nespresso
+                  <Sparkles size={14} className="text-[#c56749]" /> {t('booking_incl1', 'Included: High-speed Wi-Fi & Nespresso')}
                 </p>
                 <p className="flex items-center gap-2">
-                  <ShieldCheck size={14} className="text-[#c56749]" /> 24/7 Local Concierge & Keyless Entry
+                  <ShieldCheck size={14} className="text-[#c56749]" /> {t('booking_incl2', '24/7 Local Concierge & Keyless Entry')}
                 </p>
                 <p className="flex items-center gap-2">
-                  <Info size={14} className="text-[#c56749]" /> Free cancellation up to 48 hours before stay
+                  <Info size={14} className="text-[#c56749]" /> {t('booking_incl3', 'Free cancellation up to 48 hours before stay')}
                 </p>
               </div>
             </div>

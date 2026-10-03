@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Calendar, ChevronDown, MapPin, Search, Users, DollarSign } from 'lucide-react';
 import { AED_TO_USD_RATE } from '@/data/residences';
 
@@ -8,13 +9,14 @@ interface SearchProps {
     checkIn: string;
     checkOut: string;
     guests: number;
-    currency: 'AED' | 'USD';
+    currency: string;
   }) => void;
-  currency: 'AED' | 'USD';
-  setCurrency: (c: 'AED' | 'USD') => void;
+  currency: string;
+  setCurrency: (c: string) => void;
 }
 
 export function SearchAvailabilityBar({ onSearch, currency, setCurrency }: SearchProps) {
+  const { t } = useTranslation();
   // Default to upcoming dates
   const today = new Date();
   const defaultCheckIn = new Date(today.setDate(today.getDate() + 3)).toISOString().split('T')[0];
@@ -42,7 +44,7 @@ export function SearchAvailabilityBar({ onSearch, currency, setCurrency }: Searc
           {/* Destination */}
           <div className="flex flex-col justify-center border-b border-[#263442]/15 pb-2 sm:border-b-0 sm:border-r sm:pr-4">
             <span className="eyebrow flex items-center gap-1.5 text-[10px] text-[#c56749]">
-              <MapPin size={12} /> Destination
+              <MapPin size={12} /> {t('search_destination')}
             </span>
             <select
               value={neighborhood}
@@ -50,7 +52,7 @@ export function SearchAvailabilityBar({ onSearch, currency, setCurrency }: Searc
               className="mt-1 bg-transparent text-sm font-semibold text-[#263442] outline-none"
               data-testid="select-destination"
             >
-              <option value="All">All Dubai</option>
+              <option value="All">{t('search_all_dubai')}</option>
               <option value="Bluewaters Island">Bluewaters Island</option>
               <option value="Business Bay">Business Bay</option>
               <option value="Downtown Dubai">Downtown Dubai</option>
@@ -63,7 +65,7 @@ export function SearchAvailabilityBar({ onSearch, currency, setCurrency }: Searc
           {/* Check-In */}
           <div className="flex flex-col justify-center border-b border-[#263442]/15 pb-2 sm:border-b-0 sm:border-r sm:pr-4">
             <span className="eyebrow flex items-center gap-1.5 text-[10px] text-[#c56749]">
-              <Calendar size={12} /> Check-In
+              <Calendar size={12} /> {t('search_checkin')}
             </span>
             <input
               type="date"
@@ -85,7 +87,7 @@ export function SearchAvailabilityBar({ onSearch, currency, setCurrency }: Searc
           {/* Check-Out */}
           <div className="flex flex-col justify-center border-b border-[#263442]/15 pb-2 lg:border-r lg:pr-4">
             <span className="eyebrow flex items-center gap-1.5 text-[10px] text-[#c56749]">
-              <Calendar size={12} /> Check-Out
+              <Calendar size={12} /> {t('search_checkout')}
             </span>
             <input
               type="date"
@@ -97,20 +99,12 @@ export function SearchAvailabilityBar({ onSearch, currency, setCurrency }: Searc
             />
           </div>
 
-          {/* Guests & Currency */}
+          {/* Guests */}
           <div className="flex flex-col justify-center border-b border-[#263442]/15 pb-2 sm:border-b-0 sm:border-r sm:pr-4">
             <div className="flex items-center justify-between">
               <span className="eyebrow flex items-center gap-1 text-[10px] text-[#c56749]">
-                <Users size={12} /> Guests
+                <Users size={12} /> {t('search_guests')}
               </span>
-              <button
-                type="button"
-                onClick={() => setCurrency(currency === 'AED' ? 'USD' : 'AED')}
-                className="rounded border border-[#263442]/20 px-1.5 py-0.5 text-[10px] font-bold text-[#263442] hover:bg-[#263442]/10"
-                title="Toggle currency AED / USD"
-              >
-                {currency}
-              </button>
             </div>
             <select
               value={guests}
@@ -120,7 +114,7 @@ export function SearchAvailabilityBar({ onSearch, currency, setCurrency }: Searc
             >
               {[1, 2, 3, 4, 5, 6, 8, 10].map((n) => (
                 <option key={n} value={n}>
-                  {n} {n === 1 ? 'Guest' : 'Guests'}
+                  {n} {n === 1 ? t('search_guest_singular') : t('search_guest_plural')}
                 </option>
               ))}
             </select>
@@ -133,7 +127,7 @@ export function SearchAvailabilityBar({ onSearch, currency, setCurrency }: Searc
               className="btn-fill flex w-full items-center justify-center gap-2 py-3.5 text-xs font-semibold tracking-wider text-[#fbf8f2]"
               data-testid="button-search-availability"
             >
-              <Search size={15} /> CHECK DATES
+              <Search size={15} /> {t('search_button')}
             </button>
           </div>
         </div>
