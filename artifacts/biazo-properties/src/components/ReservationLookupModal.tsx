@@ -42,7 +42,7 @@ export function ReservationLookupModal({ onClose }: LookupProps) {
         </button>
 
         <div className="flex items-center gap-3 mb-2">
-          <img src="/biazo-logo-new.png" alt="Biazo Logo" className="h-16 w-16 md:h-20 md:w-20 rounded-xl object-contain shadow-md" />
+          <img src="/biazo-logo-new.png" alt="Biazo Logo" className="h-14 md:h-16 w-auto object-contain drop-shadow-sm" />
           <p className="eyebrow text-[#c56749]">{t('reservation_eyebrow', 'Guest Access')}</p>
         </div>
         <h3 className="font-serif text-3xl">{t('reservation_title', 'Find Your Reservation')}</h3>

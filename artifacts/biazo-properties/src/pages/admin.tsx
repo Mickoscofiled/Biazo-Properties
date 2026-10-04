@@ -89,7 +89,7 @@ function LoginScreen({ onLogin }: { onLogin: (token: string, name: string) => vo
     <div className="min-h-screen bg-[#f0ece5] flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="mb-8 text-center">
-          <img src="/biazo-logo-new.png" alt="Biazo Vacation Homes" className="mx-auto h-28 w-28 rounded-2xl object-contain shadow-xl" />
+          <img src="/biazo-logo-new.png" alt="Biazo Vacation Homes" className="mx-auto h-24 md:h-28 w-auto object-contain drop-shadow-xl" />
           <h1 className="mt-4 font-serif text-3xl text-[#263442]">Owner Admin</h1>
           <p className="mt-1 text-sm text-[#263442]/60">Biazo Vacation Homes — Secure Management Portal</p>
         </div>
@@ -590,7 +590,7 @@ export default function Admin() {
       <header className="sticky top-0 z-30 border-b border-[#263442]/10 bg-[#263442] px-6 py-4 text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <div className="flex items-center gap-4">
-            <img src="/biazo-logo-new.png" alt="Biazo Logo" className="h-14 w-14 rounded-xl object-contain shadow-md" />
+            <img src="/biazo-logo-new.png" alt="Biazo Logo" className="h-12 w-auto object-contain drop-shadow-sm" />
             <div>
               <p className="text-xs font-semibold tracking-widest text-white/60">BIAZO VACATION HOMES</p>
               <p className="text-sm font-semibold">Admin Dashboard</p>

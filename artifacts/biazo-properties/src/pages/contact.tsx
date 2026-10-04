@@ -12,7 +12,7 @@ function ContactHeader() {
     <header className="relative z-20 border-b border-[#1d3340]/15 bg-[#f3eee2]/90 backdrop-blur-md" data-testid="header-contact">
       <div className="container-wide flex min-h-[90px] py-2 items-center justify-between">
         <Link href="/" className="flex items-center gap-3" data-testid="link-contact-brand">
-          <img src="/biazo-logo-new.png" alt="Biazo Vacation Homes" className="h-16 w-16 md:h-20 md:w-20 rounded-xl object-contain shadow-md" />
+          <img src="/biazo-logo-new.png" alt="Biazo Vacation Homes" className="h-14 md:h-16 w-auto object-contain drop-shadow-sm" />
           <span className="text-[14px] font-semibold tracking-[.18em]">Biazo <span className="font-normal opacity-60">Vacation Homes</span></span>
         </Link>
         <nav className="hidden items-center gap-8 md:flex" aria-label="Contact page navigation">
@@ -111,7 +111,7 @@ export default function Contact() {
       </main>
       <footer className="bg-[#142633] py-12 text-[#fbfaf4]" data-testid="footer-contact">
         <div className="container-wide flex flex-col justify-between gap-8 md:flex-row md:items-end">
-          <div><Link href="/" className="flex items-center gap-3" data-testid="link-contact-footer-brand"><img src="/biazo-logo-new.png" alt="Biazo Vacation Homes" className="h-20 w-20 md:h-24 md:w-24 rounded-xl object-contain shadow-md" /><span className="text-[14px] font-semibold tracking-[.18em]">Biazo <span className="font-normal opacity-60">Vacation Homes</span></span></Link><p className="mt-5 max-w-xs text-sm leading-6 text-[#fbfaf4]/52">{t('contact_footer_desc', 'Private residences and local perspective, for the way you want to experience Dubai.')}</p></div>
+          <div><Link href="/" className="flex items-center gap-3" data-testid="link-contact-footer-brand"><img src="/biazo-logo-new.png" alt="Biazo Vacation Homes" className="h-20 md:h-24 w-auto object-contain drop-shadow-md" /><span className="text-[14px] font-semibold tracking-[.18em]">Biazo <span className="font-normal opacity-60">Vacation Homes</span></span></Link><p className="mt-5 max-w-xs text-sm leading-6 text-[#fbfaf4]/52">{t('contact_footer_desc', 'Private residences and local perspective, for the way you want to experience Dubai.')}</p></div>
           <div className="flex flex-col items-start gap-3 text-sm text-[#fbfaf4]/65 md:items-end"><a href={whatsappUrl} target="_blank" rel="noreferrer" data-testid="link-contact-footer-whatsapp">WhatsApp +971 54 4937128</a><a href={`mailto:${emailAddress}`} data-testid="link-contact-footer-email">{emailAddress}</a><span data-testid="text-contact-footer-address">{t('contact_dubai_uae')} · {t('contact_po_box')}</span></div>
         </div>
         <div className="container-wide mt-10 border-t border-[#fbfaf4]/15 pt-6 text-[10px] tracking-[.08em] text-[#fbfaf4]/38">© 2025 Biazo Vacation Homes. {t('contact_dubai_uae')}.</div>
