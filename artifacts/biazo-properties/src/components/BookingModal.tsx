@@ -198,7 +198,7 @@ export function BookingModal({
         {/* Modal Top Bar */}
         <div className="flex items-center justify-between border-b border-[#263442]/15 bg-[#263442] px-6 py-4 text-[#fbf8f2]">
           <div className="flex items-center gap-3">
-            <img src="/biazo-logo-new.jpg" alt="Biazo Logo" className="h-20 w-20 rounded-md object-contain bg-black/40 p-0.5 border border-[#dbcdbb]/30 shadow-sm" />
+            <img src="/biazo-logo-new.png" alt="Biazo Logo" className="h-16 w-16 md:h-20 md:w-20 rounded-xl object-contain shadow-md" />
             <div>
               <p className="text-xs font-semibold tracking-widest text-[#dbcdbb]">BIAZO VACATION HOMES</p>
               <h3 className="font-serif text-lg leading-tight text-[#fbf8f2]">{residence.name}</h3>
