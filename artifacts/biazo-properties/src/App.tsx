@@ -285,6 +285,9 @@ function Home() {
           setCurrency={setCurrency}
         />
 
+        {/* THE BIAZO WAY — Brand Philosophy & Benefits */}
+        <Benefits />
+
         {/* FULL RESIDENCE LISTINGS — fetched live from Cloudflare KV */}
         <ResidenceListings
           residences={liveResidences}
@@ -294,7 +297,6 @@ function Home() {
         />
 
         <Neighborhoods />
-        <Benefits />
         <WhyBiazo />
 
         {/* JOIN MEMBERS CTA */}
