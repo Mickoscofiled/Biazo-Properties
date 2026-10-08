@@ -70,25 +70,28 @@ async function fetchLiveRates(): Promise<Record<string, number>> {
     return cached;
   }
 
-  // 3. Fetch from frankfurter.app (ECB rates, updated daily, free, no key needed)
-  //    Base = AED, so 1 AED → X of each currency
+  // 3. Fetch from open.er-api.com (market exchange rates, base AED, supports SAR/USD/EUR/GBP, free, no key needed)
   ratesPromise = (async () => {
     try {
-      const currencies = 'USD,EUR,GBP,SAR';
-      const res = await fetch(
-        `https://api.frankfurter.app/latest?from=AED&to=${currencies}`,
-        { signal: AbortSignal.timeout(4000) }
-      );
+      const res = await fetch('https://open.er-api.com/v6/latest/AED', {
+        signal: AbortSignal.timeout(5000),
+      });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json() as { rates: Record<string, number> };
+      const data = (await res.json()) as { rates?: Record<string, number>; result?: string };
+      if (!data.rates || data.result !== 'success') {
+        throw new Error('Invalid rate response format');
+      }
 
       const rates: Record<string, number> = {
         AED: 1,
-        ...data.rates,
+        USD: data.rates.USD ?? FALLBACK_RATES.USD,
+        EUR: data.rates.EUR ?? FALLBACK_RATES.EUR,
+        GBP: data.rates.GBP ?? FALLBACK_RATES.GBP,
+        SAR: data.rates.SAR ?? FALLBACK_RATES.SAR,
       };
 
       saveCachedRates(rates);
-      console.log('[Biazo FX] Live rates loaded:', rates);
+      console.log('[Biazo FX] Live rates loaded successfully:', rates);
       return rates;
     } catch (err) {
       console.warn('[Biazo FX] Could not fetch live rates, using fallback.', err);
