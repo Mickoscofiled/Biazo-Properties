@@ -10,6 +10,12 @@ import golfImage from '@assets/generated_images/biazo-golf.jpg';
 import bluewatersImage from '@assets/generated_images/biazo-bluewaters.jpg';
 import businessBayImage from '@assets/generated_images/biazo-businessbay.jpg';
 import downtown2Image from '@assets/generated_images/biazo-downtown2.jpg';
+import deiraImage from '@assets/generated_images/biazo-deira.jpg';
+import jvcImage from '@assets/generated_images/biazo-jvc.jpg';
+import jumeirahImage from '@assets/generated_images/biazo-jumeirah.jpg';
+import jbrImage from '@assets/generated_images/biazo-jbr.jpg';
+import szrImage from '@assets/generated_images/biazo-szr.jpg';
+import alBarshaImage from '@assets/generated_images/biazo-albarsha.jpg';
 
 export interface Residence {
   id: string;
@@ -353,9 +359,10 @@ export const residences: Residence[] = [
     reviewsCount: 128,
     description: 'Stylish modern suites in the vibrant Jumeirah Village Circle community. Enjoy resort-style amenities including a rooftop pool, fitness centre, and easy access to Dubai\'s key business and leisure hubs. Perfect for both short stays and extended visits.',
     images: [
-      { url: livingImage, caption: 'Modern suite living area' },
-      { url: bedroomImage, caption: 'Comfortable king bedroom' },
-      { url: poolImage, caption: 'Rooftop pool & sun deck' },
+      { url: jvcImage, caption: 'Jumeirah Village Circle & rooftop pool' },
+      { url: bedroomImage, caption: 'Contemporary king suite' },
+      { url: poolImage, caption: 'Resort pool & sun deck' },
+      { url: livingImage, caption: 'Spacious living salon' }
     ],
     amenities: [
       'Rooftop Pool',
@@ -385,9 +392,10 @@ export const residences: Residence[] = [
     reviewsCount: 214,
     description: 'A smart and comfortable base in the heart of historic Deira, steps from the iconic Dubai Creek, traditional souks, and Al Rigga metro station. Featuring modern rooms, a rooftop pool, and everything you need for an efficient, comfortable stay.',
     images: [
+      { url: deiraImage, caption: 'Dubai Creek & Deira waterfront' },
       { url: bedroomImage, caption: 'Cosy modern room' },
-      { url: heroImage, caption: 'Deira creek neighbourhood' },
       { url: poolImage, caption: 'Rooftop swimming pool' },
+      { url: heroImage, caption: 'Historic Deira panorama' }
     ],
     amenities: [
       'Rooftop Pool',
@@ -417,10 +425,10 @@ export const residences: Residence[] = [
     reviewsCount: 97,
     description: 'A premium Radisson Blu property offering stunning views of the Dubai Water Canal in the bustling Business Bay district. Featuring spacious rooms, a rooftop infinity pool, world-class dining, and proximity to Downtown Dubai and the Dubai Mall.',
     images: [
-      { url: businessBayImage, caption: 'Canal view from the hotel' },
+      { url: businessBayImage, caption: 'Dubai Water Canal & Business Bay' },
       { url: livingImage, caption: 'Elegant suite lounge' },
       { url: poolImage, caption: 'Rooftop infinity pool' },
-      { url: bedroomImage, caption: 'Deluxe king room' },
+      { url: bedroomImage, caption: 'Deluxe king room' }
     ],
     amenities: [
       'Dubai Water Canal Views',
@@ -450,10 +458,10 @@ export const residences: Residence[] = [
     reviewsCount: 143,
     description: 'Located in the thriving Barsha Heights (TECOM) business hub, this Radisson Blu property is the ideal base for business and leisure guests alike. Enjoy elegant rooms, a rooftop pool with panoramic city views, and seamless connectivity to Media City, Internet City, and JBR.',
     images: [
-      { url: futureCityImage, caption: 'City views from Barsha Heights' },
+      { url: alBarshaImage, caption: 'Barsha Heights & city skyline' },
       { url: bedroomImage, caption: 'Spacious Radisson Blu room' },
       { url: poolImage, caption: 'Rooftop pool with city views' },
-      { url: livingImage, caption: 'Suite lounge area' },
+      { url: szrImage, caption: 'Modern urban backdrop' }
     ],
     amenities: [
       'Rooftop Pool & Sundeck',
@@ -483,9 +491,10 @@ export const residences: Residence[] = [
     reviewsCount: 176,
     description: 'A well-established full-service hotel in Al Rigga, Deira — one of Dubai\'s most authentic and vibrant districts. Walking distance to the Dubai Creek, Gold Souk, Spice Souk, and Al Rigga Metro Station. Features dining, pool, and friendly Wyndham hospitality.',
     images: [
+      { url: deiraImage, caption: 'Deira Gold Souk & Creek area' },
       { url: bedroomImage, caption: 'Comfortable guest room' },
       { url: poolImage, caption: 'Outdoor swimming pool' },
-      { url: heroImage, caption: 'Deira neighbourhood' },
+      { url: livingImage, caption: 'Welcoming lobby & lounge' }
     ],
     amenities: [
       'Outdoor Swimming Pool',
@@ -515,9 +524,10 @@ export const residences: Residence[] = [
     reviewsCount: 201,
     description: 'The ideal choice for transit travellers and early-morning or late-night arrivals. Offering the signature Hampton by Hilton comfort with clean, modern rooms, complimentary breakfast, an outdoor pool, and just minutes from Terminal 1 and Terminal 3 of Dubai International Airport.',
     images: [
+      { url: szrImage, caption: 'Dubai International Airport corridor' },
       { url: bedroomImage, caption: 'Clean, comfortable Hampton room' },
-      { url: poolImage, caption: 'Outdoor pool' },
-      { url: livingImage, caption: 'Relaxed common area' },
+      { url: poolImage, caption: 'Outdoor swimming pool' },
+      { url: livingImage, caption: 'Relaxed dining area' }
     ],
     amenities: [
       'Complimentary Hot Breakfast',
@@ -547,10 +557,10 @@ export const residences: Residence[] = [
     reviewsCount: 89,
     description: 'A Tribute Portfolio Hotel that brings a fresh, design-forward hospitality concept to JVC. Featuring a spectacular rooftop pool and bar, contemporary rooms with local artwork, and a vibrant food and beverage scene. Part of the Marriott Bonvoy portfolio.',
     images: [
-      { url: futureCityImage, caption: 'Rooftop views across JVC' },
-      { url: poolImage, caption: 'Rooftop pool & bar' },
-      { url: bedroomImage, caption: 'Design-forward bedroom' },
-      { url: livingImage, caption: 'Stylish living area' },
+      { url: jvcImage, caption: 'The First Collection JVC rooftop view' },
+      { url: poolImage, caption: 'Rooftop pool & terrace bar' },
+      { url: bedroomImage, caption: 'Design-forward guest room' },
+      { url: livingImage, caption: 'Stylish boutique lounge' }
     ],
     amenities: [
       'Rooftop Pool & Bar',
@@ -580,10 +590,10 @@ export const residences: Residence[] = [
     reviewsCount: 112,
     description: 'A landmark property on Jumeirah Beach Road offering the quintessential Dubai beach holiday. Guests enjoy access to a private beach, outdoor pool, a variety of restaurants, and the iconic location that is central to everything Jumeirah has to offer. IHG Rewards recognised.',
     images: [
+      { url: jumeirahImage, caption: 'Jumeirah Beach Road & Gulf view' },
       { url: beachImage, caption: 'Private beach access' },
       { url: poolImage, caption: 'Outdoor swimming pool' },
-      { url: bedroomImage, caption: 'Elegant Crowne Plaza room' },
-      { url: terraceImage, caption: 'Poolside terrace' },
+      { url: bedroomImage, caption: 'Elegant Crowne Plaza room' }
     ],
     amenities: [
       'Private Beach Access',
@@ -613,9 +623,10 @@ export const residences: Residence[] = [
     reviewsCount: 283,
     description: 'An ibis Styles property bursting with colour and personality, ideally located near Dubai International Airport. Offering comfortable rooms with complimentary breakfast, a pool, and everything you need for a smooth transit stay or budget-friendly Dubai trip.',
     images: [
+      { url: szrImage, caption: 'Dubai Airport area & modern city' },
       { url: bedroomImage, caption: 'Colourful ibis Styles room' },
-      { url: poolImage, caption: 'Outdoor pool' },
-      { url: heroImage, caption: 'Airport area location' },
+      { url: poolImage, caption: 'Outdoor swimming pool' },
+      { url: livingImage, caption: 'Vibrant breakfast lounge' }
     ],
     amenities: [
       'Complimentary Breakfast',
@@ -645,10 +656,10 @@ export const residences: Residence[] = [
     reviewsCount: 167,
     description: 'A reliable Novotel property in Al Barsha, directly connected to the Mall of the Emirates and a short walk to the metro. Offering spacious rooms, a rooftop pool, fitness centre, and the signature Novotel dining experience — ideal for families and business travellers.',
     images: [
-      { url: livingImage, caption: 'Spacious Novotel room' },
+      { url: alBarshaImage, caption: 'Al Barsha & Mall of the Emirates area' },
       { url: poolImage, caption: 'Rooftop pool & sundeck' },
       { url: bedroomImage, caption: 'King-bedded guest room' },
-      { url: futureCityImage, caption: 'Al Barsha city views' },
+      { url: livingImage, caption: 'Spacious Novotel salon' }
     ],
     amenities: [
       'Connected to Mall of the Emirates',
@@ -678,10 +689,10 @@ export const residences: Residence[] = [
     reviewsCount: 155,
     description: 'The Hilton Garden Inn brings reliable upscale comfort to the heart of Deira. Guests enjoy spacious, modern rooms, an outdoor pool, and easy access to Dubai Creek, the souks, and Al Rigga metro. A great base for exploring Dubai\'s historic and modern sides alike.',
     images: [
+      { url: deiraImage, caption: 'Deira Creek & historic district' },
       { url: bedroomImage, caption: 'Hilton Garden Inn guest room' },
       { url: poolImage, caption: 'Outdoor swimming pool' },
-      { url: heroImage, caption: 'Deira neighbourhood views' },
-      { url: livingImage, caption: 'Comfortable lounge area' },
+      { url: livingImage, caption: 'The Garden Grille lounge' }
     ],
     amenities: [
       'Outdoor Pool',
@@ -711,10 +722,10 @@ export const residences: Residence[] = [
     reviewsCount: 76,
     description: 'An Edge by Rotana property nestled within the green master-planned community of DAMAC Hills 2. Enjoy a tranquil resort-like atmosphere with multiple pools, tennis courts, and beautifully landscaped surroundings — ideal for families seeking space and calm away from the city centre.',
     images: [
-      { url: golfImage, caption: 'Lush community greenery' },
-      { url: poolImage, caption: 'Community pool complex' },
+      { url: golfImage, caption: 'DAMAC Hills 2 lush green parklands' },
+      { url: poolImage, caption: 'Resort pool complex' },
       { url: bedroomImage, caption: 'Comfortable Edge by Rotana room' },
-      { url: terraceImage, caption: 'Relaxing outdoor terrace' },
+      { url: terraceImage, caption: 'Relaxing outdoor garden terrace' }
     ],
     amenities: [
       'Multiple Swimming Pools',
@@ -744,10 +755,10 @@ export const residences: Residence[] = [
     reviewsCount: 189,
     description: 'One of Dubai\'s most iconic hotels, the Hyatt Regency Dubai stands tall on the Corniche waterfront with sweeping views of the Arabian Gulf, Deira skyline, and Dubai Creek. Enjoy an array of world-class dining, a private beach, stunning pool deck, and World of Hyatt recognition.',
     images: [
-      { url: beachImage, caption: 'Corniche waterfront & private beach' },
-      { url: poolImage, caption: 'Pool deck with Gulf views' },
-      { url: bedroomImage, caption: 'Panoramic Gulf-view room' },
-      { url: heroImage, caption: 'Corniche waterfront promenade' },
+      { url: deiraImage, caption: 'Deira Corniche waterfront & dhow harbour' },
+      { url: beachImage, caption: 'Corniche private beach access' },
+      { url: poolImage, caption: 'Pool deck overlooking the Gulf' },
+      { url: bedroomImage, caption: 'Panoramic Gulf-view room' }
     ],
     amenities: [
       'Private Beach Access',
@@ -777,9 +788,10 @@ export const residences: Residence[] = [
     reviewsCount: 94,
     description: 'Well-appointed hotel apartments in the heart of Barsha Heights (TECOM), offering the flexibility of a home with the services of a hotel. Spacious fully-furnished units with kitchens, a rooftop pool, and excellent proximity to Media City, Internet City, and Dubai Marina.',
     images: [
-      { url: livingImage, caption: 'Fully furnished apartment living area' },
+      { url: alBarshaImage, caption: 'Barsha Heights TECOM skyline' },
+      { url: livingImage, caption: 'Fully furnished apartment living room' },
       { url: bedroomImage, caption: 'Comfortable king bedroom' },
-      { url: poolImage, caption: 'Rooftop pool' },
+      { url: poolImage, caption: 'Rooftop pool' }
     ],
     amenities: [
       'Fully Equipped Kitchen',
@@ -809,10 +821,10 @@ export const residences: Residence[] = [
     reviewsCount: 134,
     description: 'The voco Dubai The Palm combines IHG\'s signature relaxed luxury with an unbeatable Palm Jumeirah address. Enjoy spectacular Arabian Gulf views, a stunning beach club, outdoor pools, and world-class dining — all infused with voco\'s playful, spirited personality.',
     images: [
-      { url: beachImage, caption: 'Private beach club on the Palm' },
+      { url: beachImage, caption: 'Palm Jumeirah private beach club' },
       { url: poolImage, caption: 'Outdoor infinity pool with Gulf views' },
       { url: bedroomImage, caption: 'Contemporary voco suite' },
-      { url: terraceImage, caption: 'Sunset terrace overlooking the Gulf' },
+      { url: terraceImage, caption: 'Sunset terrace overlooking the Palm' }
     ],
     amenities: [
       'Private Beach Club',
@@ -842,9 +854,10 @@ export const residences: Residence[] = [
     reviewsCount: 68,
     description: 'A charming and welcoming hotel tucked in the heart of Bur Dubai — one of the city\'s most culturally rich neighbourhoods. Guests are steps away from the Dubai Museum, Textile Souk, and Dubai Creek abra crossing. Clean, comfortable rooms and warm hospitality at a great value.',
     images: [
+      { url: deiraImage, caption: 'Historic Bur Dubai & Creek waterfront' },
       { url: bedroomImage, caption: 'Comfortable guest room' },
-      { url: heroImage, caption: 'Bur Dubai & Creek views' },
-      { url: livingImage, caption: 'Hotel common area' },
+      { url: livingImage, caption: 'Welcoming lobby lounge' },
+      { url: heroImage, caption: 'Bur Dubai cultural district' }
     ],
     amenities: [
       'Free Wi-Fi',
@@ -874,10 +887,10 @@ export const residences: Residence[] = [
     reviewsCount: 112,
     description: 'Conveniently positioned on iconic Sheikh Zayed Road, The Tower Plaza Hotel offers easy access to Dubai\'s financial centre, Dubai Mall, and Downtown Dubai. Featuring city-view rooms, a rooftop pool, fitness centre, and multiple dining options — a smart choice for business and leisure.',
     images: [
-      { url: futureCityImage, caption: 'Sheikh Zayed Road skyline' },
+      { url: szrImage, caption: 'Sheikh Zayed Road iconic skyline' },
       { url: bedroomImage, caption: 'City-view guest room' },
-      { url: poolImage, caption: 'Rooftop pool' },
-      { url: livingImage, caption: 'Comfortable lounge area' },
+      { url: poolImage, caption: 'Rooftop infinity pool' },
+      { url: futureCityImage, caption: 'Panoramic city vista' }
     ],
     amenities: [
       'Panoramic City Views',
@@ -907,10 +920,10 @@ export const residences: Residence[] = [
     reviewsCount: 223,
     description: 'A sophisticated Sheraton property positioned at the heart of The Walk at JBR — Dubai\'s iconic beachside promenade. Steps from Jumeirah Beach, world-class restaurants, and vibrant retail, with beautiful sea views, an outdoor pool terrace, and the legendary Sheraton service.',
     images: [
-      { url: beachImage, caption: 'JBR beach & The Walk promenade' },
+      { url: jbrImage, caption: 'The Walk at JBR beachfront promenade' },
+      { url: beachImage, caption: 'JBR beach at golden hour' },
       { url: poolImage, caption: 'Outdoor pool with sea views' },
-      { url: bedroomImage, caption: 'Contemporary Sheraton suite' },
-      { url: terraceImage, caption: 'Sea-view terrace at sunset' },
+      { url: bedroomImage, caption: 'Contemporary Sheraton suite' }
     ],
     amenities: [
       'Steps to JBR Beach',
@@ -940,10 +953,10 @@ export const residences: Residence[] = [
     reviewsCount: 148,
     description: 'A modern aparthotel concept from Accor, offering generously sized suites with kitchenettes and direct access to Mall Avenue on Sheikh Zayed Road. Ideal for extended stays, families, and business travellers who want the flexibility of apartment living with full hotel services.',
     images: [
+      { url: szrImage, caption: 'Sheikh Zayed Road & Mall Avenue' },
       { url: livingImage, caption: 'Spacious suite with kitchenette' },
       { url: bedroomImage, caption: 'Comfortable king bedroom' },
-      { url: futureCityImage, caption: 'Sheikh Zayed Road views' },
-      { url: poolImage, caption: 'Rooftop pool & terrace' },
+      { url: poolImage, caption: 'Rooftop pool & terrace' }
     ],
     amenities: [
       'Direct Mall Avenue Access',

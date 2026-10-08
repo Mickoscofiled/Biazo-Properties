@@ -75,6 +75,15 @@ export function ResidenceListings({
     'Bur Dubai',
   ];
 
+  const scrollContainerRef = useState<HTMLDivElement | null>(null);
+
+  const scrollFilters = (direction: 'left' | 'right') => {
+    const el = document.getElementById('neighborhood-filter-scroll');
+    if (el) {
+      el.scrollBy({ left: direction === 'left' ? -250 : 250, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="all-residences" className="container-wide py-20 md:py-28" data-testid="section-all-residences">
       <div className="flex flex-col gap-6 border-b border-[#263442]/15 pb-8">
@@ -88,25 +97,63 @@ export function ResidenceListings({
               {t('listings_sub')}
             </p>
           </div>
+          <div className="text-xs font-semibold text-[#263442]/60">
+            Showing <span className="text-[#263442] font-bold">{filtered.length}</span> residences
+          </div>
         </div>
 
-        {/* Filter buttons — horizontally scrollable */}
-        <div className="overflow-x-auto pb-1 -mx-1">
-          <div className="flex gap-2 px-1 w-max">
-            {neighborhoods.map((loc) => (
-              <button
-                key={loc}
-                onClick={() => setSelectedFilter(loc)}
-                className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold tracking-wider transition-all ${
-                  selectedFilter === loc
-                    ? 'bg-[#263442] text-[#fbf8f2]'
-                    : 'border border-[#263442]/20 text-[#263442] hover:bg-[#263442]/10'
-                }`}
-              >
-                {loc === 'All' ? t('listings_all') : loc}
-              </button>
-            ))}
+        {/* Filter buttons — smooth scrollable with hidden scrollbar and optional arrow buttons */}
+        <div className="relative flex items-center group">
+          <button
+            onClick={() => scrollFilters('left')}
+            className="hidden md:flex absolute -left-3 z-10 h-8 w-8 items-center justify-center rounded-full bg-white shadow-md border border-[#263442]/15 text-[#263442] opacity-80 hover:opacity-100 hover:scale-105 transition-all"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft size={16} />
+          </button>
+
+          <div
+            id="neighborhood-filter-scroll"
+            className="flex gap-2 overflow-x-auto py-1 px-1 w-full [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden scroll-smooth"
+          >
+            {neighborhoods.map((loc) => {
+              const count = loc === 'All'
+                ? residences.length
+                : residences.filter((r) => r.neighborhood === loc).length;
+
+              return (
+                <button
+                  key={loc}
+                  onClick={() => setSelectedFilter(loc)}
+                  className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold tracking-wider transition-all duration-200 flex items-center gap-1.5 ${
+                    selectedFilter === loc
+                      ? 'bg-[#263442] text-[#fbf8f2] shadow-sm'
+                      : 'border border-[#263442]/20 bg-white/70 text-[#263442] hover:bg-[#263442]/10'
+                  }`}
+                  data-testid={`filter-${loc.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  <span>{loc === 'All' ? t('listings_all', 'All Locations') : loc}</span>
+                  <span
+                    className={`rounded-full px-1.5 py-0.2 text-[10px] ${
+                      selectedFilter === loc
+                        ? 'bg-white/20 text-[#fbf8f2]'
+                        : 'bg-[#263442]/10 text-[#263442]/70'
+                    }`}
+                  >
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
+
+          <button
+            onClick={() => scrollFilters('right')}
+            className="hidden md:flex absolute -right-3 z-10 h-8 w-8 items-center justify-center rounded-full bg-white shadow-md border border-[#263442]/15 text-[#263442] opacity-80 hover:opacity-100 hover:scale-105 transition-all"
+            aria-label="Scroll right"
+          >
+            <ChevronRight size={16} />
+          </button>
         </div>
       </div>
 
