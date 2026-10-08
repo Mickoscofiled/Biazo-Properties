@@ -31,7 +31,7 @@ export function ResidenceListings({
   onSelectResidence
 }: ListingsProps) {
   const { t } = useTranslation();
-  const [selectedFilter, setSelectedFilter] = useState<'All' | 'Bluewaters Island' | 'Business Bay' | 'Downtown Dubai' | 'Palm Jumeirah' | 'Dubai Marina' | 'Emirates Hills'>('All');
+  const [selectedFilter, setSelectedFilter] = useState<string>('All');
   const [savedIds, setSavedIds] = useState<string[]>([]);
 
   const toggleSave = (id: string, e: React.MouseEvent) => {
@@ -55,34 +55,58 @@ export function ResidenceListings({
     });
   };
 
+  const neighborhoods = [
+    'All',
+    'Downtown Dubai',
+    'Palm Jumeirah',
+    'Dubai Marina',
+    'Business Bay',
+    'Jumeirah Beach Residence',
+    'Jumeirah',
+    'Jumeirah Village Circle',
+    'Bluewaters Island',
+    'Emirates Hills',
+    'Deira',
+    'Barsha Heights',
+    'Al Barsha',
+    'Sheikh Zayed Road',
+    'Dubai Airport',
+    'DAMAC Hills 2',
+    'Bur Dubai',
+  ];
+
   return (
     <section id="all-residences" className="container-wide py-20 md:py-28" data-testid="section-all-residences">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#263442]/15 pb-8">
-        <div>
-          <p className="eyebrow text-[#c56749]">{t('listings_eyebrow')}</p>
-          <h2 className="mt-2 font-serif text-3xl md:text-5xl text-[#263442]">
-            {t('listings_title')}
-          </h2>
-          <p className="mt-2 text-sm text-[#263442]/65 max-w-xl">
-            {t('listings_sub')}
-          </p>
+      <div className="flex flex-col gap-6 border-b border-[#263442]/15 pb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <p className="eyebrow text-[#c56749]">{t('listings_eyebrow')}</p>
+            <h2 className="mt-2 font-serif text-3xl md:text-5xl text-[#263442]">
+              {t('listings_title')}
+            </h2>
+            <p className="mt-2 text-sm text-[#263442]/65 max-w-xl">
+              {t('listings_sub')}
+            </p>
+          </div>
         </div>
 
-        {/* Filter buttons */}
-        <div className="flex flex-wrap gap-2">
-          {(['All', 'Bluewaters Island', 'Business Bay', 'Downtown Dubai', 'Palm Jumeirah', 'Dubai Marina', 'Emirates Hills'] as const).map((loc) => (
-            <button
-              key={loc}
-              onClick={() => setSelectedFilter(loc)}
-              className={`rounded-full px-4 py-2 text-xs font-semibold tracking-wider transition-all ${
-                selectedFilter === loc
-                  ? 'bg-[#263442] text-[#fbf8f2]'
-                  : 'border border-[#263442]/20 text-[#263442] hover:bg-[#263442]/10'
-              }`}
-            >
-              {loc === 'All' ? t('listings_all') : loc}
-            </button>
-          ))}
+        {/* Filter buttons — horizontally scrollable */}
+        <div className="overflow-x-auto pb-1 -mx-1">
+          <div className="flex gap-2 px-1 w-max">
+            {neighborhoods.map((loc) => (
+              <button
+                key={loc}
+                onClick={() => setSelectedFilter(loc)}
+                className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold tracking-wider transition-all ${
+                  selectedFilter === loc
+                    ? 'bg-[#263442] text-[#fbf8f2]'
+                    : 'border border-[#263442]/20 text-[#263442] hover:bg-[#263442]/10'
+                }`}
+              >
+                {loc === 'All' ? t('listings_all') : loc}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
