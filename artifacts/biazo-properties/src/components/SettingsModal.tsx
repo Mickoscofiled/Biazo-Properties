@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useSettings, Currency, Language } from '@/context/SettingsContext';
-import { X, Globe, DollarSign, Check, RefreshCw } from 'lucide-react';
+import { useSettings, Currency } from '@/context/SettingsContext';
+import { X, DollarSign, Check, RefreshCw } from 'lucide-react';
 import { ratesAreLive } from '@/lib/utils';
 import { useTranslation } from 'react-i18next';
 
@@ -17,17 +17,8 @@ const CURRENCIES: { code: Currency; name: string; symbol: string }[] = [
   { code: 'SAR', name: 'Saudi Riyal', symbol: '﷼' },
 ];
 
-const LANGUAGES: { code: Language; name: string; native: string; flag: string }[] = [
-  { code: 'en', name: 'English', native: 'English', flag: '🇬🇧' },
-  { code: 'ar', name: 'Arabic', native: 'العربية', flag: '🇦🇪' },
-  { code: 'fr', name: 'French', native: 'Français', flag: '🇫🇷' },
-  { code: 'de', name: 'German', native: 'Deutsch', flag: '🇩🇪' },
-  { code: 'ru', name: 'Russian', native: 'Русский', flag: '🇷🇺' },
-  { code: 'zh', name: 'Chinese', native: '中文', flag: '🇨🇳' },
-];
-
 export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
-  const { currency, setCurrency, language, setLanguage } = useSettings();
+  const { currency, setCurrency } = useSettings();
   const { t } = useTranslation();
   const [isLive, setIsLive] = useState(ratesAreLive());
   const [lastUpdated, setLastUpdated] = useState<string>('');
@@ -59,16 +50,16 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
       role="dialog"
       aria-modal="true"
-      aria-label={t('settings_title')}
+      aria-label="Currency Preferences"
     >
       <div className="relative w-full max-w-sm max-h-[90vh] overflow-y-auto overflow-x-hidden rounded-2xl bg-[#fbf8f2] shadow-2xl text-[#263442]">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-[#263442]/10 bg-[#263442] px-6 py-4 text-[#fbf8f2]">
           <div className="flex items-center gap-3">
-            <Globe size={18} className="text-[#dbcdbb]" />
+            <DollarSign size={18} className="text-[#dbcdbb]" />
             <div>
               <p className="text-[10px] font-semibold tracking-widest text-[#dbcdbb] uppercase">{t('settings_preferences', 'PREFERENCES')}</p>
-              <h3 className="font-serif text-base leading-tight">{t('settings_title')}</h3>
+              <h3 className="font-serif text-base leading-tight">Currency</h3>
             </div>
           </div>
           <button
@@ -81,38 +72,11 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
         </div>
 
         <div className="p-6 space-y-6">
-          {/* Language */}
-          <div>
-            <p className="eyebrow mb-3 text-[10px] text-[#c56749] flex items-center gap-1.5">
-              <Globe size={12} /> {t('settings_language')}
-            </p>
-            <div className="grid grid-cols-2 gap-2">
-              {LANGUAGES.map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => setLanguage(lang.code)}
-                  className={`flex items-center gap-2.5 rounded-xl border px-3 py-2.5 text-left text-xs transition-all ${
-                    language === lang.code
-                      ? 'border-[#263442] bg-[#263442] text-[#fbf8f2]'
-                      : 'border-[#263442]/15 bg-white hover:border-[#263442]/30 hover:bg-[#263442]/5'
-                  }`}
-                >
-                  <span className="text-base leading-none">{lang.flag}</span>
-                  <div className="min-w-0">
-                    <p className="font-semibold truncate">{lang.native}</p>
-                    <p className={`text-[10px] truncate ${language === lang.code ? 'text-[#fbf8f2]/70' : 'text-[#263442]/50'}`}>{lang.name}</p>
-                  </div>
-                  {language === lang.code && <Check size={12} className="ml-auto shrink-0" />}
-                </button>
-              ))}
-            </div>
-          </div>
-
           {/* Currency */}
           <div>
             <div className="flex items-center justify-between mb-3">
               <p className="eyebrow text-[10px] text-[#c56749] flex items-center gap-1.5">
-                <DollarSign size={12} /> {t('settings_currency')}
+                <DollarSign size={12} /> {t('settings_currency', 'Currency')}
               </p>
               {isLive ? (
                 <span className="flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[9px] font-semibold text-emerald-700">
@@ -154,7 +118,7 @@ export function SettingsModal({ isOpen, onClose }: SettingsModalProps) {
             onClick={onClose}
             className="btn-fill w-full py-3 text-xs font-semibold tracking-wider"
           >
-            {t('settings_save')}
+            {t('settings_save', 'SAVE')}
           </button>
         </div>
       </div>

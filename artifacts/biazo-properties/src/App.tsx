@@ -40,7 +40,7 @@ import partnersImage from '@assets/generated_images/biazo-partners.jpg';
 import { residences as hardcodedResidences, type Residence, type BookingRecord } from '@/data/residences';
 import { SearchAvailabilityBar } from '@/components/SearchAvailabilityBar';
 import { ResidenceListings } from '@/components/ResidenceListings';
-import { Globe } from 'lucide-react';
+import { Coins } from 'lucide-react';
 import { SettingsProvider, useSettings } from '@/context/SettingsContext';
 import { useTranslation } from 'react-i18next';
 
@@ -93,6 +93,7 @@ function useMeta() {
 function Header({ onMyReservation, onOpenSettings }: { onJoin?: () => void; onMyReservation: () => void; onOpenSettings: () => void }) {
   const [scrolled, setScrolled] = useState(false);
   const { t } = useTranslation();
+  const { currency } = useSettings();
   const [open, setOpen] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 36);
@@ -118,8 +119,9 @@ function Header({ onMyReservation, onOpenSettings }: { onJoin?: () => void; onMy
           <Link href="/contact" className="nav-link" data-testid="link-nav-contact">{t('nav_contact')}</Link>
         </nav>
         <div className="hidden items-center gap-5 lg:flex">
-          <button onClick={onOpenSettings} className="flex items-center hover:opacity-70 transition-opacity" aria-label="Language and Currency">
-            <Globe size={18} />
+          <button onClick={onOpenSettings} className="flex items-center gap-1.5 rounded-full border border-current/20 px-2.5 py-1 text-[11px] font-semibold tracking-wider hover:opacity-75 transition-all" aria-label="Currency Preferences" data-testid="button-currency-selector">
+            <Coins size={14} strokeWidth={1.5} />
+            <span>{currency}</span>
           </button>
           <button onClick={onMyReservation} className="flex items-center gap-2 text-[12px] font-medium" data-testid="button-my-reservation">
             <CalendarSearch size={16} strokeWidth={1.5} /> {t('nav_find_reservation')}
@@ -127,8 +129,9 @@ function Header({ onMyReservation, onOpenSettings }: { onJoin?: () => void; onMy
           <button onClick={() => go('#all-residences')} className="btn-fill px-5 py-3 text-[11px] font-semibold tracking-[.1em]" data-testid="button-find-residence">{t('nav_explore')}</button>
         </div>
         <div className="flex items-center gap-4 lg:hidden">
-          <button onClick={onOpenSettings} aria-label="Language and Currency">
-            <Globe size={20} />
+          <button onClick={onOpenSettings} className="flex items-center gap-1 rounded-full border border-current/20 px-2 py-0.5 text-[10px] font-semibold" aria-label="Currency Preferences">
+            <Coins size={13} strokeWidth={1.5} />
+            <span>{currency}</span>
           </button>
           <button onClick={() => setOpen(!open)} aria-label="Toggle navigation" data-testid="button-mobile-menu">
             {open ? <X size={22} /> : <Menu size={22} />}
