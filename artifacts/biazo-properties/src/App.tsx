@@ -55,9 +55,6 @@ const queryClient = new QueryClient();
 
 const navItems = [
   { key: 'nav_residences', href: '#all-residences' },
-  { key: 'nav_biazo_way', href: '#biazo-way' },
-  { key: 'nav_dubai', href: '#neighborhoods' },
-  { key: 'nav_why_biazo', href: '#why-biazo' },
 ];
 
 const neighborhoodItems = [
@@ -93,7 +90,7 @@ function useMeta() {
   }, []);
 }
 
-function Header({ onJoin, onMyReservation, onOpenSettings }: { onJoin: () => void; onMyReservation: () => void; onOpenSettings: () => void }) {
+function Header({ onMyReservation, onOpenSettings }: { onJoin?: () => void; onMyReservation: () => void; onOpenSettings: () => void }) {
   const [scrolled, setScrolled] = useState(false);
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
@@ -127,7 +124,6 @@ function Header({ onJoin, onMyReservation, onOpenSettings }: { onJoin: () => voi
           <button onClick={onMyReservation} className="flex items-center gap-2 text-[12px] font-medium" data-testid="button-my-reservation">
             <CalendarSearch size={16} strokeWidth={1.5} /> {t('nav_find_reservation')}
           </button>
-          <button onClick={onJoin} className="flex items-center gap-2 text-[12px]" data-testid="button-member-access"><CircleUserRound size={16} strokeWidth={1.5} /> {t('nav_member')}</button>
           <button onClick={() => go('#all-residences')} className="btn-fill px-5 py-3 text-[11px] font-semibold tracking-[.1em]" data-testid="button-find-residence">{t('nav_explore')}</button>
         </div>
         <div className="flex items-center gap-4 lg:hidden">
@@ -144,7 +140,7 @@ function Header({ onJoin, onMyReservation, onOpenSettings }: { onJoin: () => voi
           {navItems.map((item) => <button key={item.href} onClick={() => go(item.href)} className="border-b border-[#263442]/10 pb-3 text-left text-sm" data-testid={`link-mobile-${item.key}`}>{t(item.key)}</button>)}
           <Link href="/contact" onClick={() => setOpen(false)} className="border-b border-[#263442]/10 pb-3 text-left text-sm" data-testid="link-mobile-contact">{t('nav_contact')}</Link>
           <button onClick={() => { setOpen(false); onMyReservation(); }} className="border-b border-[#263442]/10 pb-3 text-left text-sm">{t('nav_find_reservation')}</button>
-          <button onClick={() => { setOpen(false); onJoin(); }} className="btn-fill px-4 py-3 text-left text-[11px] font-semibold tracking-[.1em]" data-testid="button-mobile-member">{t('nav_member').toUpperCase()}</button>
+          <button onClick={() => { setOpen(false); go('#all-residences'); }} className="btn-fill px-4 py-3 text-left text-[11px] font-semibold tracking-[.1em]" data-testid="button-mobile-explore">{t('nav_explore').toUpperCase()}</button>
         </div>
       </div>}
     </header>
