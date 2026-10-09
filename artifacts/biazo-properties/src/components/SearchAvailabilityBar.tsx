@@ -57,18 +57,8 @@ export function SearchAvailabilityBar({ onSearch, currency, setCurrency }: Searc
               <option value="Palm Jumeirah">Palm Jumeirah</option>
               <option value="Dubai Marina">Dubai Marina</option>
               <option value="Business Bay">Business Bay</option>
-              <option value="Jumeirah Beach Residence">Jumeirah Beach Residence</option>
-              <option value="Jumeirah">Jumeirah</option>
-              <option value="Jumeirah Village Circle">Jumeirah Village Circle</option>
               <option value="Bluewaters Island">Bluewaters Island</option>
               <option value="Emirates Hills">Emirates Hills</option>
-              <option value="Deira">Deira</option>
-              <option value="Barsha Heights">Barsha Heights</option>
-              <option value="Al Barsha">Al Barsha</option>
-              <option value="Sheikh Zayed Road">Sheikh Zayed Road</option>
-              <option value="Dubai Airport">Dubai Airport</option>
-              <option value="DAMAC Hills 2">DAMAC Hills 2</option>
-              <option value="Bur Dubai">Bur Dubai</option>
             </select>
           </div>
 

@@ -61,18 +61,8 @@ export function ResidenceListings({
     'Palm Jumeirah',
     'Dubai Marina',
     'Business Bay',
-    'Jumeirah Beach Residence',
-    'Jumeirah',
-    'Jumeirah Village Circle',
     'Bluewaters Island',
     'Emirates Hills',
-    'Deira',
-    'Barsha Heights',
-    'Al Barsha',
-    'Sheikh Zayed Road',
-    'Dubai Airport',
-    'DAMAC Hills 2',
-    'Bur Dubai',
   ];
 
   return (
