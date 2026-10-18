@@ -454,6 +454,57 @@ export const residences: Residence[] = [
       '24/7 Front Desk'
     ],
     bookedRanges: []
+  },
+  {
+    id: 'bvh-damac-hills-2-rotana',
+    name: 'DAMAC Hills 2 Hotel — Edge by Rotana',
+    tagline: 'Tranquil resort-style retreat with swimming pools & community leisure',
+    neighborhood: 'DAMAC Hills 2',
+    address: 'DAMAC Hills 2, Dubai, United Arab Emirates',
+    type: 'Apartment',
+    bedrooms: 1,
+    bathrooms: 1,
+    sleeps: 2,
+    sqft: 350,
+    pricePerNightAed: 127,
+    cleaningFeeAed: 70,
+    rating: 4.1,
+    reviewsCount: 2901,
+    description: "Set in the tranquil master community of DAMAC Hills 2, this contemporary Edge by Rotana hotel combines modern comforts with resort-style leisure. Features outdoor swimming pools with sun decks, a state-of-the-art fitness centre, stylish all-day dining restaurant and bar, and quick connectivity to Dubai's arterial highways while escaping the bustle of downtown.",
+    images: [
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/403702022.jpg?k=813d904014699b92a782dfc54dac184555c4cd01041929619aaba9d9ea442f2e&o=&hp=1',
+        caption: 'Contemporary hotel architecture and landscaped grounds'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/422847598.jpg?k=1d3569d2f0f5aec41b8bb770ba762d21b7b8bfeef8f83cb0a8e5eef4ad5be934&o=&hp=1',
+        caption: 'Resort swimming pool with sun loungers and cabana seating'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/403924712.jpg?k=1121835fe43523cf5f7d442b96c83917c5bddde0df35d622242f630b5f474ba4&o=&hp=1',
+        caption: 'Deluxe guest room with plush bed and seating lounge'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/614237499.jpg?k=a2c941ec791141a44b95acbfbc5e9b8f18a0f29a7e1b4ee177383579099c121d&o=&hp=1',
+        caption: 'Modern en-suite bathroom with walk-in rain shower'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/407424646.jpg?k=5075b28b66ac74afeb2811ffb7ca4d96878ee4d900a04d629e3a97590c161425&o=&hp=1',
+        caption: 'Urban Bar and all-day dining restaurant'
+      }
+    ],
+    amenities: [
+      'Outdoor Swimming Pools & Sun Deck',
+      'State-of-the-Art Fitness Centre',
+      'Urban Bar & All-Day Dining',
+      'High-Speed Wi-Fi',
+      'Complimentary Self & Valet Parking',
+      '24/7 Front Desk & Concierge',
+      'Individual Climate Control',
+      'Keyless Smart Entry',
+      'In-Room Coffee & Tea Facilities'
+    ],
+    bookedRanges: []
   }
 ];
 
