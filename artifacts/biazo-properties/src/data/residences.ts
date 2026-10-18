@@ -402,6 +402,58 @@ export const residences: Residence[] = [
       'Keyless Smart Entry'
     ],
     bookedRanges: []
+  },
+  {
+    id: 'bvh-hampton-hilton-airport',
+    name: 'Hampton by Hilton Dubai Airport',
+    tagline: 'Brand-new contemporary hotel steps from Dubai International Airport',
+    neighborhood: 'Al Qusais',
+    address: 'Damascus Street, Al Qusais, Dubai',
+    type: 'Apartment',
+    bedrooms: 1,
+    bathrooms: 1,
+    sleeps: 2,
+    sqft: 320,
+    pricePerNightAed: 189,
+    cleaningFeeAed: 80,
+    rating: 4.0,
+    reviewsCount: 6352,
+    description: "A brand-new, contemporary hotel ideally located close to Dubai International Airport. Featuring modern, well-appointed rooms with all the comforts of home, a sparkling outdoor pool, fully equipped fitness centre, and complimentary breakfast. Perfect for business travellers and transit guests seeking quality accommodation with seamless airport access and easy connectivity to the city.",
+    images: [
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/483734620.jpg?k=b3f8f83441fed9414cd3bbb2eb5a2b3b6e3c2082123e272a3c9f9aa0c7d96ba2&o=&hp=1',
+        caption: 'Outdoor swimming pool with loungers at Hampton by Hilton Dubai Airport'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/723711802.jpg?k=ed7cdd1c3441a5a07d54346c8c49ccada4377e05a992a7ee303ebc8c9697f2aa&o=&hp=1',
+        caption: 'Contemporary hotel exterior with palm tree surroundings'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/723711941.jpg?k=795d7a97bce5311cf31820091223ede44d4754d450ae540f8a89fc65e4cd8d1a&o=&hp=1',
+        caption: 'Modern hotel room with king bed and work desk'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/483734598.jpg?k=402cedd8c21e3da1e3bc4b86c10a0e2709f037857fc683b5ec883a48bbeb0701&o=&hp=1',
+        caption: 'Clean en-suite bathroom with walk-in shower'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/514371513.jpg?k=12086a259baa18ba5d03a51643098ee35f6b56965495f593dc46b13b5a255e92&o=&hp=1',
+        caption: 'Pool deck with sun umbrellas and city views'
+      }
+    ],
+    amenities: [
+      'Complimentary Daily Breakfast',
+      'Outdoor Swimming Pool',
+      'Fitness Centre',
+      '3-Min Drive to Dubai International Airport',
+      'Free Airport Shuttle',
+      'Business Centre & Meeting Rooms',
+      'On-Site Restaurant & Bar',
+      'High-Speed Wi-Fi Throughout',
+      'Keyless Smart Entry',
+      '24/7 Front Desk'
+    ],
+    bookedRanges: []
   }
 ];
 
