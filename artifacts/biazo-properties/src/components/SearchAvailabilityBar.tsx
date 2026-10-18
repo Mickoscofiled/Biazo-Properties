@@ -61,6 +61,7 @@ export function SearchAvailabilityBar({ onSearch, currency, setCurrency }: Searc
               <option value="Emirates Hills">Emirates Hills</option>
               <option value="Al Qusais">Al Qusais</option>
               <option value="DAMAC Hills 2">DAMAC Hills 2</option>
+              <option value="Sheikh Zayed Road">Sheikh Zayed Road</option>
             </select>
           </div>
 

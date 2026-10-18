@@ -505,6 +505,57 @@ export const residences: Residence[] = [
       'In-Room Coffee & Tea Facilities'
     ],
     bookedRanges: []
+  },
+  {
+    id: 'bvh-towers-rotana-szr',
+    name: 'Towers Rotana — Sheikh Zayed Road',
+    tagline: 'Prime city hotel suite facing the Burj Khalifa & Financial Centre',
+    neighborhood: 'Sheikh Zayed Road',
+    address: 'Sheikh Zayed Road, Trade Centre Area, Dubai',
+    type: 'Suite',
+    bedrooms: 1,
+    bathrooms: 1,
+    sleeps: 2,
+    sqft: 345,
+    pricePerNightAed: 330,
+    cleaningFeeAed: 120,
+    rating: 4.35,
+    reviewsCount: 3560,
+    description: "Located prominently on Dubai's legendary Sheikh Zayed Road, Towers Rotana offers luxury hospitality right opposite the Financial Centre Metro Station and only minutes from Burj Khalifa and Dubai Mall. Guests enjoy an elevated rooftop swimming pool with sun terrace overlooking the metropolis, Bodylines Fitness & Wellness Club, award-winning dining including Teatro, and seamless access to Dubai's financial and leisure hubs.",
+    images: [
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/481019125.jpg?k=6e0635929a3d73101f102e6d5c614fae9de8d7662c727441998c444a776f3be1&o=&hp=1',
+        caption: 'Elevated outdoor pool overlooking the Sheikh Zayed Road skyline'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/637036331.jpg?k=819ab3f00c7a78ed680ba003181375567811e9f4a56bbefc9ff60096d4160d07&o=&hp=1',
+        caption: 'Classic King bedroom with panoramic Dubai city views'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/481913608.jpg?k=8956dea196be6381bd93b75768b1649debb60920138c509bab3b4ec19a608a96&o=&hp=1',
+        caption: 'Rooftop sundeck with sun umbrellas and loungers'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/664756347.jpg?k=3e412835a140058c82928e1bd030b93c680589a173061e29f106d6748dd445ee&o=&hp=1',
+        caption: 'Executive lounge living area and work salon'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/637036275.jpg?k=dcb7768e7004ecc7c65fb9e3b55264df4b67a8d4e8f72401018763ee7d590ff5&o=&hp=1',
+        caption: 'En-suite marble bathroom with bathtub and luxury toiletries'
+      }
+    ],
+    amenities: [
+      'Elevated Rooftop Swimming Pool & Sundeck',
+      'Directly Opposite Financial Centre Metro Station',
+      'Bodylines Fitness & Wellness Club',
+      'Award-Winning On-Site Restaurants & Teatro Lounge',
+      '5-Min Drive to Burj Khalifa & Dubai Mall',
+      'Valet & Covered Parking',
+      'Ultra High-Speed Wi-Fi',
+      '24/7 Room Service & Concierge',
+      'Keyless Smart Entry'
+    ],
+    bookedRanges: []
   }
 ];
 
