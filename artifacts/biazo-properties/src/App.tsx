@@ -44,12 +44,12 @@ import { Coins } from 'lucide-react';
 import { SettingsProvider, useSettings } from '@/context/SettingsContext';
 import { useTranslation } from 'react-i18next';
 
-// Heavy modals & pages — lazy loaded so they don't slow down first paint
 const BookingModal         = lazy(() => import('@/components/BookingModal').then(m => ({ default: m.BookingModal })));
 const ReservationLookupModal = lazy(() => import('@/components/ReservationLookupModal').then(m => ({ default: m.ReservationLookupModal })));
 const SettingsModal        = lazy(() => import('@/components/SettingsModal').then(m => ({ default: m.SettingsModal })));
 const Contact              = lazy(() => import('@/pages/contact'));
 const Admin                = lazy(() => import('@/pages/admin'));
+const ResidenceDetail      = lazy(() => import('@/pages/ResidenceDetail'));
 
 const queryClient = new QueryClient();
 
@@ -230,6 +230,7 @@ function Home() {
   const [bookingResidence, setBookingResidence] = useState<Residence | null>(null);
   const [searchDates, setSearchDates] = useState<{ checkIn: string; checkOut: string } | undefined>();
   const [searchGuests, setSearchGuests] = useState(2);
+  const [searchNeighborhood, setSearchNeighborhood] = useState('All');
   const { currency, setCurrency } = useSettings();
   const { t } = useTranslation();
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -247,6 +248,7 @@ function Home() {
   const handleSearch = (params: { neighborhood: string; checkIn: string; checkOut: string; guests: number; currency: 'AED' | 'USD' | 'EUR' | 'GBP' | 'SAR' }) => {
     setSearchDates({ checkIn: params.checkIn, checkOut: params.checkOut });
     setSearchGuests(params.guests);
+    setSearchNeighborhood(params.neighborhood);
     setCurrency(params.currency as any);
   };
 
@@ -293,6 +295,8 @@ function Home() {
           residences={liveResidences}
           selectedDates={searchDates}
           currency={currency}
+          selectedNeighborhood={searchNeighborhood}
+          onClearDates={() => setSearchDates(undefined)}
           onSelectResidence={(r) => setBookingResidence(r)}
         />
 
@@ -353,6 +357,8 @@ function Router() {
       <Suspense fallback={<div className="flex min-h-screen items-center justify-center"><span className="text-sm text-[#263442]/40">Loading…</span></div>}>
         <Switch>
           <Route path="/" component={Home} />
+          <Route path="/residence/:id" component={ResidenceDetail} />
+          <Route path="/residences/:id" component={ResidenceDetail} />
           <Route path="/contact" component={Contact} />
           <Route path="/admin" component={Admin} />
           <Route component={NotFound} />

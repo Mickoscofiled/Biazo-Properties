@@ -1,38 +1,47 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'wouter';
 import {
   BedDouble,
-  Building2,
   Calendar,
-  Check,
-  ChevronLeft,
-  ChevronRight,
   Heart,
-  MapPin,
   Sparkles,
   Star,
   UsersRound,
-  ArrowRight
+  ArrowRight,
+  AlertCircle,
+  CalendarSearch
 } from 'lucide-react';
-import { Residence, AED_TO_USD_RATE } from '@/data/residences';
+import { Residence } from '@/data/residences';
 import { formatPrice } from '@/lib/utils';
 
 interface ListingsProps {
   residences: Residence[];
   selectedDates?: { checkIn: string; checkOut: string };
   currency: string;
-  onSelectResidence: (residence: Residence) => void;
+  onSelectResidence?: (residence: Residence) => void;
+  selectedNeighborhood?: string;
+  onClearDates?: () => void;
 }
 
 export function ResidenceListings({
   residences,
   selectedDates,
   currency,
-  onSelectResidence
+  selectedNeighborhood,
+  onClearDates
 }: ListingsProps) {
   const { t } = useTranslation();
+  const [, setLocation] = useLocation();
   const [selectedFilter, setSelectedFilter] = useState<string>('All');
   const [savedIds, setSavedIds] = useState<string[]>([]);
+
+  // Sync if neighborhood was chosen in search bar
+  useEffect(() => {
+    if (selectedNeighborhood) {
+      setSelectedFilter(selectedNeighborhood);
+    }
+  }, [selectedNeighborhood]);
 
   const toggleSave = (id: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -41,19 +50,29 @@ export function ResidenceListings({
     );
   };
 
-  const filtered = residences.filter((r) => {
+  const displayPrice = (aed: number) => formatPrice(aed, currency);
+
+  // Check if residence overlaps with selected dates
+  const checkIsAvailable = (r: Residence) => {
+    if (!selectedDates || !selectedDates.checkIn || !selectedDates.checkOut) return true;
+    return !r.bookedRanges?.some((range) => {
+      return selectedDates.checkIn < range.end && selectedDates.checkOut > range.start;
+    });
+  };
+
+  const hasSelectedDates = Boolean(selectedDates?.checkIn && selectedDates?.checkOut);
+
+  // 1. Filter by neighborhood
+  const neighborhoodFiltered = residences.filter((r) => {
     if (selectedFilter === 'All') return true;
     return r.neighborhood === selectedFilter;
   });
 
-  const displayPrice = (aed: number) => formatPrice(aed, currency);
-
-  const checkIsAvailable = (r: Residence) => {
-    if (!selectedDates || !selectedDates.checkIn || !selectedDates.checkOut) return true;
-    return !r.bookedRanges.some((range) => {
-      return selectedDates.checkIn < range.end && selectedDates.checkOut > range.start;
-    });
-  };
+  // 2. Hide booked properties from main results when dates are picked
+  const availableResidences = neighborhoodFiltered.filter((r) => checkIsAvailable(r));
+  const unavailableResidences = hasSelectedDates
+    ? neighborhoodFiltered.filter((r) => !checkIsAvailable(r))
+    : [];
 
   const neighborhoods = [
     'All',
@@ -64,6 +83,135 @@ export function ResidenceListings({
     'Bluewaters Island',
     'Emirates Hills',
   ];
+
+  // Navigate to property details page
+  const handleCardClick = (residenceId: string) => {
+    const query = hasSelectedDates
+      ? `?checkIn=${selectedDates?.checkIn}&checkOut=${selectedDates?.checkOut}`
+      : '';
+    setLocation(`/residence/${residenceId}${query}`);
+  };
+
+  // Reusable Residence Card
+  const renderResidenceCard = (residence: Residence, isAvailable: boolean) => {
+    const isSaved = savedIds.includes(residence.id);
+
+    return (
+      <article
+        key={residence.id}
+        onClick={() => handleCardClick(residence.id)}
+        className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-[#263442]/15 bg-white shadow-sm transition-all hover:shadow-xl hover:border-[#c56749]/40 cursor-pointer"
+        data-testid={`card-residence-${residence.id}`}
+      >
+        {/* Image & Badges */}
+        <div>
+          <div className="relative aspect-[1.35] w-full overflow-hidden bg-[#e0d9cd]">
+            <img
+              src={residence.images[0]?.url}
+              alt={residence.name}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+
+            {/* Neighborhood badge */}
+            <span className="absolute bottom-3 left-3 rounded-md bg-[#263442]/90 px-2.5 py-1 text-[10px] font-semibold tracking-wider text-white backdrop-blur-sm">
+              {residence.neighborhood.toUpperCase()}
+            </span>
+
+            {/* Availability badge */}
+            <span
+              className={`absolute top-3 left-3 rounded-md px-2.5 py-1 text-[10px] font-bold tracking-wider backdrop-blur-md ${
+                isAvailable
+                  ? 'bg-emerald-600/90 text-white'
+                  : 'bg-amber-600/90 text-white'
+              }`}
+            >
+              {isAvailable ? 'AVAILABLE' : 'BOOKED ON YOUR DATES'}
+            </span>
+
+            {/* Photo count indicator */}
+            <span className="absolute bottom-3 right-3 rounded-md bg-black/60 px-2 py-0.5 text-[10px] font-medium text-white/90 backdrop-blur-sm">
+              {residence.images.length} Photos
+            </span>
+
+            {/* Save to favorites button */}
+            <button
+              onClick={(e) => toggleSave(residence.id, e)}
+              className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-[#263442] backdrop-blur-sm transition-all hover:scale-110"
+              aria-label="Save to favorites"
+            >
+              <Heart size={15} fill={isSaved ? '#c56749' : 'none'} className={isSaved ? 'text-[#c56749]' : ''} />
+            </button>
+          </div>
+
+          {/* Details */}
+          <div className="p-6">
+            <div className="flex items-center justify-between text-xs text-[#263442]/60">
+              <span className="font-semibold text-[#c56749] uppercase tracking-wider">{residence.type}</span>
+              <span className="flex items-center gap-1 font-semibold text-[#263442]">
+                <Star size={13} fill="#e8a83e" className="text-[#e8a83e]" />
+                {residence.rating} ({residence.reviewsCount})
+              </span>
+            </div>
+
+            <h3 className="mt-2 font-serif text-2xl text-[#263442] group-hover:text-[#c56749] transition-colors">
+              {residence.name}
+            </h3>
+            <p className="mt-1 text-xs text-[#263442]/65 line-clamp-2">{residence.tagline}</p>
+
+            {/* Specs */}
+            <div className="mt-5 grid grid-cols-3 gap-2 border-y border-[#263442]/10 py-3 text-xs text-[#263442]/75">
+              <span className="flex items-center gap-1.5">
+                <BedDouble size={14} className="text-[#c56749]" /> {residence.bedrooms} {t('listings_beds')}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <UsersRound size={14} className="text-[#c56749]" /> {t('listings_sleeps')} {residence.sleeps}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Sparkles size={14} className="text-[#c56749]" /> {residence.sqft.toLocaleString()} sq ft
+              </span>
+            </div>
+
+            {/* Amenities highlights */}
+            <div className="mt-4 flex flex-wrap gap-1.5">
+              {residence.amenities.slice(0, 3).map((am) => (
+                <span
+                  key={am}
+                  className="rounded-full bg-[#fbf8f2] border border-[#263442]/10 px-2.5 py-1 text-[10px] text-[#263442]/75"
+                >
+                  {am}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Card Footer: Price & CTA */}
+        <div className="flex items-center justify-between border-t border-[#263442]/10 bg-[#fbf8f2] p-5">
+          <div>
+            <span className="text-[10px] uppercase tracking-wider text-[#263442]/55">{t('listings_from')}</span>
+            <p className="font-serif text-xl font-bold text-[#263442]">
+              {displayPrice(residence.pricePerNightAed)}{' '}
+              <span className="font-sans text-xs font-normal text-[#263442]/60">{t('listings_per_night')}</span>
+            </p>
+          </div>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleCardClick(residence.id);
+            }}
+            className="btn-fill flex items-center gap-2 px-4 py-2.5 text-xs font-semibold tracking-wider group-hover:bg-[#1a242e]"
+            data-testid={`button-view-${residence.id}`}
+          >
+            VIEW DETAILS <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+          </button>
+        </div>
+      </article>
+    );
+  };
 
   return (
     <section id="all-residences" className="container-wide py-20 md:py-28" data-testid="section-all-residences">
@@ -78,17 +226,45 @@ export function ResidenceListings({
               {t('listings_sub')}
             </p>
           </div>
+
           <div className="text-xs font-semibold text-[#263442]/60">
-            Showing <span className="text-[#263442] font-bold">{filtered.length}</span> of {residences.length} residences
+            Showing <span className="text-[#263442] font-bold">{availableResidences.length}</span>{' '}
+            {hasSelectedDates ? 'available' : ''} {availableResidences.length === 1 ? 'residence' : 'residences'}
           </div>
         </div>
 
-        {/* Filter buttons — fully visible, wrapping pills with zero scrollbars */}
-        <div className="flex flex-wrap gap-2 pt-2">
+        {/* Active Search Date Filter Pill if dates are selected */}
+        {hasSelectedDates && (
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl bg-emerald-50/70 border border-emerald-200/80 px-4 py-3 text-xs text-[#263442]">
+            <div className="flex items-center gap-2">
+              <Calendar className="h-4 w-4 text-emerald-700 shrink-0" />
+              <span>
+                Available dates: <strong className="font-semibold text-emerald-950">{selectedDates?.checkIn}</strong> to{' '}
+                <strong className="font-semibold text-emerald-950">{selectedDates?.checkOut}</strong>
+              </span>
+              <span className="hidden sm:inline text-[#263442]/30">·</span>
+              <span className="text-emerald-800/80 hidden sm:inline">
+                Hiding booked properties to show only free dates
+              </span>
+            </div>
+
+            {onClearDates && (
+              <button
+                onClick={onClearDates}
+                className="text-[11px] font-semibold text-[#c56749] hover:underline"
+              >
+                Clear date filter
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Neighborhood Filter Buttons */}
+        <div className="flex flex-wrap gap-2 pt-1">
           {neighborhoods.map((loc) => {
             const count = loc === 'All'
-              ? residences.length
-              : residences.filter((r) => r.neighborhood === loc).length;
+              ? (hasSelectedDates ? residences.filter(checkIsAvailable).length : residences.length)
+              : residences.filter((r) => r.neighborhood === loc && checkIsAvailable(r)).length;
 
             return (
               <button
@@ -117,118 +293,54 @@ export function ResidenceListings({
         </div>
       </div>
 
-      {/* Grid of Residences */}
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filtered.map((residence) => {
-          const isAvail = checkIsAvailable(residence);
-          const isSaved = savedIds.includes(residence.id);
+      {/* Main Grid: Shows ONLY Available Residences */}
+      {availableResidences.length > 0 ? (
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {availableResidences.map((residence) => renderResidenceCard(residence, true))}
+        </div>
+      ) : (
+        <div className="mt-12 rounded-2xl border border-dashed border-[#263442]/20 bg-white/50 p-12 text-center">
+          <CalendarSearch className="mx-auto h-12 w-12 text-[#c56749]/60" />
+          <h3 className="mt-4 font-serif text-2xl text-[#263442]">No Homes Available for Selected Dates</h3>
+          <p className="mt-2 text-sm text-[#263442]/65 max-w-md mx-auto">
+            All residences in {selectedFilter === 'All' ? 'Dubai' : selectedFilter} are reserved between{' '}
+            {selectedDates?.checkIn} and {selectedDates?.checkOut}.
+          </p>
+          {unavailableResidences.length > 0 && (
+            <p className="mt-3 text-xs font-semibold text-[#c56749]">
+              ↓ See the properties available on other dates below
+            </p>
+          )}
+        </div>
+      )}
 
-          return (
-            <article
-              key={residence.id}
-              className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-[#263442]/15 bg-white shadow-sm transition-all hover:shadow-xl"
-              data-testid={`card-residence-${residence.id}`}
-            >
-              {/* Image & Badges */}
-              <div>
-                <div className="relative aspect-[1.35] w-full overflow-hidden bg-[#e0d9cd]">
-                  <img
-                    src={residence.images[0].url}
-                    alt={residence.name}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
+      {/* SECTION 2: "Available on Other Dates" (Shown when search dates are active and some properties are booked) */}
+      {hasSelectedDates && unavailableResidences.length > 0 && (
+        <div className="mt-20 border-t border-[#263442]/15 pt-16" id="available-other-dates">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+              <p className="eyebrow text-[#c56749]">ALTERNATIVE OPTIONS</p>
+              <h3 className="mt-2 font-serif text-3xl md:text-4xl text-[#263442]">
+                Available on Other Dates
+              </h3>
+              <p className="mt-2 text-sm text-[#263442]/65 max-w-2xl">
+                These luxury residences are reserved during your chosen dates ({selectedDates?.checkIn} to{' '}
+                {selectedDates?.checkOut}), but are open before or after. Click any residence to explore its photo gallery
+                and open dates.
+              </p>
+            </div>
 
-                  {/* Neighborhood badge */}
-                  <span className="absolute bottom-3 left-3 rounded-md bg-[#263442]/85 px-2.5 py-1 text-[10px] font-semibold tracking-wider text-white backdrop-blur-sm">
-                    {residence.neighborhood.toUpperCase()}
-                  </span>
+            <span className="rounded-full bg-amber-50 border border-amber-200/80 px-3.5 py-1.5 text-xs font-semibold text-amber-900 self-start md:self-auto">
+              {unavailableResidences.length}{' '}
+              {unavailableResidences.length === 1 ? 'residence' : 'residences'} booked on your dates
+            </span>
+          </div>
 
-                  {/* Availability badge */}
-                  <span
-                    className={`absolute top-3 left-3 rounded-md px-2.5 py-1 text-[10px] font-bold tracking-wider backdrop-blur-md ${
-                      isAvail
-                        ? 'bg-emerald-600/90 text-white'
-                        : 'bg-amber-600/90 text-white'
-                    }`}
-                  >
-                    {isAvail ? t('listings_available') : t('listings_reserved')}
-                  </span>
-
-                  {/* Save button */}
-                  <button
-                    onClick={(e) => toggleSave(residence.id, e)}
-                    className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-[#263442] backdrop-blur-sm transition-all hover:scale-110"
-                    aria-label="Save to favorites"
-                  >
-                    <Heart size={15} fill={isSaved ? '#c56749' : 'none'} className={isSaved ? 'text-[#c56749]' : ''} />
-                  </button>
-                </div>
-
-                {/* Details */}
-                <div className="p-6">
-                  <div className="flex items-center justify-between text-xs text-[#263442]/60">
-                    <span className="font-semibold text-[#c56749] uppercase tracking-wider">{residence.type}</span>
-                    <span className="flex items-center gap-1 font-semibold text-[#263442]">
-                      <Star size={13} fill="#e8a83e" className="text-[#e8a83e]" />
-                      {residence.rating} ({residence.reviewsCount})
-                    </span>
-                  </div>
-
-                  <h3 className="mt-2 font-serif text-2xl text-[#263442]">{residence.name}</h3>
-                  <p className="mt-1 text-xs text-[#263442]/65 line-clamp-2">{residence.tagline}</p>
-
-                  {/* Specs */}
-                  <div className="mt-5 grid grid-cols-3 gap-2 border-y border-[#263442]/10 py-3 text-xs text-[#263442]/75">
-                    <span className="flex items-center gap-1.5">
-                      <BedDouble size={14} className="text-[#c56749]" /> {residence.bedrooms} {t('listings_beds')}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <UsersRound size={14} className="text-[#c56749]" /> {t('listings_sleeps')} {residence.sleeps}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <Sparkles size={14} className="text-[#c56749]" /> {residence.sqft.toLocaleString()} sq ft
-                    </span>
-                  </div>
-
-                  {/* Amenities highlights */}
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {residence.amenities.slice(0, 3).map((am) => (
-                      <span
-                        key={am}
-                        className="rounded-full bg-[#fbf8f2] border border-[#263442]/10 px-2.5 py-1 text-[10px] text-[#263442]/75"
-                      >
-                        {am}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Card Footer: Price & CTA */}
-              <div className="flex items-center justify-between border-t border-[#263442]/10 bg-[#fbf8f2] p-5">
-                <div>
-                  <span className="text-[10px] uppercase tracking-wider text-[#263442]/55">{t('listings_from')}</span>
-                  <p className="font-serif text-xl font-bold text-[#263442]">
-                    {displayPrice(residence.pricePerNightAed)}{' '}
-                    <span className="font-sans text-xs font-normal text-[#263442]/60">{t('listings_per_night')}</span>
-                  </p>
-                </div>
-
-                <button
-                  onClick={() => onSelectResidence(residence)}
-                  className="btn-fill flex items-center gap-2 px-5 py-2.5 text-xs font-semibold tracking-wider"
-                  data-testid={`button-book-${residence.id}`}
-                >
-                  {t('listings_reserve', 'RESERVE')} <ArrowRight size={14} />
-                </button>
-              </div>
-            </article>
-          );
-        })}
-      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {unavailableResidences.map((residence) => renderResidenceCard(residence, false))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }

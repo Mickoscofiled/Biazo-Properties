@@ -77,7 +77,8 @@ export const residences: Residence[] = [
     ],
     bookedRanges: [
       { start: '2026-10-02', end: '2026-10-06' },
-      { start: '2026-10-14', end: '2026-10-18' }
+      { start: '2026-10-14', end: '2026-10-18' },
+      { start: '2026-11-04', end: '2026-11-09' }
     ]
   },
   {
@@ -116,7 +117,8 @@ export const residences: Residence[] = [
     ],
     bookedRanges: [
       { start: '2026-09-28', end: '2026-10-03' },
-      { start: '2026-10-20', end: '2026-10-25' }
+      { start: '2026-10-20', end: '2026-10-25' },
+      { start: '2026-11-14', end: '2026-11-20' }
     ]
   },
   {
@@ -153,7 +155,8 @@ export const residences: Residence[] = [
       '24/7 Security & Concierge'
     ],
     bookedRanges: [
-      { start: '2026-10-08', end: '2026-10-12' }
+      { start: '2026-10-08', end: '2026-10-12' },
+      { start: '2026-11-06', end: '2026-11-12' }
     ]
   },
   {
@@ -190,7 +193,8 @@ export const residences: Residence[] = [
       'Ultimate Privacy in Dubai’s Most Exclusive Gated Community'
     ],
     bookedRanges: [
-      { start: '2026-10-10', end: '2026-10-16' }
+      { start: '2026-10-10', end: '2026-10-16' },
+      { start: '2026-11-18', end: '2026-11-25' }
     ]
   },
   {
@@ -224,7 +228,8 @@ export const residences: Residence[] = [
       'Keyless Mobile Entry'
     ],
     bookedRanges: [
-      { start: '2026-10-01', end: '2026-10-04' }
+      { start: '2026-10-01', end: '2026-10-04' },
+      { start: '2026-11-03', end: '2026-11-08' }
     ]
   },
   {
@@ -262,7 +267,8 @@ export const residences: Residence[] = [
       'High-Speed Wi-Fi'
     ],
     bookedRanges: [
-      { start: '2026-10-05', end: '2026-10-09' }
+      { start: '2026-10-05', end: '2026-10-09' },
+      { start: '2026-11-20', end: '2026-11-26' }
     ]
   },
   {
@@ -300,7 +306,8 @@ export const residences: Residence[] = [
       '2 Reserved Parking Spaces'
     ],
     bookedRanges: [
-      { start: '2026-10-12', end: '2026-10-17' }
+      { start: '2026-10-12', end: '2026-10-17' },
+      { start: '2026-11-16', end: '2026-11-22' }
     ]
   },
   {
@@ -339,7 +346,8 @@ export const residences: Residence[] = [
     ],
     bookedRanges: [
       { start: '2026-10-08', end: '2026-10-11' },
-      { start: '2026-10-22', end: '2026-10-27' }
+      { start: '2026-10-22', end: '2026-10-27' },
+      { start: '2026-11-24', end: '2026-11-30' }
     ]
   }
 ];
