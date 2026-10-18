@@ -350,6 +350,58 @@ export const residences: Residence[] = [
       { start: '2026-10-22', end: '2026-10-27' },
       { start: '2026-11-24', end: '2026-11-30' }
     ]
+  },
+  {
+    id: 'bvh-muse-dubai-marina',
+    name: 'The Muse — JW Marriott Residence',
+    tagline: 'Timeless indulgence at the heart of Dubai Marina',
+    neighborhood: 'Dubai Marina',
+    address: 'JW Marriott Hotel Marina, Dubai Marina, Dubai',
+    type: 'Suite',
+    bedrooms: 2,
+    bathrooms: 2,
+    sleeps: 4,
+    sqft: 1400,
+    pricePerNightAed: 885,
+    cleaningFeeAed: 250,
+    rating: 4.35,
+    reviewsCount: 7,
+    description: "An exquisitely curated residence within the iconic JW Marriott tower, offering a seamless blend of residential privacy and five-star hotel living. Styled with bespoke furnishings, a fully equipped gourmet kitchen, and a private balcony overlooking the Dubai Marina yacht parade — just 15 minutes' walk from Marina Beach. Guests enjoy access to the JW Marriott's rooftop pool, spa, and restaurant portfolio while retreating to a home that is entirely their own.",
+    images: [
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/752412665.jpg?k=16bd634779a5c7ec4bc55fa6bed73a862741283328e3809a101270ae419e41d1&o=&hp=1',
+        caption: 'The Muse — grand living salon at JW Marriott Marina'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/752412650.jpg?k=5e21a8a11c139ac399066a530842d5e8052d5baaeb689e1746fb99227f2cb748&o=&hp=1',
+        caption: 'Private balcony with panoramic Dubai Marina views'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/752412647.jpg?k=33d9a61592a7e966b4854e9245340a9a0d2966ef4cf8b74e40fbf5ac50213d0b&o=&hp=1',
+        caption: 'Master bedroom with flat-screen TV and plush linen'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/752412621.jpg?k=36ed6f64c4c588a6bdbe4617394b97f1fcac07f183c4b0c1dcd64657dfbe22f0&o=&hp=1',
+        caption: 'Marble bathroom with soaking tub and walk-in shower'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/752412580.jpg?k=b5146c32ed09bb0076a0a108498b44506a544f05cb61b0729a232da4f9225e61&o=&hp=1',
+        caption: 'JW Marriott rooftop pool with city skyline backdrop'
+      }
+    ],
+    amenities: [
+      'JW Marriott Hotel Rooftop Pool Access',
+      'Fully Equipped Gourmet Kitchen',
+      'Private Marina-View Balcony',
+      '15-Min Walk to Marina Beach',
+      'Five-Star Hotel Concierge',
+      'Luxury Spa & Wellness Access',
+      'Valet Parking Available',
+      'High-Speed Wi-Fi',
+      'Daily Housekeeping on Request',
+      'Keyless Smart Entry'
+    ],
+    bookedRanges: []
   }
 ];
 
