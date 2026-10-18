@@ -240,7 +240,24 @@ function Home() {
   useEffect(() => {
     fetch('/api/residences?sync=true')
       .then(r => r.json())
-      .then(data => { if (Array.isArray(data) && data.length > 0) setLiveResidences(data); })
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          const merged = hardcodedResidences.map(res => {
+            const match = data.find((d: any) => d.id === res.id);
+            return match
+              ? {
+                  ...res,
+                  bookedRanges: match.bookedRanges ?? res.bookedRanges,
+                  rating: match.rating ?? res.rating,
+                  reviewsCount: match.reviewsCount ?? res.reviewsCount,
+                  pricePerNightAed: match.pricePerNightAed ?? res.pricePerNightAed,
+                }
+              : res;
+          });
+          const extra = data.filter((d: any) => !hardcodedResidences.some(h => h.id === d.id));
+          setLiveResidences([...merged, ...extra]);
+        }
+      })
       .catch(() => { /* silently use hardcoded fallback */ });
   }, []);
 

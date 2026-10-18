@@ -57,11 +57,11 @@ export const residences: Residence[] = [
     reviewsCount: 38,
     description: 'A high-floor two-bedroom residence overlooking the city’s most iconic silhouette. Calm natural timber, bespoke Italian furnishings, soft Belgian linen, and floor-to-ceiling glass that reveals the Dubai skyline as light transitions through the day.',
     images: [
-      { url: livingImage, caption: 'The panoramic living salon' },
-      { url: bedroomImage, caption: 'The principal suite & skyline views' },
-      { url: poolImage, caption: 'Private infinity-edge rooftop pool' },
-      { url: terraceImage, caption: 'Sunlit sunset terrace' },
-      { url: downtownImage, caption: 'Downtown neighborhood perspective' },
+      { url: downtownImage, caption: 'Downtown Dubai & Burj Khalifa skyline perspective' },
+      { url: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=85', caption: 'Floor-to-ceiling glass panoramic living salon' },
+      { url: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1600&q=85', caption: 'The principal suite & Italian linen bed' },
+      { url: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1600&q=85', caption: 'Freestanding travertine soaking tub with city views' },
+      { url: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1600&q=85', caption: 'Private infinity-edge rooftop pool overlooking the skyline' }
     ],
     amenities: [
       'Private Rooftop Pool Access',
@@ -98,11 +98,11 @@ export const residences: Residence[] = [
     reviewsCount: 52,
     description: 'Step directly from your private travertine patio onto the serene white sands of the Arabian Gulf. Featuring generous outdoor entertaining spaces, a temperature-controlled pool, private sunbeds, and custom interior architecture.',
     images: [
-      { url: beachImage, caption: 'Private beachfront & shoreline' },
-      { url: poolImage, caption: 'Private courtyard infinity pool' },
-      { url: livingImage, caption: 'Double-height grand salon' },
-      { url: bedroomImage, caption: 'Master suite with private ocean balcony' },
-      { url: terraceImage, caption: 'Open-air dining terrace' }
+      { url: beachImage, caption: 'Private beachfront & shoreline on Palm Frond N' },
+      { url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85', caption: 'Double-height grand oceanfront salon' },
+      { url: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&q=85', caption: 'Master suite with private sunrise ocean balcony' },
+      { url: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1600&q=85', caption: 'Private courtyard infinity pool & sun loungers' },
+      { url: 'https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?auto=format&fit=crop&w=1600&q=85', caption: 'Open-air dining terrace overlooking the Arabian Gulf' }
     ],
     amenities: [
       'Direct Private Beach Access',
@@ -138,11 +138,11 @@ export const residences: Residence[] = [
     reviewsCount: 29,
     description: 'Perched above the sparkling water of Dubai Marina, this three-bedroom home combines nautical elegance with relaxed residential warmth. Walk down to premier waterfront dining, or watch luxury yachts glide by from your expansive terrace.',
     images: [
-      { url: terraceImage, caption: 'Marina waterfront terrace' },
-      { url: livingImage, caption: 'Spacious light-flooded living room' },
-      { url: bedroomImage, caption: 'Primary bedroom suite' },
-      { url: poolImage, caption: 'Building resident lap pool' },
-      { url: heroImage, caption: 'Marina night vista' }
+      { url: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=85', caption: 'Marina-facing open salon with yacht views' },
+      { url: terraceImage, caption: 'Curved glass terrace overlooking the yacht marina' },
+      { url: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1600&q=85', caption: 'Primary bedroom suite with harbor vistas' },
+      { url: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1600&q=85', caption: 'Designer quartz chef kitchen with wine cooler' },
+      { url: heroImage, caption: 'Illuminated Dubai Marina night vista' }
     ],
     amenities: [
       'Expansive Marina Waterfront Terrace',
@@ -176,11 +176,11 @@ export const residences: Residence[] = [
     reviewsCount: 19,
     description: 'An architectural statement set in the prestigious Emirates Hills enclave. Sprawling manicured gardens, a secluded 20-meter pool, private screening room, and panoramic golf course views deliver the ultimate in tranquility and family privacy.',
     images: [
-      { url: golfImage, caption: 'Championship fairways & private grounds' },
-      { url: livingImage, caption: 'Art-curated living gallery' },
-      { url: poolImage, caption: '20m private illuminated pool' },
-      { url: bedroomImage, caption: 'Presidential master retreat' },
-      { url: terraceImage, caption: 'Sunset pergola & lounge' }
+      { url: golfImage, caption: 'Private estate grounds bordering championship fairways' },
+      { url: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=85', caption: 'Grand architectural reception hall with bespoke chandelier' },
+      { url: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1600&q=85', caption: 'Presidential master sanctuary with fairway views' },
+      { url: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1600&q=85', caption: '20-meter private illuminated garden swimming pool' },
+      { url: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1600&q=85', caption: 'Private cinema lounge & marble fireplace salon' }
     ],
     amenities: [
       'Championship Golf Course Frontage',
@@ -214,10 +214,11 @@ export const residences: Residence[] = [
     reviewsCount: 44,
     description: 'Steps away from Dubai’s Michelin-starred restaurants and contemporary art galleries. Features soaring double-height concrete-and-timber ceilings, bespoke cocktail station, dedicated workstation, and serene urban elegance.',
     images: [
-      { url: futureCityImage, caption: 'Metropolitan cityscape view' },
-      { url: livingImage, caption: 'Double-height urban loft salon' },
-      { url: bedroomImage, caption: 'Mezzanine master sleeping suite' },
-      { url: heroImage, caption: 'Twilight architectural skyline' }
+      { url: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1600&q=85', caption: 'Double-height industrial-chic concrete & timber salon' },
+      { url: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=85', caption: 'Upper mezzanine sleeping retreat with glass balustrade' },
+      { url: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1600&q=85', caption: 'Artisan cocktail bar & dedicated workstation' },
+      { url: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=1600&q=85', caption: 'Matte black & brushed brass rain-shower ensuite' },
+      { url: futureCityImage, caption: 'Architectural skyline overlooking DIFC Gate Village' }
     ],
     amenities: [
       'Walking Distance to Gate Village & Fine Dining',
@@ -247,13 +248,13 @@ export const residences: Residence[] = [
     cleaningFeeAed: 380,
     rating: 4.94,
     reviewsCount: 31,
-    description: 'Wake up to the Gulf and the iconic Ain Dubai — the world\'s largest observation wheel — from your private waterfront terrace. This beautifully appointed two-bedroom retreat combines airy island calm with the energy of Dubai\'s most exciting new destination, steps from world-class dining and the Caesars Palace beach.',
+    description: "Wake up to the Gulf and the iconic Ain Dubai — the world's largest observation wheel — from your private waterfront terrace. This beautifully appointed two-bedroom retreat combines airy island calm with the energy of Dubai's most exciting new destination, steps from world-class dining and the Caesars Palace beach.",
     images: [
-      { url: bluewatersImage, caption: 'Gulf-front living with Ain Dubai views' },
-      { url: beachImage, caption: 'Caesars Palace private beach access' },
-      { url: livingImage, caption: 'Bright open-plan living salon' },
-      { url: bedroomImage, caption: 'Master bedroom with sea breeze' },
-      { url: terraceImage, caption: 'Waterfront terrace at sunset' },
+      { url: bluewatersImage, caption: 'Direct seafront panorama with Ain Dubai views' },
+      { url: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=85', caption: 'Bright coastal open-plan living room with linen furnishings' },
+      { url: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1600&q=85', caption: 'Calm sea-view master bedroom' },
+      { url: 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1600&q=85', caption: 'Private sunset terrace overlooking the Arabian Gulf' },
+      { url: jbrImage, caption: 'Caesars Palace private beach & Ain Dubai promenade' }
     ],
     amenities: [
       'Ain Dubai & Gulf Panorama Views',
@@ -286,18 +287,18 @@ export const residences: Residence[] = [
     cleaningFeeAed: 480,
     rating: 4.91,
     reviewsCount: 23,
-    description: 'A sophisticated full-floor penthouse hovering above the Dubai Water Canal with commanding views of the Burj Khalifa and Downtown skyline. Dark timber, brushed brass fixtures, and custom Italian furnishings set the tone — paired with a chef kitchen, private jacuzzi, and seamless access to Dubai\'s financial and cultural heartbeat.',
+    description: "A sophisticated full-floor penthouse hovering above the Dubai Water Canal with commanding views of the Burj Khalifa and Downtown skyline. Dark timber, brushed brass fixtures, and custom Italian furnishings set the tone — paired with a chef kitchen, private jacuzzi, and seamless access to Dubai's financial and cultural heartbeat.",
     images: [
-      { url: businessBayImage, caption: 'Canal-view living & designer kitchen' },
-      { url: futureCityImage, caption: 'Business Bay skyline at dusk' },
-      { url: bedroomImage, caption: 'Master suite with canal views' },
-      { url: poolImage, caption: 'Private rooftop jacuzzi deck' },
-      { url: terraceImage, caption: 'Wraparound penthouse terrace' },
+      { url: businessBayImage, caption: 'Canal-front open salon with designer marble kitchen' },
+      { url: 'https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?auto=format&fit=crop&w=1600&q=85', caption: 'Dark timber & brass master bedroom overlooking canal bridges' },
+      { url: 'https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=1600&q=85', caption: 'Private rooftop heated jacuzzi deck under the stars' },
+      { url: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1600&q=85', caption: 'Formal dining room with Gaggenau wine library' },
+      { url: szrImage, caption: 'Wraparound penthouse terrace with illuminated city skyline' }
     ],
     amenities: [
       'Dubai Water Canal & Burj Khalifa Views',
       'Private Rooftop Jacuzzi',
-      'Chef\'s Gaggenau Kitchen',
+      "Chef's Gaggenau Kitchen",
       'Dedicated Concierge & Valet',
       'Infinity Rooftop Pool Access',
       'Walking Distance to Dubai Mall & Metro',
@@ -327,11 +328,11 @@ export const residences: Residence[] = [
     reviewsCount: 14,
     description: 'The most coveted address in Downtown Dubai — a sprawling three-bedroom penthouse with an enormous private terrace, heated plunge pool, and an uninterrupted front-row seat to the Dubai Fountain and Burj Khalifa light show every evening. Designed for those who want the absolute best that Dubai has to offer.',
     images: [
-      { url: downtown2Image, caption: 'Private terrace pool with Burj Khalifa view' },
-      { url: downtownImage, caption: 'Downtown Dubai neighbourhood' },
-      { url: livingImage, caption: 'Grand penthouse living salon' },
-      { url: bedroomImage, caption: 'Master suite with fountain views' },
-      { url: poolImage, caption: 'Terrace heated plunge pool at night' },
+      { url: downtown2Image, caption: 'Private heated plunge pool directly facing Burj Khalifa' },
+      { url: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85', caption: 'Opulent high-ceiling penthouse salon with velvet and brass' },
+      { url: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=85', caption: 'Grand master suite with direct views of the Dubai Fountain show' },
+      { url: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1600&q=85', caption: 'Marble ensuite bathroom with deep soaking jacuzzi tub' },
+      { url: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=85', caption: 'Sunset dining balcony overlooking Downtown Dubai' }
     ],
     amenities: [
       'Unobstructed Burj Khalifa & Fountain Views',

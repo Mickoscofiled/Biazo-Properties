@@ -67,7 +67,20 @@ export default function ResidenceDetail() {
       .then(r => r.json())
       .then(data => {
         if (Array.isArray(data) && data.length > 0) {
-          setResidencesList(data);
+          const merged = fallbackResidences.map(res => {
+            const match = data.find((d: any) => d.id === res.id);
+            return match
+              ? {
+                  ...res,
+                  bookedRanges: match.bookedRanges ?? res.bookedRanges,
+                  rating: match.rating ?? res.rating,
+                  reviewsCount: match.reviewsCount ?? res.reviewsCount,
+                  pricePerNightAed: match.pricePerNightAed ?? res.pricePerNightAed,
+                }
+              : res;
+          });
+          const extra = data.filter((d: any) => !fallbackResidences.some(h => h.id === d.id));
+          setResidencesList([...merged, ...extra]);
         }
       })
       .catch(() => { /* fallback */ });
