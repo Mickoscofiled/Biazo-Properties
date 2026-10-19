@@ -131,10 +131,8 @@ export const residences: Residence[] = [
       { url: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&q=85', caption: 'Master suite with private sunrise ocean balcony' },
       { url: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1600&q=85', caption: 'Private courtyard infinity pool & sun loungers' },
       { url: 'https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?auto=format&fit=crop&w=1600&q=85', caption: 'Open-air dining terrace overlooking the Arabian Gulf' },
-      { url: 'https://images.unsplash.com/photo-1600047508788-786f3865b0c7?auto=format&fit=crop&w=1600&q=85', caption: 'Landscaped garden with direct beach gate' },
       { url: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1600&q=85', caption: 'Modern open kitchen with breakfast island' },
       { url: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1600&q=85', caption: 'Palm suite two with dedicated walk-in closet' },
-      { url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1600&q=85', caption: 'Aerial view of Palm Jumeirah Frond N' }
     ],
     amenities: [
       'Direct Private Beach Access',
