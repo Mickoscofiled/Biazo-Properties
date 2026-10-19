@@ -556,6 +556,57 @@ export const residences: Residence[] = [
       'Keyless Smart Entry'
     ],
     bookedRanges: []
+  },
+  {
+    id: 'bvh-crowne-plaza-marina',
+    name: 'Crowne Plaza Dubai Marina — IHG Hotel',
+    tagline: 'Waterfront luxury living along the vibrant Dubai Marina promenade',
+    neighborhood: 'Dubai Marina',
+    address: 'Al Yahoom Street, Dubai Marina, Dubai',
+    type: 'Suite',
+    bedrooms: 1,
+    bathrooms: 1.5,
+    sleeps: 2,
+    sqft: 450,
+    pricePerNightAed: 480,
+    cleaningFeeAed: 150,
+    rating: 4.5,
+    reviewsCount: 2416,
+    description: "Hovering over the sparkling waters of Dubai Marina, Crowne Plaza Dubai Marina by IHG offers premier five-star hospitality with direct access to the world-famous Marina promenade. Features floor-to-ceiling panoramic glass with yacht views, 5 distinguished dining outlets including an authentic Thai restaurant and open-air lounge, an infinity swimming pool facing the Marina canal, and a state-of-the-art wellness fitness centre — just steps from Dubai Marina Mall and the sandy shores of JBR Beach.",
+    images: [
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/579889365.jpg?k=ac69c59f11d6c3908b59896c900f633b7037cdca80083c1551b26547fab87d54&o=&hp=1',
+        caption: 'Panoramic Dubai Marina waterfront perspective'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/563167285.jpg?k=b0b19afdb8ab15f81d7381298965ccede7e1f389f60dbaacea74250e796ec4ae&o=&hp=1',
+        caption: 'Outdoor swimming pool and sun loungers overlooking the canal'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/563167291.jpg?k=79f12ae17ead8cbaaf497126f9b5e247c916fc77eef3cfe04d468e8c834a0036&o=&hp=1',
+        caption: 'Executive Marina Suite living salon with plush seating'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/907089282.jpg?k=b2255c7ae457ce5812576ab003bb304466ccab01f81697e6f7930c158a768b93&o=&hp=1',
+        caption: 'Spa-inspired marble bathroom with soaking tub and walk-in rain shower'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/314428487.jpg?k=72c8a0742301480f5e16604d0c1327cf8ff9a465f3a612105947c4aa15fdae76&o=&hp=1',
+        caption: 'Private balcony terrace overlooking the yacht harbour'
+      }
+    ],
+    amenities: [
+      'Outdoor Infinity Swimming Pool with Marina Views',
+      'Direct Access to Dubai Marina Promenade',
+      '5 Distinct On-Site Dining Outlets & Bars',
+      'Walking Distance to Dubai Marina Mall & Metro',
+      '24/7 High-Tech Fitness Centre',
+      'Valet & Covered Parking',
+      'Ultra High-Speed Wi-Fi',
+      'Concierge & 24/7 Room Service',
+      'Keyless Smart Entry'
+    ],
+    bookedRanges: []
   }
 ];
 
