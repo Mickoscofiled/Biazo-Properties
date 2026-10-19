@@ -964,6 +964,91 @@ export const residences: Residence[] = [
       'Complimentary airport shuttle service',
     ],
     bookedRanges: []
+  },
+  {
+    id: 'bvh-metropolitan-hotel-dubai',
+    name: 'Metropolitan Hotel Dubai — Sheikh Zayed Road',
+    tagline: '4-Star landmark comfort with rooftop pool, spa & beach shuttle',
+    neighborhood: 'Al Thanya, Sheikh Zayed Road',
+    address: 'Al Thanya Street, Exit 41, Sheikh Zayed Road, Dubai',
+    type: 'Suite',
+    bedrooms: 1,
+    bathrooms: 1,
+    sleeps: 2,
+    sqft: 345,
+    pricePerNightAed: 223,
+    cleaningFeeAed: 90,
+    rating: 4.15,
+    reviewsCount: 1683,
+    description: "Located prominently along Sheikh Zayed Road at Al Thanya Street, just 1.5 miles from Mall of the Emirates and near the beaches of Jumeirah, Metropolitan Hotel Dubai offers refined 4-star hospitality. Guests enjoy an elevated rooftop swimming pool with sun loungers, luxury spa and fitness facilities, 5 vibrant on-site restaurants and bars (including the legendary Red Lion English pub and Don Corleone Italian restaurant), plus a complimentary shuttle bus service directly to Jumeirah Beach and Mall of the Emirates.",
+    images: [
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/98823289.jpg?k=22b2a6038cf934a0106c2b12267307c0dfa075b96d032eb9c9981b1d14c757c7&o=&hp=1',
+        caption: 'Grand architectural exterior of Metropolitan Hotel Dubai'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/537355743.jpg?k=2821e2696cb61bd72442d57c1d8e2ad8e08760acf47c1c377bdcefa1110f2a9c&o=',
+        caption: 'Deluxe King bedroom with contemporary furnishings and city views'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/537357594.jpg?k=7836eaaba3a0ece7d287bc1aae1f6ef76f8ebaa901adffcb80e461247ff78e1b&o=',
+        caption: 'Elevated outdoor rooftop swimming pool with sundeck loungers'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/560410829.jpg?k=340cb8d2774029ce3818e694eb47b2c019d67566cb89e5a1b3bebf1c750e6944&o=',
+        caption: 'Elegant reception lobby lounge with plush seating'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/537354941.jpg?k=49b06bfab2a381784cc8f7d008670041d1e789bc785596c8b0627729062fa196&o=',
+        caption: 'Spacious guest suite featuring ergonomic desk and ambient lighting'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/537357418.jpg?k=29df54d9d98bf7fce367ec968f9d6a36f73db1c5a9fcbcbfebdf4bb275218ae3&o=',
+        caption: 'Outdoor garden patio and al fresco terrace dining'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/92618970.jpg?k=278ff5b4069c27ecd819573eb3aba6c6e609fd41404cb3d2c1825dbd3160cd82&o=',
+        caption: 'Premium room lounge corner with floor-to-ceiling windows'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/529951117.jpg?k=cc079529ba2cb94a926a7fe84646134c7d02f7d89ebc5b97a48f8f6740f43e45&o=',
+        caption: 'En-suite bathroom with bathtub, rainfall shower and luxury toiletries'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/97415269.jpg?k=c23c5e730f74246067bfa398d5dfd17c9b0e1276a6cf4945d8b7b252086e3f28&o=',
+        caption: 'The Red Lion traditional English pub and social bar'
+      }
+    ],
+    amenities: [
+      'Elevated Rooftop Swimming Pool & Sundeck',
+      'Complimentary Beach & Mall Shuttle Bus',
+      'Full-Service Luxury Spa & Hot Tub',
+      '5 On-Site Dining Venues & Bars',
+      '24/7 Modern Fitness Gymnasium',
+      'High-Speed Wi-Fi',
+      'Complimentary Covered Parking & Valet',
+      '24/7 Concierge & Room Service',
+      'Keyless Smart Entry'
+    ],
+    checkInTime: 'From 14:00',
+    checkOutTime: 'Until 12:00',
+    houseRules: [
+      'No smoking in rooms (designated outdoor smoking areas available)',
+      'No pets allowed',
+      'Quiet hours after 22:30',
+      'Valid Emirates ID or Passport required at check-in',
+      'Maximum 2 guests per room'
+    ],
+    roomFeatures: [
+      'King Bed or Twin Bed options with premium mattress',
+      'Complimentary shuttle bus to Beach & Mall of the Emirates',
+      'Individual climate control air conditioning',
+      'En-suite bathroom with deep bathtub & rainfall shower',
+      'Flat-screen Smart Satellite TV',
+      'Minibar & complimentary tea/coffee maker',
+      'Safety deposit box & ergonomic workstation'
+    ],
+    bookedRanges: []
   }
 ];
 
