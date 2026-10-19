@@ -607,6 +607,57 @@ export const residences: Residence[] = [
       'Keyless Smart Entry'
     ],
     bookedRanges: []
+  },
+  {
+    id: 'bvh-aloft-dubai-airport',
+    name: 'Aloft Dubai Airport — Marriott Bonvoy',
+    tagline: 'Loft-inspired urban sanctuary beside Terminal 1 in Al Garhoud',
+    neighborhood: 'Al Garhoud',
+    address: 'Airport Road, Al Garhoud, Next to Terminal 1, Dubai',
+    type: 'Suite',
+    bedrooms: 1,
+    bathrooms: 1,
+    sleeps: 2,
+    sqft: 360,
+    pricePerNightAed: 219,
+    cleaningFeeAed: 90,
+    rating: 4.25,
+    reviewsCount: 3972,
+    description: "Designed for today's hyper-connected traveler, Aloft by Marriott Dubai Airport brings energetic loft-inspired design to Al Garhoud, right next to Dubai International Airport Terminal 1. Features ultra-comfortable signature platform beds, high ceilings, custom amenities by Bliss® Spa, walk-in rainfall showers, an open-air Splash pool, 24/7 re:charge fitness centre, and the vibrant W XYZ® bar with craft cocktails and live music.",
+    images: [
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/643189508.jpg?k=b2077e5ea5430543632b72678717f4e90dcb97580c977d242de7707458a61f3f&o=&hp=1',
+        caption: 'Outdoor Splash swimming pool and sun terrace lounge'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/643128620.jpg?k=cf3408d067b785d9685d49ad5bb12945b40250cb8718af6a73414b161d9a7f0c&o=&hp=1',
+        caption: 'Loft-style King bedroom with custom artwork and ergonomic desk'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/643189464.jpg?k=6cc2b2ce4c0c744ff697bf513f6d07678259a305c0ddf5c0fb3cea05327b8dee&o=&hp=1',
+        caption: 'Urban living lounge suite with plush sofa and media entertainment'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/643189416.jpg?k=cbbf33fb14c8c1bdc824dbb13459cedda8856826a6b8b971a4c7405c515be11e&o=&hp=1',
+        caption: 'Spa bathroom with dual vessel sinks and walk-in rainfall shower'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/643128600.jpg?k=507d62be008ccbc816028274c3a1f3b555da6fa13cb7afcb921a5be1d08b3c0a&o=&hp=1',
+        caption: 'W XYZ Bar and social lounge with craft beverages and music'
+      }
+    ],
+    amenities: [
+      'Open-Air Splash Swimming Pool & Sundeck',
+      'Beside Dubai International Airport Terminal 1',
+      '24/7 re:charge Fitness Centre',
+      'W XYZ Bar & Social Lounge',
+      'Complimentary Airport Shuttle',
+      'High-Speed Wi-Fi',
+      'On-Site Grab & Go Re:fuel Pantry',
+      '24/7 Front Desk & Concierge',
+      'Keyless Smart Entry'
+    ],
+    bookedRanges: []
   }
 ];
 
