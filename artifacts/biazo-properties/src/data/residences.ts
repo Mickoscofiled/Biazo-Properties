@@ -376,8 +376,7 @@ export const residences: Residence[] = [
       { url: 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1600&q=85', caption: 'Private sunset terrace overlooking the Arabian Gulf' },
       { url: jbrImage, caption: 'Caesars Palace private beach & Ain Dubai promenade' },
       { url: 'https://images.unsplash.com/photo-1560185007-5f0bb1866cab?auto=format&fit=crop&w=1600&q=85', caption: 'Bright dining space with Ain Dubai through floor windows' },
-      { url: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1600&q=85', caption: 'Second bedroom in calm coastal palette' },
-      { url: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1600&q=85', caption: 'Island Promenade at sunset below the apartment' }
+      { url: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1600&q=85', caption: 'Second bedroom in calm coastal palette' }
     ],
     amenities: [
       'Ain Dubai & Gulf Panorama Views',
