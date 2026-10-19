@@ -991,20 +991,20 @@ export const residences: Residence[] = [
         caption: 'Deluxe King bedroom with contemporary furnishings and city views'
       },
       {
-        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/537357594.jpg?k=7836eaaba3a0ece7d287bc1aae1f6ef76f8ebaa901adffcb80e461247ff78e1b&o=',
-        caption: 'Elevated outdoor rooftop swimming pool with sundeck loungers'
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/537354952.jpg?k=b698c654ed1915ffc6f2ee4f64e5494b7e08b155d6894919e8b76634c2670b94&o=',
+        caption: 'Elevated outdoor swimming pool and sun terrace'
       },
       {
-        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/560410829.jpg?k=340cb8d2774029ce3818e694eb47b2c019d67566cb89e5a1b3bebf1c750e6944&o=',
-        caption: 'Elegant reception lobby lounge with plush seating'
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/537354935.jpg?k=71e2403cb6d1d791eccd81b6823e45922cca679956eca967c5873bb63c40f582&o=',
+        caption: 'Elegant guest lounge with modern seating and ambient lighting'
       },
       {
         url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/537354941.jpg?k=49b06bfab2a381784cc8f7d008670041d1e789bc785596c8b0627729062fa196&o=',
         caption: 'Spacious guest suite featuring ergonomic desk and ambient lighting'
       },
       {
-        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/537357418.jpg?k=29df54d9d98bf7fce367ec968f9d6a36f73db1c5a9fcbcbfebdf4bb275218ae3&o=',
-        caption: 'Outdoor garden patio and al fresco terrace dining'
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/92618982.jpg?k=bbe702b00ea4f4f65be769295e74a6b7cd5522b09884f4ac0338a6f7d5bb1c44&o=',
+        caption: 'Twin executive guest room with plush bedding'
       },
       {
         url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/92618970.jpg?k=278ff5b4069c27ecd819573eb3aba6c6e609fd41404cb3d2c1825dbd3160cd82&o=',
@@ -1015,8 +1015,8 @@ export const residences: Residence[] = [
         caption: 'En-suite bathroom with bathtub, rainfall shower and luxury toiletries'
       },
       {
-        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/97415269.jpg?k=c23c5e730f74246067bfa398d5dfd17c9b0e1276a6cf4945d8b7b252086e3f28&o=',
-        caption: 'The Red Lion traditional English pub and social bar'
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/92618346.jpg?k=0dc7c146232092f5d5ae967270ddab45072b47c159ebe97ff63accd3b8fea562&o=',
+        caption: 'Refined hotel restaurant and dining salon'
       }
     ],
     amenities: [
