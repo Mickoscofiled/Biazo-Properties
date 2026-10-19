@@ -443,27 +443,93 @@ export default function ResidenceDetail() {
               </div>
             </section>
 
+            {/* Check-in / Check-out Times */}
+            {(residence.checkInTime || residence.checkOutTime) && (
+              <section className="border-t border-[#263442]/10 pt-8">
+                <h2 className="font-serif text-xl text-[#263442]">Check-in & Check-out</h2>
+                <div className="mt-4 grid grid-cols-2 gap-4">
+                  {residence.checkInTime && (
+                    <div className="flex items-start gap-3 rounded-xl border border-[#263442]/10 bg-white p-4 shadow-sm">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+                        <Calendar size={18} />
+                      </div>
+                      <div>
+                        <span className="block text-[10px] font-semibold uppercase tracking-wider text-[#263442]/50">Check-in</span>
+                        <span className="mt-0.5 block text-sm font-bold text-[#263442]">{residence.checkInTime}</span>
+                      </div>
+                    </div>
+                  )}
+                  {residence.checkOutTime && (
+                    <div className="flex items-start gap-3 rounded-xl border border-[#263442]/10 bg-white p-4 shadow-sm">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#c56749]/10 text-[#c56749]">
+                        <Calendar size={18} />
+                      </div>
+                      <div>
+                        <span className="block text-[10px] font-semibold uppercase tracking-wider text-[#263442]/50">Check-out</span>
+                        <span className="mt-0.5 block text-sm font-bold text-[#263442]">{residence.checkOutTime}</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </section>
+            )}
+
+            {/* Room Features */}
+            {residence.roomFeatures && residence.roomFeatures.length > 0 && (
+              <section className="border-t border-[#263442]/10 pt-8">
+                <h2 className="font-serif text-xl text-[#263442]">Room Configuration & Features</h2>
+                <p className="mt-1 text-xs text-[#263442]/55">Bed types, layout highlights, and in-room details.</p>
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {residence.roomFeatures.map((feature, i) => (
+                    <div key={i} className="flex items-start gap-2.5 rounded-lg border border-[#263442]/10 bg-[#f9f7f0] p-3">
+                      <BedDouble size={15} className="text-[#c56749] shrink-0 mt-0.5" />
+                      <span className="text-xs text-[#263442]/80">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
             {/* House Rules & Stay Policies */}
             <section className="border-t border-[#263442]/10 pt-8">
-              <h2 className="font-serif text-xl text-[#263442]">Stay Notes & Guidelines</h2>
-              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[#263442]/70">
-                <div className="space-y-1">
-                  <strong className="text-[#263442] block">Check-in / Check-out</strong>
-                  <p>Check-in from 3:00 PM via keyless code. Check-out by 11:00 AM.</p>
+              <h2 className="font-serif text-xl text-[#263442]">House Rules & Stay Policies</h2>
+              {residence.houseRules && residence.houseRules.length > 0 ? (
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {residence.houseRules.map((rule, i) => (
+                    <div key={i} className="flex items-start gap-2.5 rounded-lg border border-[#263442]/10 bg-white p-3.5">
+                      <AlertCircle size={14} className="text-[#c56749] shrink-0 mt-0.5" />
+                      <span className="text-xs text-[#263442]/75">{rule}</span>
+                    </div>
+                  ))}
+                  <div className="flex items-start gap-2.5 rounded-lg border border-[#263442]/10 bg-white p-3.5">
+                    <Check size={14} className="text-emerald-600 shrink-0 mt-0.5" />
+                    <span className="text-xs text-[#263442]/75">Free cancellation up to 48 hours before check-in</span>
+                  </div>
+                  <div className="flex items-start gap-2.5 rounded-lg border border-[#263442]/10 bg-white p-3.5">
+                    <ShieldCheck size={14} className="text-emerald-600 shrink-0 mt-0.5" />
+                    <span className="text-xs text-[#263442]/75">Pay securely online or reserve with Pay Upon Arrival</span>
+                  </div>
                 </div>
-                <div className="space-y-1">
-                  <strong className="text-[#263442] block">Cancellation Policy</strong>
-                  <p>Free cancellation up to 48 hours before scheduled check-in.</p>
+              ) : (
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[#263442]/70">
+                  <div className="space-y-1">
+                    <strong className="text-[#263442] block">Check-in / Check-out</strong>
+                    <p>Check-in from 3:00 PM via keyless code. Check-out by 12:00 PM.</p>
+                  </div>
+                  <div className="space-y-1">
+                    <strong className="text-[#263442] block">Cancellation Policy</strong>
+                    <p>Free cancellation up to 48 hours before scheduled check-in.</p>
+                  </div>
+                  <div className="space-y-1">
+                    <strong className="text-[#263442] block">House Rules</strong>
+                    <p>Non-smoking indoors. Quiet hours observed after 10:00 PM.</p>
+                  </div>
+                  <div className="space-y-1">
+                    <strong className="text-[#263442] block">Payment Flexibility</strong>
+                    <p>Pay online securely with Card or reserve with Pay Upon Arrival.</p>
+                  </div>
                 </div>
-                <div className="space-y-1">
-                  <strong className="text-[#263442] block">House Rules</strong>
-                  <p>Non-smoking indoors. Quiet hours observed after 10:00 PM.</p>
-                </div>
-                <div className="space-y-1">
-                  <strong className="text-[#263442] block">Payment Flexibility</strong>
-                  <p>Pay online securely with Card or reserve with Pay Upon Arrival.</p>
-                </div>
-              </div>
+              )}
             </section>
           </div>
 

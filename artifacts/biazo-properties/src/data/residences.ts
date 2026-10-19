@@ -37,6 +37,10 @@ export interface Residence {
   amenities: string[];
   bookedRanges: { start: string; end: string }[];
   externalIcalUrls?: string[];
+  checkInTime?: string;
+  checkOutTime?: string;
+  houseRules?: string[];
+  roomFeatures?: string[];
 }
 
 export const residences: Residence[] = [
@@ -61,7 +65,11 @@ export const residences: Residence[] = [
       { url: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=85', caption: 'Floor-to-ceiling glass panoramic living salon' },
       { url: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1600&q=85', caption: 'The principal suite & Italian linen bed' },
       { url: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1600&q=85', caption: 'Freestanding travertine soaking tub with city views' },
-      { url: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1600&q=85', caption: 'Private infinity-edge rooftop pool overlooking the skyline' }
+      { url: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1600&q=85', caption: 'Private infinity-edge rooftop pool overlooking the skyline' },
+      { url: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=85', caption: 'Open-plan dining table with Burj Khalifa framed in glass' },
+      { url: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=85', caption: 'Bespoke marble island chef kitchen with wine cooler' },
+      { url: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=85', caption: 'Second bedroom with workspace and city views' },
+      { url: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1600&q=85', caption: 'Dusk skyline from the private balcony terrace' }
     ],
     amenities: [
       'Private Rooftop Pool Access',
@@ -74,6 +82,26 @@ export const residences: Residence[] = [
       'Ultra High-Speed Fiber Wi-Fi (500 Mbps)',
       'Luxury Acqua di Parma Toiletries',
       'Keyless Smart Door Lock'
+    ],
+    checkInTime: 'From 15:00',
+    checkOutTime: 'Until 12:00',
+    houseRules: [
+      'No smoking inside the property',
+      'No pets allowed',
+      'No parties or events',
+      'Quiet hours after 22:00',
+      'Government-issued ID required at check-in',
+      'Maximum 4 guests as stated'
+    ],
+    roomFeatures: [
+      'King Size Bed — Belgian linen & Tempur-Pedic mattress',
+      'Queen Bed in second suite',
+      'Private balcony with Burj Khalifa & fountain views',
+      'Floor-to-ceiling panoramic glass throughout',
+      'Travertine en-suite bathrooms (x2)',
+      '55" & 65" Smart OLED TVs',
+      'Open-plan living & dining with city backdrop',
+      'Bespoke Italian kitchen with full appliances'
     ],
     bookedRanges: [
       { start: '2026-10-02', end: '2026-10-06' },
@@ -102,7 +130,11 @@ export const residences: Residence[] = [
       { url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85', caption: 'Double-height grand oceanfront salon' },
       { url: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&q=85', caption: 'Master suite with private sunrise ocean balcony' },
       { url: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1600&q=85', caption: 'Private courtyard infinity pool & sun loungers' },
-      { url: 'https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?auto=format&fit=crop&w=1600&q=85', caption: 'Open-air dining terrace overlooking the Arabian Gulf' }
+      { url: 'https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?auto=format&fit=crop&w=1600&q=85', caption: 'Open-air dining terrace overlooking the Arabian Gulf' },
+      { url: 'https://images.unsplash.com/photo-1600047508788-786f3865b0c7?auto=format&fit=crop&w=1600&q=85', caption: 'Landscaped garden with direct beach gate' },
+      { url: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1600&q=85', caption: 'Modern open kitchen with breakfast island' },
+      { url: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1600&q=85', caption: 'Palm suite two with dedicated walk-in closet' },
+      { url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1600&q=85', caption: 'Aerial view of Palm Jumeirah Frond N' }
     ],
     amenities: [
       'Direct Private Beach Access',
@@ -114,6 +146,26 @@ export const residences: Residence[] = [
       'Paddleboards & Beach Equipment',
       'Creston Home Automation',
       'Secure Gated Community'
+    ],
+    checkInTime: 'From 15:00',
+    checkOutTime: 'Until 12:00',
+    houseRules: [
+      'No smoking inside the property',
+      'No pets allowed',
+      'No events or commercial shoots without prior approval',
+      'Quiet hours after 23:00',
+      'Original passport required at check-in',
+      'Maximum 8 guests — no additional overnight visitors'
+    ],
+    roomFeatures: [
+      'Master King Suite with ocean balcony',
+      'Three additional Queen bedrooms',
+      'Private pool (heated, 12m)',
+      'Direct beach access from rear garden',
+      'Chef kitchen with Miele appliances',
+      'Outdoor terrace BBQ & dining area for 12',
+      'En-suite marble bathrooms in all 4 rooms',
+      'Dedicated driver/butler service on request'
     ],
     bookedRanges: [
       { start: '2026-09-28', end: '2026-10-03' },
@@ -142,7 +194,10 @@ export const residences: Residence[] = [
       { url: terraceImage, caption: 'Curved glass terrace overlooking the yacht marina' },
       { url: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1600&q=85', caption: 'Primary bedroom suite with harbor vistas' },
       { url: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1600&q=85', caption: 'Designer quartz chef kitchen with wine cooler' },
-      { url: heroImage, caption: 'Illuminated Dubai Marina night vista' }
+      { url: heroImage, caption: 'Illuminated Dubai Marina night vista' },
+      { url: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1600&q=85', caption: 'Second bedroom suite with built-in wardrobes' },
+      { url: 'https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=1600&q=85', caption: 'Rain-shower bathroom with floor-to-ceiling tiling' },
+      { url: 'https://images.unsplash.com/photo-1633505899118-4e99fc1ced6f?auto=format&fit=crop&w=1600&q=85', caption: 'Evening view of the marina promenade from terrace' }
     ],
     amenities: [
       'Expansive Marina Waterfront Terrace',
@@ -153,6 +208,26 @@ export const residences: Residence[] = [
       'Wine Cooler & Espresso Bar',
       '2 Dedicated Parking Bays',
       '24/7 Security & Concierge'
+    ],
+    checkInTime: 'From 15:00',
+    checkOutTime: 'Until 11:00',
+    houseRules: [
+      'No smoking on premises',
+      'No pets allowed',
+      'No parties or events',
+      'Quiet hours after 22:00',
+      'Valid photo ID required at check-in',
+      'Maximum 6 guests'
+    ],
+    roomFeatures: [
+      'King Bed in master suite with marina view',
+      'Two Queen beds in secondary suites',
+      'Full-width glazed terrace with marina panorama',
+      'Quartz island kitchen with wine cooler',
+      'Three en-suite bathrooms',
+      '75" OLED Smart TV in living room',
+      'Dedicated dining area for 8',
+      'Two covered parking bays included'
     ],
     bookedRanges: [
       { start: '2026-10-08', end: '2026-10-12' },
@@ -180,7 +255,10 @@ export const residences: Residence[] = [
       { url: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=85', caption: 'Grand architectural reception hall with bespoke chandelier' },
       { url: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1600&q=85', caption: 'Presidential master sanctuary with fairway views' },
       { url: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1600&q=85', caption: '20-meter private illuminated garden swimming pool' },
-      { url: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1600&q=85', caption: 'Private cinema lounge & marble fireplace salon' }
+      { url: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1600&q=85', caption: 'Private cinema lounge & marble fireplace salon' },
+      { url: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1600&q=85', caption: 'Manicured garden with pergola & outdoor dining' },
+      { url: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=85', caption: 'Sub-Zero & Wolf chef kitchen with breakfast bar' },
+      { url: 'https://images.unsplash.com/photo-1603796846097-bee99e4a601f?auto=format&fit=crop&w=1600&q=85', caption: 'Family living room overlooking the pool terrace' }
     ],
     amenities: [
       'Championship Golf Course Frontage',
@@ -191,6 +269,27 @@ export const residences: Residence[] = [
       'Sub-Zero & Wolf Kitchen Appliances',
       'Lush Landscaped Lawns & Barbecue Station',
       'Ultimate Privacy in Dubai’s Most Exclusive Gated Community'
+    ],
+
+    checkInTime: 'From 15:00',
+    checkOutTime: 'Until 12:00',
+    houseRules: [
+      'No smoking inside the property',
+      'Pets in garden areas only — not inside',
+      'Private events require advance approval',
+      'Quiet hours after 23:00',
+      'Original passports required for all adult guests',
+      'Maximum 10 guests',
+      'Security deposit of AED 5,000 required',
+    ],
+    roomFeatures: [
+      'Presidential King Master Suite with golf course views',
+      'Four additional King/Twin suites',
+      'Private 20m heated pool & jacuzzi',
+      'Private home cinema (12-seat)',
+      'Sub-Zero & Wolf fitted chef kitchen',
+      'Manicured lawns with outdoor BBQ',
+      'Six en-suite marble bathrooms',
     ],
     bookedRanges: [
       { start: '2026-10-10', end: '2026-10-16' },
@@ -218,7 +317,9 @@ export const residences: Residence[] = [
       { url: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=85', caption: 'Upper mezzanine sleeping retreat with glass balustrade' },
       { url: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1600&q=85', caption: 'Artisan cocktail bar & dedicated workstation' },
       { url: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=1600&q=85', caption: 'Matte black & brushed brass rain-shower ensuite' },
-      { url: futureCityImage, caption: 'Architectural skyline overlooking DIFC Gate Village' }
+      { url: futureCityImage, caption: 'Architectural skyline overlooking DIFC Gate Village' },
+      { url: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1600&q=85', caption: 'Reading nook with skylights and bespoke shelving' },
+      { url: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1600&q=85', caption: 'Gate Village street-level art walk & dining row' }
     ],
     amenities: [
       'Walking Distance to Gate Village & Fine Dining',
@@ -227,6 +328,25 @@ export const residences: Residence[] = [
       'Building Infinity Pool & Spa Access',
       'Metro & Downtown Proximity',
       'Keyless Mobile Entry'
+    ],
+
+    checkInTime: 'From 14:00',
+    checkOutTime: 'Until 12:00',
+    houseRules: [
+      'No smoking on premises',
+      'No pets allowed',
+      'No events or gatherings of more than 2 guests',
+      'Quiet hours after 22:00',
+      'Valid photo ID required at check-in',
+    ],
+    roomFeatures: [
+      'King Bed on mezzanine level',
+      'Double-height concrete & timber salon below',
+      'Artisan cocktail bar & Nespresso station',
+      'Matte-black rainfall ensuite shower',
+      'Dedicated ergonomic workstation',
+      'Building infinity pool & spa access',
+      '43" Smart TV & ultra-fast fiber Wi-Fi',
     ],
     bookedRanges: [
       { start: '2026-10-01', end: '2026-10-04' },
@@ -254,7 +374,10 @@ export const residences: Residence[] = [
       { url: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=85', caption: 'Bright coastal open-plan living room with linen furnishings' },
       { url: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1600&q=85', caption: 'Calm sea-view master bedroom' },
       { url: 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1600&q=85', caption: 'Private sunset terrace overlooking the Arabian Gulf' },
-      { url: jbrImage, caption: 'Caesars Palace private beach & Ain Dubai promenade' }
+      { url: jbrImage, caption: 'Caesars Palace private beach & Ain Dubai promenade' },
+      { url: 'https://images.unsplash.com/photo-1560185007-5f0bb1866cab?auto=format&fit=crop&w=1600&q=85', caption: 'Bright dining space with Ain Dubai through floor windows' },
+      { url: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1600&q=85', caption: 'Second bedroom in calm coastal palette' },
+      { url: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1600&q=85', caption: 'Island Promenade at sunset below the apartment' }
     ],
     amenities: [
       'Ain Dubai & Gulf Panorama Views',
@@ -266,6 +389,26 @@ export const residences: Residence[] = [
       'Technogym Fitness Access',
       'Secure Covered Parking',
       'High-Speed Wi-Fi'
+    ],
+
+    checkInTime: 'From 15:00',
+    checkOutTime: 'Until 11:00',
+    houseRules: [
+      'No smoking inside the residence',
+      'No pets allowed',
+      'No parties or events',
+      'Quiet hours after 22:00',
+      'Valid passport or Emirates ID required',
+      'Maximum 4 guests',
+    ],
+    roomFeatures: [
+      'King Bed in master suite with Gulf panorama',
+      'Queen Bed in second bedroom',
+      'Private glazed terrace with Ain Dubai view',
+      'Two full bathrooms with rainfall showers',
+      'Open-plan kitchen & dining island',
+      'Access to Caesars Palace Beach',
+      '55" Smart TV & fiber Wi-Fi',
     ],
     bookedRanges: [
       { start: '2026-10-05', end: '2026-10-09' },
@@ -293,7 +436,10 @@ export const residences: Residence[] = [
       { url: 'https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?auto=format&fit=crop&w=1600&q=85', caption: 'Dark timber & brass master bedroom overlooking canal bridges' },
       { url: 'https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=1600&q=85', caption: 'Private rooftop heated jacuzzi deck under the stars' },
       { url: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1600&q=85', caption: 'Formal dining room with Gaggenau wine library' },
-      { url: szrImage, caption: 'Wraparound penthouse terrace with illuminated city skyline' }
+      { url: szrImage, caption: 'Wraparound penthouse terrace with illuminated city skyline' },
+      { url: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=85', caption: 'Night terrace with Burj Khalifa illuminated on the horizon' },
+      { url: 'https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=1600&q=85', caption: 'Jacuzzi deck under the stars with canal water reflections' },
+      { url: 'https://images.unsplash.com/photo-1633505899118-4e99fc1ced6f?auto=format&fit=crop&w=1600&q=85', caption: 'Third bedroom suite with workspace and canal views' }
     ],
     amenities: [
       'Dubai Water Canal & Burj Khalifa Views',
@@ -305,6 +451,26 @@ export const residences: Residence[] = [
       'Smart Home Automation',
       'Keyless Mobile Entry',
       '2 Reserved Parking Spaces'
+    ],
+
+    checkInTime: 'From 15:00',
+    checkOutTime: 'Until 12:00',
+    houseRules: [
+      'No smoking inside the penthouse',
+      'No pets allowed',
+      'No parties or unauthorized events',
+      'Quiet hours after 22:30',
+      'Government-issued ID required at check-in',
+      'Maximum 6 guests',
+    ],
+    roomFeatures: [
+      'King Bed in master suite with canal views',
+      'Two additional Queen suites',
+      'Private rooftop jacuzzi deck',
+      'Full-height glass overlooking the Dubai Water Canal',
+      'Gaggenau chef kitchen with wine library',
+      'Three and a half en-suite bathrooms',
+      'Dedicated concierge & valet parking',
     ],
     bookedRanges: [
       { start: '2026-10-12', end: '2026-10-17' },
@@ -332,7 +498,10 @@ export const residences: Residence[] = [
       { url: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85', caption: 'Opulent high-ceiling penthouse salon with velvet and brass' },
       { url: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=85', caption: 'Grand master suite with direct views of the Dubai Fountain show' },
       { url: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1600&q=85', caption: 'Marble ensuite bathroom with deep soaking jacuzzi tub' },
-      { url: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=85', caption: 'Sunset dining balcony overlooking Downtown Dubai' }
+      { url: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=85', caption: 'Sunset dining balcony overlooking Downtown Dubai' },
+      { url: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=85', caption: 'Gourmet marble kitchen with butler pantry' },
+      { url: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=85', caption: 'Third bedroom suite with built-in wardrobes' },
+      { url: 'https://images.unsplash.com/photo-1549488344-cbb6c34f2f2f?auto=format&fit=crop&w=1600&q=85', caption: 'Evening Dubai Fountain show from the private terrace' }
     ],
     amenities: [
       'Unobstructed Burj Khalifa & Fountain Views',
@@ -344,6 +513,27 @@ export const residences: Residence[] = [
       'Luxury Diptyque Toiletries',
       'Keyless Smart Entry',
       'Daily Housekeeping'
+    ],
+
+    checkInTime: 'From 15:00',
+    checkOutTime: 'Until 12:00',
+    houseRules: [
+      'No smoking on premises',
+      'No pets allowed',
+      'No parties or events',
+      'Quiet hours after 23:00',
+      'Original passport required at check-in',
+      'Maximum 6 guests',
+      'Security deposit of AED 3,000 required',
+    ],
+    roomFeatures: [
+      'King Bed in master suite with fountain view',
+      'Two additional King/Queen suites',
+      'Heated private plunge pool on terrace',
+      'Front-row Dubai Fountain & Burj Khalifa view nightly',
+      'Three en-suite marble bathrooms',
+      'Gourmet marble kitchen with full appliances',
+      '75" OLED TVs in living and master suite',
     ],
     bookedRanges: [
       { start: '2026-10-08', end: '2026-10-11' },
@@ -387,7 +577,9 @@ export const residences: Residence[] = [
       {
         url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/752412580.jpg?k=b5146c32ed09bb0076a0a108498b44506a544f05cb61b0729a232da4f9225e61&o=&hp=1',
         caption: 'JW Marriott rooftop pool with city skyline backdrop'
-      }
+      },
+      { url: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=85', caption: 'Balcony with yacht-lined marina panorama at dusk' },
+      { url: 'https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=1600&q=85', caption: 'Marble rain-shower bathroom with dual vanity' }
     ],
     amenities: [
       'JW Marriott Hotel Rooftop Pool Access',
@@ -400,6 +592,25 @@ export const residences: Residence[] = [
       'High-Speed Wi-Fi',
       'Daily Housekeeping on Request',
       'Keyless Smart Entry'
+    ],
+
+    checkInTime: 'From 15:00',
+    checkOutTime: 'Until 12:00',
+    houseRules: [
+      'No smoking on any floor',
+      'No pets allowed',
+      'No parties or events',
+      'Quiet hours after 22:00',
+      'Valid photo ID required',
+      'Maximum 2 guests',
+    ],
+    roomFeatures: [
+      'King Bed with JW Marriott Heavenly mattress',
+      'Private terrace balcony with marina view',
+      'Marble en-suite bathroom with rainfall shower',
+      'Living area with sofa & 55" Smart TV',
+      'JW Marriott branded toiletries & minibar',
+      'Access to rooftop pool, gym & spa',
     ],
     bookedRanges: []
   },
@@ -439,7 +650,9 @@ export const residences: Residence[] = [
       {
         url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/514371513.jpg?k=12086a259baa18ba5d03a51643098ee35f6b56965495f593dc46b13b5a255e92&o=&hp=1',
         caption: 'Pool deck with sun umbrellas and city views'
-      }
+      },
+      { url: 'https://images.unsplash.com/photo-1506146332389-18140dc7b2fb?auto=format&fit=crop&w=1600&q=85', caption: 'Outdoor pool deck with sun loungers' },
+      { url: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1600&q=85', caption: 'Fitness center with panoramic city view' }
     ],
     amenities: [
       'Complimentary Daily Breakfast',
@@ -452,6 +665,23 @@ export const residences: Residence[] = [
       'High-Speed Wi-Fi Throughout',
       'Keyless Smart Entry',
       '24/7 Front Desk'
+    ],
+
+    checkInTime: 'From 15:00',
+    checkOutTime: 'Until 12:00',
+    houseRules: [
+      'No smoking in rooms (designated outdoor areas available)',
+      'No pets allowed',
+      'Quiet hours after 22:00',
+      'Valid photo ID required at check-in',
+    ],
+    roomFeatures: [
+      'King Bed with Hampton Cloud Nine mattress',
+      'Blackout curtains & ergonomic workspace',
+      'En-suite bathroom with power shower',
+      '42" Smart TV & complimentary Wi-Fi',
+      'On-site outdoor pool & 24/7 gym',
+      'Complimentary hot breakfast included',
     ],
     bookedRanges: []
   },
@@ -491,7 +721,9 @@ export const residences: Residence[] = [
       {
         url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/407424646.jpg?k=5075b28b66ac74afeb2811ffb7ca4d96878ee4d900a04d629e3a97590c161425&o=&hp=1',
         caption: 'Urban Bar and all-day dining restaurant'
-      }
+      },
+      { url: 'https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?auto=format&fit=crop&w=1600&q=85', caption: 'Community lake & gardens view from room balcony' },
+      { url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=85', caption: 'Outdoor pool terrace surrounded by palms' }
     ],
     amenities: [
       'Outdoor Swimming Pools & Sun Deck',
@@ -503,6 +735,23 @@ export const residences: Residence[] = [
       'Individual Climate Control',
       'Keyless Smart Entry',
       'In-Room Coffee & Tea Facilities'
+    ],
+
+    checkInTime: 'From 14:00',
+    checkOutTime: 'Until 12:00',
+    houseRules: [
+      'No smoking in rooms',
+      'No pets allowed',
+      'Quiet hours after 22:00',
+      'Valid photo ID required',
+    ],
+    roomFeatures: [
+      'King or Twin Bed configuration',
+      'Private balcony with community view',
+      'En-suite bathroom with bathtub & shower',
+      '43" Smart TV & free Wi-Fi',
+      'Community outdoor pool & fitness centre',
+      'On-site restaurant & room service',
     ],
     bookedRanges: []
   },
@@ -542,7 +791,9 @@ export const residences: Residence[] = [
       {
         url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/637036275.jpg?k=dcb7768e7004ecc7c65fb9e3b55264df4b67a8d4e8f72401018763ee7d590ff5&o=&hp=1',
         caption: 'En-suite marble bathroom with bathtub and luxury toiletries'
-      }
+      },
+      { url: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=85', caption: 'Sheikh Zayed Road skyline panorama from upper floors' },
+      { url: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1600&q=85', caption: 'Rooftop pool with SZR towers backdrop' }
     ],
     amenities: [
       'Elevated Rooftop Swimming Pool & Sundeck',
@@ -554,6 +805,23 @@ export const residences: Residence[] = [
       'Ultra High-Speed Wi-Fi',
       '24/7 Room Service & Concierge',
       'Keyless Smart Entry'
+    ],
+
+    checkInTime: 'From 14:00',
+    checkOutTime: 'Until 12:00',
+    houseRules: [
+      'No smoking in rooms (outdoor terraces only)',
+      'No pets allowed',
+      'Quiet hours after 23:00',
+      'Government-issued ID required',
+    ],
+    roomFeatures: [
+      'King Bed with Rotana signature pillow menu',
+      'Floor-to-ceiling window with SZR views',
+      'Marble bathroom with bathtub & rainfall shower',
+      '47" LED Smart TV & high-speed Wi-Fi',
+      'Club Rotana floor access with lounge & breakfast',
+      'Rooftop pool & Bodylines fitness centre',
     ],
     bookedRanges: []
   },
@@ -593,7 +861,9 @@ export const residences: Residence[] = [
       {
         url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/314428487.jpg?k=72c8a0742301480f5e16604d0c1327cf8ff9a465f3a612105947c4aa15fdae76&o=&hp=1',
         caption: 'Private balcony terrace overlooking the yacht harbour'
-      }
+      },
+      { url: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1600&q=85', caption: 'Marina sunset view from the private balcony' },
+      { url: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1600&q=85', caption: 'Executive Club Lounge with evening canapes' }
     ],
     amenities: [
       'Outdoor Infinity Swimming Pool with Marina Views',
@@ -605,6 +875,23 @@ export const residences: Residence[] = [
       'Ultra High-Speed Wi-Fi',
       'Concierge & 24/7 Room Service',
       'Keyless Smart Entry'
+    ],
+
+    checkInTime: 'From 15:00',
+    checkOutTime: 'Until 12:00',
+    houseRules: [
+      'No smoking in rooms',
+      'No pets allowed',
+      'Quiet hours after 23:00',
+      'Valid passport required at check-in',
+    ],
+    roomFeatures: [
+      'King Bed with IHG Pillow Menu',
+      'Marina-view balcony',
+      'Marble bathroom with rainfall shower & bathtub',
+      '50" Smart TV & high-speed Wi-Fi',
+      'IHG Club floor access with breakfast & cocktail hour',
+      'Outdoor pool, spa & 24/7 fitness centre',
     ],
     bookedRanges: []
   },
@@ -644,7 +931,9 @@ export const residences: Residence[] = [
       {
         url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/643128600.jpg?k=507d62be008ccbc816028274c3a1f3b555da6fa13cb7afcb921a5be1d08b3c0a&o=&hp=1',
         caption: 'W XYZ Bar and social lounge with craft beverages and music'
-      }
+      },
+      { url: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=85', caption: 'W XYZ Bar evening ambiance with craft cocktails' },
+      { url: 'https://images.unsplash.com/photo-1551882547-ff40c4a49d6b?auto=format&fit=crop&w=1600&q=85', caption: 'Re:fuel pantry with all-day grab-and-go bites' }
     ],
     amenities: [
       'Open-Air Splash Swimming Pool & Sundeck',
@@ -656,6 +945,23 @@ export const residences: Residence[] = [
       'On-Site Grab & Go Re:fuel Pantry',
       '24/7 Front Desk & Concierge',
       'Keyless Smart Entry'
+    ],
+
+    checkInTime: 'From 15:00',
+    checkOutTime: 'Until 12:00',
+    houseRules: [
+      'No smoking in rooms',
+      'No pets allowed',
+      'Quiet hours after 22:00',
+      'Valid photo ID required',
+    ],
+    roomFeatures: [
+      'King or Queen loft-style bed',
+      'High ceilings with custom urban artwork',
+      'Walk-in rainfall shower',
+      '49" Smart TV & ultra-fast Wi-Fi',
+      'Outdoor Splash Pool & re:charge fitness',
+      'Complimentary airport shuttle service',
     ],
     bookedRanges: []
   }
