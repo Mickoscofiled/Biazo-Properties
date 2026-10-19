@@ -62,14 +62,11 @@ export const residences: Residence[] = [
     description: 'A high-floor two-bedroom residence overlooking the city’s most iconic silhouette. Calm natural timber, bespoke Italian furnishings, soft Belgian linen, and floor-to-ceiling glass that reveals the Dubai skyline as light transitions through the day.',
     images: [
       { url: downtownImage, caption: 'Downtown Dubai & Burj Khalifa skyline perspective' },
-      { url: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=85', caption: 'Floor-to-ceiling glass panoramic living salon' },
       { url: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1600&q=85', caption: 'The principal suite & Italian linen bed' },
       { url: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1600&q=85', caption: 'Freestanding travertine soaking tub with city views' },
       { url: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1600&q=85', caption: 'Private infinity-edge rooftop pool overlooking the skyline' },
       { url: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=85', caption: 'Open-plan dining table with Burj Khalifa framed in glass' },
-      { url: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=85', caption: 'Bespoke marble island chef kitchen with wine cooler' },
       { url: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=85', caption: 'Second bedroom with workspace and city views' },
-      { url: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1600&q=85', caption: 'Dusk skyline from the private balcony terrace' }
     ],
     amenities: [
       'Private Rooftop Pool Access',
