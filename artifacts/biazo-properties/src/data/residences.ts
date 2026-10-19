@@ -197,7 +197,7 @@ export const residences: Residence[] = [
       { url: heroImage, caption: 'Illuminated Dubai Marina night vista' },
       { url: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1600&q=85', caption: 'Second bedroom suite with built-in wardrobes' },
       { url: 'https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=1600&q=85', caption: 'Rain-shower bathroom with floor-to-ceiling tiling' },
-      { url: 'https://images.unsplash.com/photo-1633505899118-4e99fc1ced6f?auto=format&fit=crop&w=1600&q=85', caption: 'Evening view of the marina promenade from terrace' }
+      { url: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1600&q=85', caption: 'Evening view of the marina promenade from terrace' }
     ],
     amenities: [
       'Expansive Marina Waterfront Terrace',
@@ -439,7 +439,7 @@ export const residences: Residence[] = [
       { url: szrImage, caption: 'Wraparound penthouse terrace with illuminated city skyline' },
       { url: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=85', caption: 'Night terrace with Burj Khalifa illuminated on the horizon' },
       { url: 'https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=1600&q=85', caption: 'Jacuzzi deck under the stars with canal water reflections' },
-      { url: 'https://images.unsplash.com/photo-1633505899118-4e99fc1ced6f?auto=format&fit=crop&w=1600&q=85', caption: 'Third bedroom suite with workspace and canal views' }
+      { url: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1600&q=85', caption: 'Third bedroom suite with workspace and canal views' }
     ],
     amenities: [
       'Dubai Water Canal & Burj Khalifa Views',
