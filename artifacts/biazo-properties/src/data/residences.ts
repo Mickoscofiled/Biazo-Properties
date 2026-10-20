@@ -1197,6 +1197,81 @@ export const residences: Residence[] = [
       'Dedicated in-room workspace with ergonomic chair'
     ]
   },
+  {
+    id: 'bvh-radisson-beach-resort-palm',
+    name: 'Radisson Beach Resort Palm Jumeirah – Dubai',
+    tagline: '4-Star beachfront resort on Palm West Beach with rooftop pool and private shoreline',
+    neighborhood: 'Palm Jumeirah',
+    address: 'Palm West Beach, Palm Jumeirah, Dubai, United Arab Emirates',
+    type: 'Resort',
+    bedrooms: 1,
+    bathrooms: 1,
+    sleeps: 2,
+    sqft: 350,
+    pricePerNightAed: 870,
+    cleaningFeeAed: 150,
+    rating: 4.75,
+    reviewsCount: 9937,
+    description: "Nestled along the prestigious Palm West Beach promenade on the iconic Palm Jumeirah, Radisson Beach Resort Palm Jumeirah offers upscale 4-star coastal hospitality. Enjoy direct access to private white-sand beach loungers, a panoramic rooftop swimming pool overlooking the Arabian Gulf and Dubai Marina skyline, a full-service spa, and vibrant on-site restaurants and beachside lounges.",
+    images: [
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/412333150.jpg?k=e0b99ea2c0f2e976cae337c460ed2c650eacdf34b14baf8f9f2b06a942c71249&o=',
+        caption: 'Beachfront pool deck with sun loungers and Dubai skyline view'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/407539869.jpg?k=5916df4ca9619a27bbfcc3dfb736243766677a05fb57fa9b6b486aab5dbeb814&o=',
+        caption: 'Illuminated evening swimming pool with city skyline panorama'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/416483359.jpg?k=78f53a7a03e8fd8ab5690ad4e8a8a18dd7a6384762d0edadd54464409f7c221a&o=',
+        caption: 'Radisson Beach Resort contemporary exterior with palm landscaping'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/416483361.jpg?k=71e9d1fcc057f4b1beff13155bcd37c6ca020d8fb91fc78a0486bc7d56ab14c7&o=',
+        caption: 'Resort beachfront grounds and coastal promenade on Palm West Beach'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/416483364.jpg?k=57422c2df845591ab3f490f03b614a399b3355b0d9c48dfdcf05103322cfa73d&o=',
+        caption: 'Resort pool terrace and outdoor lounge surrounded by palms'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/416483369.jpg?k=c4b954287c16eab870f343be7573a940f702f83881cddf12ccb0019f065755f9&o=',
+        caption: 'Architectural facade overlooking Palm West Beach promenade'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/407539893.jpg?k=29208cfb14cd70c40ecf442b90e3c7ec99f12922b7d8182c04a65d7d255a88b5&o=',
+        caption: 'Grand entrance and reception of Radisson Beach Resort Palm Jumeirah'
+      }
+    ],
+    amenities: [
+      'Direct Private Beach Access on Palm West Beach',
+      'Rooftop Swimming Pool with Arabian Gulf Views',
+      'Full-Service Wellness Spa & Treatment Rooms',
+      '24/7 State-of-the-Art Fitness Center',
+      'Multiple On-Site Restaurants & Beach Bars',
+      'Complimentary Valet & Secured Covered Parking',
+      '24/7 Concierge & Room Service',
+      'High-Speed Fiber Wi-Fi'
+    ],
+    checkInTime: 'From 15:00',
+    checkOutTime: 'Until 12:00',
+    houseRules: [
+      'Original passport or photo ID and credit card required at check-in',
+      'No smoking inside rooms and suites',
+      'No pets allowed',
+      'Quiet hours between 23:00 and 07:00',
+      'Primary guest must be at least 18 years old',
+      'Security deposit pre-authorization required upon arrival'
+    ],
+    roomFeatures: [
+      'Superior Room with 1 King bed or 2 Twin beds',
+      'Private balcony with Palm West Beach and partial sea view',
+      'Floor-to-ceiling soundproof glass sliding doors',
+      'Modern en-suite bathroom with walk-in rainfall shower',
+      'Flat-screen smart TV with international channels',
+      'Nespresso machine, tea facilities and minibar'
+    ]
+  },
 ];
 
 export interface BookingRecord {
