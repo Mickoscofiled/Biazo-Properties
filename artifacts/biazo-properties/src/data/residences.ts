@@ -493,7 +493,7 @@ export const residences: Residence[] = [
       { url: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=85', caption: 'Sunset dining balcony overlooking Downtown Dubai' },
       { url: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=85', caption: 'Gourmet marble kitchen with butler pantry' },
       { url: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=85', caption: 'Third bedroom suite with built-in wardrobes' },
-      { url: 'https://images.unsplash.com/photo-1549488344-cbb6c34f2f2f?auto=format&fit=crop&w=1600&q=85', caption: 'Evening Dubai Fountain show from the private terrace' }
+      { url: 'https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=1600&q=85', caption: 'Evening Dubai Fountain show from the private terrace' }
     ],
     amenities: [
       'Unobstructed Burj Khalifa & Fountain Views',
@@ -925,7 +925,7 @@ export const residences: Residence[] = [
         caption: 'W XYZ Bar and social lounge with craft beverages and music'
       },
       { url: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=85', caption: 'W XYZ Bar evening ambiance with craft cocktails' },
-      { url: 'https://images.unsplash.com/photo-1551882547-ff40c4a49d6b?auto=format&fit=crop&w=1600&q=85', caption: 'Re:fuel pantry with all-day grab-and-go bites' }
+      { url: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=85', caption: 'Re:fuel pantry with all-day grab-and-go bites' }
     ],
     amenities: [
       'Open-Air Splash Swimming Pool & Sundeck',
