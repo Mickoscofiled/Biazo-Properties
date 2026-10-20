@@ -1041,7 +1041,92 @@ export const residences: Residence[] = [
       'Safety deposit box & ergonomic workstation'
     ],
     bookedRanges: []
-  }
+  },
+  {
+    id: 'bvh-mileo-palm-hotel-apartment',
+    name: 'Mileo Hotel & Apartments – Palm Jumeirah',
+    tagline: '5-Star coastal lifestyle aparthotel on Palm West Beach with rooftop infinity pool',
+    neighborhood: 'Palm Jumeirah',
+    address: 'Palm Jumeirah Road, Palm West Beach, Palm Jumeirah, Dubai',
+    type: 'Apartment',
+    bedrooms: 2,
+    bathrooms: 2,
+    sleeps: 4,
+    sqft: 1150,
+    pricePerNightAed: 700,
+    cleaningFeeAed: 200,
+    rating: 4.88,
+    reviewsCount: 284,
+    description: "Positioned directly on Palm West Beach along the world-renowned Palm Jumeirah, Mileo Hotel & Apartments offers a design-led 5-star lifestyle sanctuary. Blending serene quiet luxury with apartment-style residential comfort, this residence features panoramic sea and city vistas, a breathtaking rooftop infinity pool overlooking the Arabian Gulf, direct beach access, 7 signature on-site dining and lounge venues, a full-service wellness spa, and curated designer interiors tailored for relaxing coastal getaways.",
+    images: [
+      {
+        url: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1600&q=85',
+        caption: 'Rooftop infinity swimming pool overlooking the Arabian Gulf'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85',
+        caption: 'Sunlit living and dining salon with floor-to-ceiling glass'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1600&q=85',
+        caption: 'Principal King suite with premium pillowtop mattress'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=85',
+        caption: 'Direct access to Palm West Beach shoreline'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=85',
+        caption: 'Fully equipped modern kitchen with breakfast bar'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1600&q=85',
+        caption: 'Second bedroom suite with custom wardrobe and city view'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=1600&q=85',
+        caption: 'Spa-inspired marble bathroom with rainfall shower'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1600&q=85',
+        caption: 'Private balcony sunset panorama over the Palm'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=85',
+        caption: 'On-site signature dining and cocktail lounge'
+      }
+    ],
+    amenities: [
+      'Direct Palm West Beach Access',
+      'Rooftop Infinity Pool & Sun Deck',
+      'Full-Service Wellness Spa & Sauna',
+      '24/7 Modern Fitness Center',
+      '7 On-Site Dining Venues & Lounges',
+      'Complimentary Valet & Covered Parking',
+      'Concierge & In-Room Dining Service',
+      'High-Speed Fiber Wi-Fi',
+      'Childrens Club & Play Lounge'
+    ],
+    checkInTime: 'From 15:00',
+    checkOutTime: 'Until 12:00',
+    houseRules: [
+      'Original passport or Emirates ID required at check-in',
+      'No smoking inside the apartment or suites',
+      'No pets allowed',
+      'Quiet hours between 23:00 and 07:00',
+      'Primary guest must be at least 18 years old',
+      'No unregistered overnight visitors'
+    ],
+    roomFeatures: [
+      'Master King Suite with custom pillowtop bed',
+      'Second bedroom suite with dual twin or queen bed',
+      'Private balcony with Arabian Gulf sunset perspective',
+      'Designer kitchen with stovetop, microwave & Nespresso',
+      'Modern bathroom with walk-in rainfall shower',
+      'Spacious living salon with 4K smart streaming TV',
+      'In-suite washer and dryer'
+    ]
+  },
 ];
 
 export interface BookingRecord {
