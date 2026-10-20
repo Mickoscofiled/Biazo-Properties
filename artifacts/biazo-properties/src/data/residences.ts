@@ -1121,7 +1121,82 @@ export const residences: Residence[] = [
       'Spacious living lounge with 4K flat-screen TV',
       'In-suite washing machine and ironing facilities'
     ]
-  }
+  },
+  {
+    id: 'bvh-rove-downtown-dubai',
+    name: 'Rove Downtown – Dubai',
+    tagline: 'Stylish urban hotel steps from Burj Khalifa with rooftop pool and city views',
+    neighborhood: 'Downtown Dubai',
+    address: '312 Al Mustaqbal Street, Zabeel 2, Zabeel, Dubai, United Arab Emirates',
+    type: 'Hotel',
+    bedrooms: 1,
+    bathrooms: 1,
+    sleeps: 2,
+    sqft: 320,
+    pricePerNightAed: 409,
+    cleaningFeeAed: 80,
+    rating: 4.65,
+    reviewsCount: 9754,
+    description: "Perfectly positioned in the heart of Downtown Dubai just steps from the Dubai Mall and the iconic Burj Khalifa, Rove Downtown is a vibrant, design-forward urban hotel. Offering stylish Rover Rooms with Burj Khalifa views, a rooftop swimming pool, The Daily all-day dining cafe, fitness centre, game room, and free high-speed WiFi — all wrapped in Rove's signature fun, connected vibe.",
+    images: [
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/506522303.jpg?k=2c408f9d9ec0c7d2f18d01f4d5e75d34869b967c60f5e8bd63e2249741d66d74&o=',
+        caption: 'Rooftop swimming pool with pink flamingo and city skyline at Rove Downtown'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/506522310.jpg?k=8bfe7fbc63cd5aafe055209f732fc33a79c4aaaa1d7a7e0170676b8010c15c61&o=',
+        caption: 'Comfortable Rover Room with king bed and large panoramic window view'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/506522317.jpg?k=9918f2b33e67fa81bc06ceb8f60dcde8640972ef0a078c2e0cf73fd8748ec9e2&o=',
+        caption: 'Downtown Dubai lit up at night with Burj Khalifa in the distance'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/506522323.jpg?k=3eeac5951acee68b732626648e29e2a585c5f40bb0cdca76365ba332e172a2ba&o=',
+        caption: 'The Daily all-day restaurant and cafe lobby at Rove Downtown'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/834744617.jpg?k=b2ee352bf6c1246a72b787421b1a5f4658dcc18840fa9db409c15b0d0d287d04&o=',
+        caption: 'Modern Rover Room with king bed, workspace and panoramic city view'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/506522337.jpg?k=0fe8c2cd66601fb988a514262672b9e630ba18305cac164454200d2ccc7d716c&o=',
+        caption: 'Dubai Fountain and Burj Khalifa view near Rove Downtown'
+      },
+      {
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/506522356.jpg?k=ebd5df8e73d27d738bfa3c8e6f604563be0802379c911e2f554a384d3dd7c043&o=',
+        caption: 'Stylish social lounge with couches and modern decor at Rove Downtown'
+      }
+    ],
+    amenities: [
+      'Steps from Dubai Mall & Burj Khalifa',
+      'Rooftop Swimming Pool & Sundeck',
+      '24/7 Fitness Centre & Game Room',
+      'The Daily All-Day Dining Cafe',
+      'Free High-Speed Wi-Fi (9.1/10 rated)',
+      'Free Private Parking Available',
+      'Continental & Buffet Breakfast Available',
+      '24/7 Front Desk & Concierge',
+      'Green Key Sustainability Certified'
+    ],
+    checkInTime: 'From 15:00',
+    checkOutTime: 'Until 12:00',
+    houseRules: [
+      'Government-issued photo ID and credit card required at check-in',
+      'No smoking inside rooms',
+      'No parties or events',
+      'Pets not allowed',
+      'Minimum age to check in is 18 years'
+    ],
+    roomFeatures: [
+      'Rover Room with 1 King bed or 2 Twin beds + sofa bed',
+      'Burj Khalifa view upgrade available',
+      'Floor-to-ceiling panoramic city view window',
+      'Flat-screen smart TV with streaming',
+      'En-suite bathroom with walk-in shower',
+      'Dedicated in-room workspace with ergonomic chair'
+    ]
+  },
 ];
 
 export interface BookingRecord {
