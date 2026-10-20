@@ -1044,10 +1044,10 @@ export const residences: Residence[] = [
   },
   {
     id: 'bvh-mileo-palm-hotel-apartment',
-    name: 'Mileo Hotel & Apartments – Palm Jumeirah',
+    name: 'Mileo Hotel The Palm – Palm Jumeirah',
     tagline: '5-Star coastal lifestyle aparthotel on Palm West Beach with rooftop infinity pool',
     neighborhood: 'Palm Jumeirah',
-    address: 'Palm Jumeirah Road, Palm West Beach, Palm Jumeirah, Dubai',
+    address: 'Palm Jumeirah Rd, Palm Jumeirah, 50221 Dubai, United Arab Emirates',
     type: 'Apartment',
     bedrooms: 2,
     bathrooms: 2,
@@ -1056,77 +1056,72 @@ export const residences: Residence[] = [
     pricePerNightAed: 700,
     cleaningFeeAed: 200,
     rating: 4.88,
-    reviewsCount: 284,
-    description: "Positioned directly on Palm West Beach along the world-renowned Palm Jumeirah, Mileo Hotel & Apartments offers a design-led 5-star lifestyle sanctuary. Blending serene quiet luxury with apartment-style residential comfort, this residence features panoramic sea and city vistas, a breathtaking rooftop infinity pool overlooking the Arabian Gulf, direct beach access, 7 signature on-site dining and lounge venues, a full-service wellness spa, and curated designer interiors tailored for relaxing coastal getaways.",
+    reviewsCount: 869,
+    description: "Located on Palm Jumeirah Road right on Palm West Beach, Mileo Hotel The Palm is an exceptional 5-star lifestyle aparthotel. Offering private beach access, a panoramic rooftop swimming pool overlooking the Dubai skyline, full-service spa, multiple on-site dining destinations, and modern two-bedroom residential suites featuring private balconies, bespoke furnishings, and serene coastal views.",
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1600&q=85',
-        caption: 'Rooftop infinity swimming pool overlooking the Arabian Gulf'
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/774543300.jpg?k=b9f5df4ebbfecd7c65401548e1bfb6dd85473c65db0291a3e39ed6b812e30f54&o=',
+        caption: 'Large rooftop swimming pool with city skyline at Mileo Hotel The Palm'
       },
       {
-        url: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85',
-        caption: 'Sunlit living and dining salon with floor-to-ceiling glass'
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/738057522.jpg?k=01db3e1823381b8198a568f51d2e2e549d71912460d4134d26393526c6a2518b&o=',
+        caption: 'Deluxe King bedroom suite with open living lounge at Mileo Hotel The Palm'
       },
       {
-        url: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1600&q=85',
-        caption: 'Principal King suite with premium pillowtop mattress'
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/735559806.jpg?k=7570403554032da9908a89f0beb4854639527866b53cf29fadd41ffff58b212a&o=',
+        caption: 'En-suite bathroom with walk-in rainfall shower and vanity'
       },
       {
-        url: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=85',
-        caption: 'Direct access to Palm West Beach shoreline'
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/774543309.jpg?k=8b29edd2440c0e4292f8d7939ee4ccc49dbe2853f23b420c2b8e9f47b0dee850&o=',
+        caption: 'Elevated swimming pool deck with panoramic Dubai skyline view'
       },
       {
-        url: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=85',
-        caption: 'Fully equipped modern kitchen with breakfast bar'
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/772701487.jpg?k=3503bd5480ac1d2f74f170964cfdc974c7d2de6630443fc202e5f58fedabe1cf&o=',
+        caption: 'On-site signature restaurant with dining tables and skyline vistas'
       },
       {
-        url: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1600&q=85',
-        caption: 'Second bedroom suite with custom wardrobe and city view'
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/735474187.jpg?k=753a6970294a756840421a1afee6b8dd4317ec93ead2dc24910d78d617651f32&o=',
+        caption: 'Executive suite living room and bedroom area'
       },
       {
-        url: 'https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=1600&q=85',
-        caption: 'Spa-inspired marble bathroom with rainfall shower'
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/885308670.jpg?k=bb6493c7c98a48523a4fe44474237d90ab3fde7f374ec5fb256c8d4423b4e3c8&o=',
+        caption: 'Private Palm West Beach area with sun loungers and umbrellas'
       },
       {
-        url: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1600&q=85',
-        caption: 'Private balcony sunset panorama over the Palm'
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=85',
-        caption: 'On-site signature dining and cocktail lounge'
+        url: 'https://cf.bstatic.com/xdata/images/hotel/max1280x900/737503133.jpg?k=57336b46a82f4ad068e6c506760aa3cb67980e7fc879e5fc7b796e126944b7f5&o=',
+        caption: 'Luxury guest suite with contemporary furnishings'
       }
     ],
     amenities: [
       'Direct Palm West Beach Access',
-      'Rooftop Infinity Pool & Sun Deck',
+      'Rooftop Infinity Swimming Pool',
       'Full-Service Wellness Spa & Sauna',
       '24/7 Modern Fitness Center',
-      '7 On-Site Dining Venues & Lounges',
+      'On-Site Restaurants & Lounges',
       'Complimentary Valet & Covered Parking',
       'Concierge & In-Room Dining Service',
       'High-Speed Fiber Wi-Fi',
-      'Childrens Club & Play Lounge'
+      'Childrens Club & Play Area'
     ],
     checkInTime: 'From 15:00',
     checkOutTime: 'Until 12:00',
     houseRules: [
-      'Original passport or Emirates ID required at check-in',
-      'No smoking inside the apartment or suites',
+      'Original passport or photo ID and credit card required at check-in',
+      'No smoking inside rooms and suites',
       'No pets allowed',
       'Quiet hours between 23:00 and 07:00',
-      'Primary guest must be at least 18 years old',
-      'No unregistered overnight visitors'
+      'Cash is not accepted on property',
+      'Primary guest must be at least 18 years old'
     ],
     roomFeatures: [
-      'Master King Suite with custom pillowtop bed',
-      'Second bedroom suite with dual twin or queen bed',
-      'Private balcony with Arabian Gulf sunset perspective',
-      'Designer kitchen with stovetop, microwave & Nespresso',
-      'Modern bathroom with walk-in rainfall shower',
-      'Spacious living salon with 4K smart streaming TV',
-      'In-suite washer and dryer'
+      'Two-Bedroom Suite with 1 King bed & 2 Twin beds',
+      'Private balcony with Arabian Gulf and skyline view',
+      'Modern kitchen with stovetop, microwave & refrigerator',
+      'En-suite bathroom with walk-in rainfall shower',
+      'Spacious living lounge with 4K flat-screen TV',
+      'In-suite washing machine and ironing facilities'
     ]
-  },
+  }
 ];
 
 export interface BookingRecord {
