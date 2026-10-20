@@ -242,6 +242,8 @@ export default function ResidenceDetail() {
                 <img
                   src={residence.images[0]?.url}
                   alt={residence.images[0]?.caption || residence.name}
+                  fetchPriority="high"
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
@@ -260,6 +262,8 @@ export default function ResidenceDetail() {
                   <img
                     src={img.url}
                     alt={img.caption || residence.name}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
@@ -329,7 +333,7 @@ export default function ResidenceDetail() {
                   activePhotoIndex === idx ? 'border-[#c56749] scale-95 shadow-sm' : 'border-transparent opacity-75 hover:opacity-100'
                 }`}
               >
-                <img src={img.url} alt={img.caption} className="h-full w-full object-cover" />
+                <img src={img.url} alt={img.caption} loading="lazy" decoding="async" className="h-full w-full object-cover" />
               </button>
             ))}
           </div>
@@ -738,7 +742,7 @@ export default function ResidenceDetail() {
                   activePhotoIndex === idx ? 'border-[#c56749] scale-105' : 'border-transparent opacity-50 hover:opacity-100'
                 }`}
               >
-                <img src={img.url} alt={img.caption} className="h-full w-full object-cover" />
+                <img src={img.url} alt={img.caption} loading="lazy" decoding="async" className="h-full w-full object-cover" />
               </button>
             ))}
           </div>

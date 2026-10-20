@@ -190,7 +190,7 @@ function WhyBiazo() {
     <section id="why-biazo" className="container-wide py-24 md:py-36" data-testid="section-why-biazo">
       <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
         <div className="image-wrap aspect-[1.08]">
-          <img src={partnersImage} alt="Guest arriving at a Biazo Vacation Homes residence in Dubai" className="h-full w-full object-cover" data-testid="img-why-biazo" />
+          <img src={partnersImage} alt="Guest arriving at a Biazo Vacation Homes residence in Dubai" loading="lazy" decoding="async" className="h-full w-full object-cover" data-testid="img-why-biazo" />
         </div>
         <div className="lg:pl-14">
           <p className="eyebrow text-[#c56749]">{t('why_eyebrow')}</p>
